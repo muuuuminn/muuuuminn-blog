@@ -72,7 +72,7 @@
     "pnpm": "please use npm"
   },
   "volta": {
-    "node": "18.16.0",
+    "node": "20.12.2",
     "npm": "9.6.6"
   }
 }
