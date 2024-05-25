@@ -2,8 +2,8 @@
 title: "App RunnerでNext.jsをデプロイするときの構築コマンドと開始コマンドの注意点"
 description: "構築コマンドでinstall、開始コマンドでbuildとstartするとエラーになったのであった。"
 date: "2023-05-07T06:59:19.978Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/236654043-cd41c3e7-c14d-420a-a976-c2a90f62190e.jpeg"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/236654043-cd41c3e7-c14d-420a-a976-c2a90f62190e.jpeg"
+coverImage: "/post/app-runner-build-and-start/thumbnail.jpeg"
+ogImageUrl: "/post/app-runner-build-and-start/thumbnail.jpeg"
 category: "0"
 tags: "1,22,23"
 ---

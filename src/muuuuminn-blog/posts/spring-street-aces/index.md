@@ -2,8 +2,8 @@
 title: "【マジック修行】Spring Street AcesとMorfはやってて楽しい"
 description: "Spring Street AcesとMorfを練習した記録をYouTubeに公開した。難しい点とアレンジした点を加えて書いている。"
 date: "2023-03-25T10:07:59.591Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/228163607-9bc1f770-cc05-4a2e-8407-98fb60ce7b80.png"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/228163607-9bc1f770-cc05-4a2e-8407-98fb60ce7b80.png"
+coverImage: "/post/spring-street-aces/thumbnail.png"
+ogImageUrl: "/post/spring-street-aces/thumbnail.png"
 category: "2"
 tags: "4,14"
 ---

@@ -2,8 +2,8 @@
 title: "ナガノマーケットハッピーバッグ2023をGET！レビューしますよっと。"
 description: "ナガノマーケットハッピーバッグ2023の中身をレビュー！！正直買いだと思います。"
 date: "2023-01-03T01:08:02.305Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/210288302-c07d9fb9-927c-41ce-8fca-4c0bbb62ae0d.jpeg"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/210288302-c07d9fb9-927c-41ce-8fca-4c0bbb62ae0d.jpeg"
+coverImage: "/post/review-nagano-market-happy-bag/thumbnail.jpeg"
+ogImageUrl: "/post/review-nagano-market-happy-bag/thumbnail.jpeg"
 category: "4"
 tags: "9,10,11,12"
 ---
@@ -25,10 +25,10 @@ tags: "9,10,11,12"
 材質：綿 100%
 原産国：中国
 
-![トートバッグの正面の画像](https://user-images.githubusercontent.com/38467746/210239684-6fba934f-5069-45e4-920a-7a5c925e9c28.jpeg)
+![トートバッグの正面の画像](/post/review-nagano-market-happy-bag/1.jpeg)
 _正面にプリントされたナガノのくま（洗濯後なのでシワシワ）_
 
-![トートバッグの中身の画像](https://user-images.githubusercontent.com/38467746/210239688-d50579fe-8611-4440-85f4-2b1c3b6e4d12.jpeg)
+![トートバッグの中身の画像](/post/review-nagano-market-happy-bag/2.jpeg)
 _チャックつきのバッグの中身_
 
 十分な容量のトートバッグで、お買い物に最適です。
@@ -96,7 +96,7 @@ https://youtu.be/R5F8TBoO800
 材質：メラミン樹脂
 原産国：中国
 
-![メラミンプレートの画像](https://user-images.githubusercontent.com/38467746/210239584-68d4ee10-e8b1-4a0f-b6b8-c4003165d74e.jpeg)
+![メラミンプレートの画像](/post/review-nagano-market-happy-bag/3.jpeg)
 _くまともぐコロの表情がおもしろ可愛い_
 
 メラミンなので割れる心配もなし。
@@ -123,7 +123,7 @@ https://youtu.be/PW-8nXmJNnU
 材質：鉄
 原産国：中国
 
-![スクエア缶バッジ5個が写っている画像](https://user-images.githubusercontent.com/38467746/210239549-b306c9f5-d246-4cc2-8ba9-461587905cd0.jpeg)
+![スクエア缶バッジ5個が写っている画像](/post/review-nagano-market-happy-bag/4.jpeg)
 _クセのある場面が缶バッジデザインとして採用されている_
 
 痛バッグには必須な缶バッジ
@@ -137,10 +137,10 @@ _クセのある場面が缶バッジデザインとして採用されている_
 材質：ポリエステル 80%、ナイロン 20%
 原産国：中国
 
-![ちいかわのふきんの画像](https://user-images.githubusercontent.com/38467746/210239569-520206d1-32df-4065-9414-837ae63cb4bd.jpeg)
+![ちいかわのふきんの画像](/post/review-nagano-market-happy-bag/5.jpeg)
 _くまをかぶったちいかわ達がなんとも可愛い_
 
-![ナガノのくまのふきんの画像](https://user-images.githubusercontent.com/38467746/210239579-032b0935-ea39-4498-b013-39b14d4fda17.jpeg)
+![ナガノのくまのふきんの画像](/post/review-nagano-market-happy-bag/6.jpeg)
 _気の抜けたくまの表情が良い_
 
 ふきんとして使うには勿体無い、可愛いデザインです。
@@ -158,7 +158,7 @@ _気の抜けたくまの表情が良い_
 
 ## **渋谷店のナガノマーケットハッピーバッグ 2023 の在庫**
 
-![渋谷店のハッピーバッグの在庫がわかる画像](https://user-images.githubusercontent.com/38467746/210288304-38d8d80d-86b8-4cb3-9bb2-cb3ad0bb7d6e.jpeg)
+![渋谷店のハッピーバッグの在庫がわかる画像](/post/review-nagano-market-happy-bag/7.jpeg)
 _1/2 時点の在庫_
 
 渋谷店では十分な在庫数がありそうです。

@@ -2,8 +2,8 @@
 title: "【マジック修行】Strike second dealは難しい"
 description: "Strike second dealを練習した。"
 date: "2023-02-22T05:01:31.267Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/220537275-44741228-ff09-40f6-94fe-9d7af39b7054.png"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/220537275-44741228-ff09-40f6-94fe-9d7af39b7054.png"
+coverImage: "/post/strike-second-deal/thumbnail.png"
+ogImageUrl: "/post/strike-second-deal/thumbnail.png"
 category: "2"
 tags: "4,14"
 ---

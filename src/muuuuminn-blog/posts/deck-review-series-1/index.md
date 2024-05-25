@@ -2,8 +2,8 @@
 title: "【デックレビュー】久方ぶりにデックを購入。コスパが良さそうポッシブルデック【第1弾】"
 description: "デックレビュー第1弾！コスパ良しのインポッシブルデックを購入しましたので軽くレビューしていきます。"
 date: "2023-01-15T11:59:19.978Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/213444905-5f8515a1-bc31-4e9a-874b-60a46ccd4cd6.jpeg"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/213444905-5f8515a1-bc31-4e9a-874b-60a46ccd4cd6.jpeg"
+coverImage: "/post/deck-review-series-1/thumbnail.jpeg"
+ogImageUrl: "/post/deck-review-series-1/thumbnail.jpeg"
 category: "2"
 tags: "13"
 ---
@@ -13,10 +13,10 @@ tags: "13"
 
 ## **[ポッシブルデック 青 緑](https://theimpossibleco.com/ja/product/possible/)**
 
-![ポッシブルデックのケースの画像](https://user-images.githubusercontent.com/38467746/213150892-e02da059-e0f7-477a-81d7-eed314c97822.jpeg)
-![ポッシブルデックのカードの画像](https://user-images.githubusercontent.com/38467746/213150837-949a62eb-1dfc-4fa3-bd0b-35de70767181.jpeg)
+![ポッシブルデックのケースの画像](/post/deck-review-series-1/1.jpeg)
+![ポッシブルデックのカードの画像](/post/deck-review-series-1/2.jpeg)
 _赤は発色が強め。緑は落ち着いている。_
-![ポッシブルデックとBicycleを比較した画像](https://user-images.githubusercontent.com/38467746/213150851-1a977e12-474b-4afd-9b4b-f3923b650fbd.jpeg)
+![ポッシブルデックとBicycleを比較した画像](/post/deck-review-series-1/3.jpeg)
 _上段：Bicycle、下段：ポッシブルデック_
 
 ◆ 感触
@@ -50,10 +50,10 @@ NOC デックのようなしっとりとした触り心地。
 
 ## **[インポッシブルデック 青](https://theimpossibleco.com/ja/product/impossible/)**
 
-![インポッシブルデックのケースの画像](https://user-images.githubusercontent.com/38467746/213150857-7b574f38-8703-46d7-b83e-cb94d3f04d77.jpeg)
-![インポッシブルデックのカードの画像](https://user-images.githubusercontent.com/38467746/213150864-7a1205e2-1f97-4bac-a1dc-73f71dedbeb7.jpeg)
+![インポッシブルデックのケースの画像](/post/deck-review-series-1/4.jpeg)
+![インポッシブルデックのカードの画像](/post/deck-review-series-1/5.jpeg)
 _ギャフカードが 2 枚ついています。_
-![インポッシブルデックとBicycleを比較した画像](https://user-images.githubusercontent.com/38467746/213150870-58e1d000-fee7-4d0b-a3a5-4249683d7449.jpeg)
+![インポッシブルデックとBicycleを比較した画像](/post/deck-review-series-1/6.jpeg)
 _上段：Bicycle、下段：インポッシブルデック_
 
 ◆ 感触

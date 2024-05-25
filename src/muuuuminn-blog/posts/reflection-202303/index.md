@@ -2,8 +2,8 @@
 title: "【振り返り】2023年3月【月間目標】"
 description: "2023年3月の月間目標を振り返ります。"
 date: "2023-04-08"
-coverImage: "https://user-images.githubusercontent.com/38467746/229336201-3271f659-1966-4011-b160-00a7b5bbfd60.jpeg"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/229336201-3271f659-1966-4011-b160-00a7b5bbfd60.jpeg"
+coverImage: "/post/reflection-202303/thumbnail.jpeg"
+ogImageUrl: "/post/reflection-202303/thumbnail.jpeg"
 category: "4"
 tags: "17"
 ---

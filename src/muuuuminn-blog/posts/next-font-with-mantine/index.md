@@ -2,8 +2,8 @@
 title: "next/font/googleでDotGothic16を読み込んでMantineのコンポーネントに適用する"
 description: "next/font/googleでDotGothic16を読み込んで、Mantineのテーマ設定でfont-familyをinheritにした"
 date: "2023-05-27T06:59:19.978Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/241478306-f7a8047f-faac-4ba6-b05c-1ae1e4df29e3.jpeg"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/241478306-f7a8047f-faac-4ba6-b05c-1ae1e4df29e3.jpeg"
+coverImage: "/post/next-font-with-mantine/thumbnail.jpeg"
+ogImageUrl: "/post/next-font-with-mantine/thumbnail.jpeg"
 category: "0"
 tags: "1,24,25"
 ---

@@ -2,8 +2,8 @@
 title: "node16系でnuxt2.15.0,node-sass6.0.1が入った環境にてyarn installをするとエラーになる"
 description: "node16.14.0, nuxt2.15.0, node-sass6.0.1を含んだ環境でyarn installをするとエラーになる。homebrew経由でpyenvを入れpythonを使用できるようにした状態でyarn install --forceを実行して解決した。"
 date: "2023-01-23T06:59:19.978Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/213995987-41f0473e-c76c-4127-b8be-98cbca38bcae.jpeg"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/213995987-41f0473e-c76c-4127-b8be-98cbca38bcae.jpeg"
+coverImage: "/post/python-solved-node-sass-error/thumbnail.jpeg"
+ogImageUrl: "/post/python-solved-node-sass-error/thumbnail.jpeg"
 category: "0"
 tags: "15,16"
 ---
