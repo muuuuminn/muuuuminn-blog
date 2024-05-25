@@ -138,4 +138,22 @@ export const MASTER_TAGS = [
     color: "329aef",
     categoryId: "0",
   },
+  {
+    id: "26",
+    name: "イヤホン",
+    color: "FF0800",
+    categoryId: "4",
+  },
+  {
+    id: "27",
+    name: "JBL",
+    color: "C54B8C",
+    categoryId: "4",
+  },
+  {
+    id: "28",
+    name: "ガジェット",
+    color: "01796F",
+    categoryId: "4",
+  },
 ];
