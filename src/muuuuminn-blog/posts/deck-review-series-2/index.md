@@ -2,17 +2,17 @@
 title: "【デックレビュー】光りまくるQueens Playing Cards！安定のBicycle。洒落たデザインEDEN PLAYING CARDS【第2弾】"
 description: "デックレビュー第2弾！超主観と感覚で3つのデックをレビューします。"
 date: "2023-02-07T11:59:19.978Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/213444543-90cc9228-ba9c-446d-b119-4c0f83c218fb.jpeg"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/213444543-90cc9228-ba9c-446d-b119-4c0f83c218fb.jpeg"
+coverImage: "/post/deck-review-series-2/thumbnail.jpeg"
+ogImageUrl: "/post/deck-review-series-2/thumbnail.jpeg"
 category: "2"
 tags: "13"
 ---
 
 ## **Queens Playing Cards**
 
-![Queens Playing Cardsのケースの画像](https://user-images.githubusercontent.com/38467746/213150877-aa70a753-ba86-4a2a-912a-4dc9a6cdd0f5.jpeg)
-![Queens Playing Cardsのカードの画像](https://user-images.githubusercontent.com/38467746/213150883-49283f9a-397b-405e-a7d5-e50c5a927ff5.jpeg)
-![Queens Playing CardsとBicycleを比較した画像](https://user-images.githubusercontent.com/38467746/213150889-1ae842b0-9e99-417a-84b5-77635f9a714d.jpeg)
+![Queens Playing Cardsのケースの画像](/post/deck-review-series-2/1.jpeg)
+![Queens Playing Cardsのカードの画像](/post/deck-review-series-2/2.jpeg)
+![Queens Playing CardsとBicycleを比較した画像](/post/deck-review-series-2/3.jpeg)
 _上段：Bicycle、下段：Queens Playing Cards_
 
 ◆ 感触
@@ -43,11 +43,11 @@ _上段：Bicycle、下段：Queens Playing Cards_
 
 ## **Bicycle Inspire Playing Cards 青**
 
-![Bicycle Inspire Playing Cardsのケースの画像](https://user-images.githubusercontent.com/38467746/213150896-6ae5c81e-bf80-418e-9186-e7f0579d4f8a.jpeg)
-![Bicycle Inspire Playing Cardsのカードの画像](https://user-images.githubusercontent.com/38467746/213150899-852fa15f-f244-4422-a4c8-0eec4ec3739b.jpeg)
+![Bicycle Inspire Playing Cardsのケースの画像](/post/deck-review-series-2/4.jpeg)
+![Bicycle Inspire Playing Cardsのカードの画像](/post/deck-review-series-2/5.jpeg)
 _ギャフカードと余分なクイーンがそれぞれ 1 枚ついています。_
 
-![Bicycle Inspire Playing CardsとBicycleを比較した画像](https://user-images.githubusercontent.com/38467746/213150906-185d8346-5803-4f41-9c2d-f1015327adeb.jpeg)
+![Bicycle Inspire Playing CardsとBicycleを比較した画像](/post/deck-review-series-2/6.jpeg)
 _上段：Bicycle、下段：Bicycle Inspire Playing Cards_
 
 ◆ 感触
@@ -79,9 +79,9 @@ Bicycle でベタ塗りは珍しいので推せる。
 
 ## **EDEN PLAYING CARDS**
 
-![EDEN PLAYING CARDSのケースの画像](https://user-images.githubusercontent.com/38467746/213150910-c4458fba-08b0-468f-9880-a91bebcd0506.jpeg)
-![EDEN PLAYING CARDSのカードの画像](https://user-images.githubusercontent.com/38467746/213150914-91160051-1afb-4f9d-9097-dded4329b354.jpeg)
-![EDEN PLAYING CARDSとBicycleを比較した画像](https://user-images.githubusercontent.com/38467746/213150918-82b14e59-4d17-4685-a5bd-7e2fd217d7fb.jpeg)
+![EDEN PLAYING CARDSのケースの画像](/post/deck-review-series-2/7.jpeg)
+![EDEN PLAYING CARDSのカードの画像](/post/deck-review-series-2/8.jpeg)
+![EDEN PLAYING CARDSとBicycleを比較した画像](/post/deck-review-series-2/9.jpeg)
 _上段：Bicycle、下段：EDEN PLAYING CARDS_
 
 ◆ 感触

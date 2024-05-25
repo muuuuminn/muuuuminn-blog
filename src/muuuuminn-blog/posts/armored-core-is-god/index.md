@@ -2,8 +2,8 @@
 title: "アーマード・コア6が発表されてビックリしたついでに、やったことのある過去作を振り返る"
 description: "2022/12/9にアーマード・コア6の発表がありビックリして思い出が逆流したきた話をつらつらと…"
 date: "2022-12-10T03:32:26.606Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/206960112-cffe67e9-8bc5-4700-a9e8-88033893a27c.png"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/206960112-cffe67e9-8bc5-4700-a9e8-88033893a27c.png"
+coverImage: "/post/armored-core-is-god/thumbnail.png"
+ogImageUrl: "/post/armored-core-is-god/thumbnail.png"
 category: "3"
 tags: "8"
 ---
@@ -38,7 +38,7 @@ https://www.kotobukiya.co.jp/decoctionmodels-01/ja/
 難しいのは変わりなかったが、練習を重ねクリアまで到達した。全ミッション S ランク制覇を目指すほどにハマった一本。
 ラスボスが格好良くて立体化を今でも待っている…。
 
-###** 再挑戦 MOA**
+## **再挑戦 MOA**
 
 そういえば MOA クリアしてないな。そう思って再挑戦した。
 超重量級タンクで体力を高め、高火力の武器を肩・両腕に装備し、脳筋プレイでストーリー・アリーナともに制覇しました。

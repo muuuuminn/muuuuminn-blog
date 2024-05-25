@@ -2,8 +2,8 @@
 title: "Next.js / Chakra UIを使ってMarkdownで管理するブログを作成した話"
 description: "Next.js / Chakra UIを使ってMarkdownで管理するブログを作成してみた感想とこれから実装したい機能を書きました。"
 date: "2022-12-04T08:57:04.913Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/206960442-1cc2aec5-7ec7-494a-8836-b118ecdedeff.png"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/206960442-1cc2aec5-7ec7-494a-8836-b118ecdedeff.png"
+coverImage: "/post/about-muuuuminn-blog/thumbnail.jpeg"
+ogImageUrl: "/post/about-muuuuminn-blog/thumbnail.jpeg"
 category: "0"
 tags: "0,1,6"
 ---

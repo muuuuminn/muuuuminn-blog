@@ -2,8 +2,8 @@
 title: "【マジック修行】Modern Intricaciesから抜粋、Dr Daley One Secondに挑戦"
 description: "Dr Daley One Secondを練習した記録をYouTubeに公開した。難しい点とアレンジした点を加えて書いている。"
 date: "2023-01-22T05:01:31.267Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/213901411-6ee91a5b-7b90-439d-9e4f-45f554885283.png"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/213901411-6ee91a5b-7b90-439d-9e4f-45f554885283.png"
+coverImage: "/post/dr-daley-one-second/thumbnail.png"
+ogImageUrl: "/post/dr-daley-one-second/thumbnail.png"
 category: "2"
 tags: "4,14"
 ---

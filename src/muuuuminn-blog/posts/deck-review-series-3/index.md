@@ -2,17 +2,17 @@
 title: "【デックレビュー】バックのデザインが緑色のデックをまとめてレビュー！【第3弾】"
 description: "デックレビュー第3弾！落ち着きのAristocrat、クールなGreen Remedies、安定のクオリティQuality Green Bee"
 date: "2023-03-05T11:59:19.978Z"
-coverImage: "https://user-images.githubusercontent.com/38467746/222952188-a1b2beef-f6ef-401f-b3da-317b6fa5e4e7.jpeg"
-ogImageUrl: "https://user-images.githubusercontent.com/38467746/222952188-a1b2beef-f6ef-401f-b3da-317b6fa5e4e7.jpeg"
+coverImage: "/post/deck-review-series-3/thumbnail.jpeg"
+ogImageUrl: "/post/deck-review-series-3/thumbnail.jpeg"
 category: "2"
 tags: "13"
 ---
 
 ## **Aristocrat Green Edition Playing Cards**
 
-![Aristocratのケースの画像](https://user-images.githubusercontent.com/38467746/213150556-dac097d6-d5bb-4ff7-8a1f-8e9487ed09ce.jpeg)
-![Aristocratのカードの画像](https://user-images.githubusercontent.com/38467746/213150565-14c5b6ba-4433-4763-a7fd-15154fda7408.jpeg)
-![AristocratとBicycleを比較した画像](https://user-images.githubusercontent.com/38467746/213150570-9bb088f1-81d8-4264-a5fe-9b40546fb5d0.jpeg)
+![Aristocratのケースの画像](/post/deck-review-series-3/1.jpeg)
+![Aristocratのカードの画像](/post/deck-review-series-3/2.jpeg)
+![AristocratとBicycleを比較した画像](/post/deck-review-series-3/3.jpeg)
 _上段：Bicycle、下段：Aristocrat_
 
 ◆ 感触
@@ -48,9 +48,9 @@ Bicycle と同じ
 
 ## **Green Remedies Playing Cards**
 
-![Remediesのケースの画像](https://user-images.githubusercontent.com/38467746/213150573-fef28a19-d9ef-472c-854d-91ca5dcb5f8f.jpeg)
-![Remediesのカードの画像](https://user-images.githubusercontent.com/38467746/213150580-bdc2c02f-a139-4646-92f6-6f347ca86f9d.jpeg)
-![RemediesとBicycleを比較した画像](https://user-images.githubusercontent.com/38467746/213150583-8fb95fd5-7e58-43f8-9e12-3df5e8c0ff8f.jpeg)
+![Remediesのケースの画像](/post/deck-review-series-3/4.jpeg)
+![Remediesのカードの画像](/post/deck-review-series-3/5.jpeg)
+![RemediesとBicycleを比較した画像](/post/deck-review-series-3/6.jpeg)
 _上段：Bicycle、下段：Remedies_
 
 ◆ 感触
@@ -84,9 +84,9 @@ Daniel Madison のカードといえばカラス。Rounders のジョーカー�
 
 ## **Quality Green Bee by USPCC**
 
-![Quality Green Beeのケースの画像](https://user-images.githubusercontent.com/38467746/213150584-defbaec0-00e5-493e-b427-b04ac2d846b3.jpeg)
-![Quality Green Beeのカードの画像](https://user-images.githubusercontent.com/38467746/213150586-af7de2ec-12d7-4c65-bbe5-39248398c242.jpeg)
-![Quality Green BeeとBicycleを比較した画像](https://user-images.githubusercontent.com/38467746/213150591-407b5865-2c08-41d5-b4b9-16a939e22b67.jpeg)
+![Quality Green Beeのケースの画像](/post/deck-review-series-3/7.jpeg)
+![Quality Green Beeのカードの画像](/post/deck-review-series-3/8.jpeg)
+![Quality Green BeeとBicycleを比較した画像](/post/deck-review-series-3/9.jpeg)
 _上段：Bicycle、下段：Quality Green Bee_
 
 ◆ 感触
