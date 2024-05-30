@@ -38,3 +38,7 @@ tags: "26,27,28"
 骨伝導イヤホン（例：[Shokz](https://jp.shokz.com/products/openrun)）は肌との接着箇所が硬くて頭が痛くなります。そして音質も良くないです。
 今回てにいれた[JBL Soundgear Sense](https://jp.jbl.com/SOUNDGEAR-SENSE.html?dwvar_SOUNDGEAR-SENSE_color=Black-GLOBAL-Current&cgid=truewirelessearphone#start=1)は、いままでイヤホンに対して持っていた装着感に関する不満をうまいこと解消してくれています。おすすめです。
 散歩や運動をする人には特におすすめです。
+
+## 追記2024/5/30
+色は白を選びました。この色と材質?が相まってイヤホンケース、イヤホンへ色移りしやすいです。
+これが気になるのであれば、黒を選択するのがよいのかも
