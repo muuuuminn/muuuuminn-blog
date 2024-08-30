@@ -5,7 +5,6 @@ import { NextSeo } from "next-seo";
 import type { NextSeoProps } from "next-seo";
 import type { OpenGraphArticle, OpenGraphMedia } from "next-seo/lib/types";
 
-
 export type BasicSeoProps = {
   path: string;
   ogImage?: OpenGraphMedia;
@@ -49,7 +48,7 @@ export const BasicSeo: FC<BasicSeoProps> = (props) => {
       title={title}
       titleTemplate={"%s | muuuuminn blog"}
       twitter={{
-        cardType: "summary_large_image",
+        cardType: "summary",
         site: "@4ho_v",
       }}
     />
@@ -105,7 +104,7 @@ export const ArticleSeo: FC<ArticleSeoProps> = (props) => {
       title={title}
       titleTemplate={"%s | muuuuminn blog"}
       twitter={{
-        cardType: "summary_large_image",
+        cardType: "summary",
         site: "@4ho_v",
       }}
     />
