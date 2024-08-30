@@ -1,6 +1,6 @@
 ---
 title: "IconButtonの余白をなくして隣接要素にぴったりくっつける方法"
-description: "FlutterのIconButtonの余白を最小限にし、隣接要素と密着させる技術を解説します。"
+description: "FlutterのIconButtonの余白を最小限にする方法を記載しています。tapTargetSize、padding、constraintsが関連します。"
 date: "2024-08-29T14:34:01.945Z"
 coverImage: "/post/akira_thumbnail.png"
 ogImageUrl: "/post/akira_thumbnail.png"
