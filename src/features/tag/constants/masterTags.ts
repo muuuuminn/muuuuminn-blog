@@ -156,4 +156,22 @@ export const MASTER_TAGS = [
     color: "01796F",
     categoryId: "4",
   },
+  {
+    id: "29",
+    name: "Flutter",
+    color: "02569B",
+    categoryId: "0",
+  },
+  {
+    id: "30",
+    name: "Supabase",
+    color: "3ECF8E",
+    categoryId: "0",
+  },
+  {
+    id: "31",
+    name: "ソーシャルログイン",
+    color: "4285F4",
+    categoryId: "0",
+  },
 ];
