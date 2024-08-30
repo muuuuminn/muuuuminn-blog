@@ -5,15 +5,10 @@ import { PostDetail } from "@/features/post/components";
 import { RelatedPostsArea } from "@/features/related-posts/components";
 import { useTranslation } from "@/libs/i18n";
 import { Stack } from "@/libs/mantine/layout";
-import {
-  ArticleSeo,
-  ArticleJsonLd
-} from "@/shared/components";
+import { ArticleSeo, ArticleJsonLd } from "@/shared/components";
 
 import type { PostDetailType, PostListType } from "@/features/post/types";
-import type {
-  ArticleSeoProps,
-  ArticleJsonLdProps} from "@/shared/components";
+import type { ArticleSeoProps, ArticleJsonLdProps } from "@/shared/components";
 
 type PostProps = {
   post: PostDetailType;
@@ -22,12 +17,13 @@ type PostProps = {
 export const Post: FC<PostProps> = ({ post, relatedPosts }) => {
   const { t } = useTranslation();
 
+  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
   const seo: ArticleSeoProps = {
     title: post.title,
     description: post.description,
     path: `/post/${post.slug}`,
     ogImage: {
-      url: post.ogImageUrl,
+      url: APP_ROOT_URL + post.ogImageUrl,
       alt: `${post.title}${t.ALT.THUMBNAIL_OF}`,
     },
     articleOgp: {
@@ -41,7 +37,7 @@ export const Post: FC<PostProps> = ({ post, relatedPosts }) => {
     title: post.title,
     description: post.description,
     url: `/post/${post.slug}`,
-    images: [post.ogImageUrl],
+    images: [APP_ROOT_URL + post.ogImageUrl],
     datePublished: post.date,
     dateModified: post.date,
   };
