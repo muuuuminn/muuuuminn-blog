@@ -14,13 +14,11 @@ None
 
 ### Infrastructure
 
-- Cloud Build
-- Cloud Run
-- Cloudflare
+- Cloudflare pages
 
 ### Related services
 
-- Google Domains
+- Cloudflare Registrar
 - Google Search Console
 - Google Tag Manager
 - Google Analytics
