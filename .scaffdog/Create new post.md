@@ -4,12 +4,20 @@ root: "./src/muuuuminn-blog/posts/"
 output: "**/*"
 ignore: []
 questions:
-  filename: "Please enter the markdown filename. Filename must be unique in this blog"
-  title: "Please enter the title."
-  description: "Please enter the description."
-  image: "Please enter the image file path or url."
-  category: "Please enter the category unique id."
-  tags: "Please enter the tag unique id. You can tagging multiple like 1,2"
+  filename:
+    message: "Please enter the markdown filename. Filename must be unique in this blog"
+  title:
+    message: "Please enter the title."
+  description:
+    message: "Please enter the description."
+  image:
+    message: "Please enter the image file path or url."
+    initial: "/post/akira_thumbnail.png"
+  category:
+    message: "Please enter the category unique id."
+    initial: "0"
+  tags:
+    message: "Please enter the tag unique id. You can tagging multiple like 1,2"
 ---
 
 # {{ inputs.filename }}/index.md
