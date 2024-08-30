@@ -56,7 +56,7 @@ export const PostDetail: FC<PostDetailProps> = ({ postDetail, ...rest }) => {
         </Stack>
       </Stack>
       {postDetail.content && (
-        <Box mt={16}>
+        <Box mt={16} pl={8} pr={4}>
           <RichMarkdownContent html={postDetail.content} />
         </Box>
       )}
