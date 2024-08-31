@@ -101,7 +101,7 @@ YouTube で各チャンネルの再生リストを作成し、過去に見た動
   - ChatGPT の回答例:
 
     ```markdown
-        ### 元の英文（英文と日本語訳）
+    ### 元の英文（英文と日本語訳）
 
     - Install HoYoLab app in your iPhone. And follow the bellow instruction.
     - iPhone に HoYoLab アプリをインストールして、以下の指示に従ってください。
