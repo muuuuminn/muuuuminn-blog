@@ -174,4 +174,28 @@ export const MASTER_TAGS = [
     color: "4285F4",
     categoryId: "0",
   },
+  {
+    id: "32",
+    name: "英語",
+    color: "1E90FF",
+    categoryId: "4",
+  },
+  {
+    id: "33",
+    name: "WordUp",
+    color: "32CD32",
+    categoryId: "4",
+  },
+  {
+    id: "34",
+    name: "YouTube",
+    color: "FF0000",
+    categoryId: "4",
+  },
+  {
+    id: "35",
+    name: "ChatGPT",
+    color: "00A67E",
+    categoryId: "0",
+  },
 ];
