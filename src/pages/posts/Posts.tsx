@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import type { FC} from "react";
+import type { FC } from "react";
 import { useMemo } from "react";
 
 import { PostCardList } from "@/features/post/components";
@@ -30,7 +30,7 @@ export const Posts: FC<PostsProps> = ({ posts, tags }) => {
 
   return (
     <>
-      <Box sx={{ flex: "1 1 auto" }}>
+      <Box px={8} sx={{ flex: "1 1 auto" }}>
         <PostCardList posts={postsFilteredByTag} />
       </Box>
     </>
