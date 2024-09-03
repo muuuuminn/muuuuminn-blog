@@ -13,19 +13,19 @@ export type BasicSeoProps = {
 } & NextSeoProps;
 
 export const BasicSeo: FC<BasicSeoProps> = (props) => {
+  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
   const {
     path,
     title = "",
     description,
     ogImage = {
       alt: `${title}のサムネイル`,
-      url: "https://user-images.githubusercontent.com/38467746/206959970-b3ef349e-e1fc-4646-973f-a7862e1f5d09.png",
+      url: `${APP_ROOT_URL}/logo/logo_transparent.png`,
       type: "image/png",
     },
     noindexAndFollow,
   } = props;
 
-  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
   const pageUrl = APP_ROOT_URL + path;
 
   return (
@@ -64,20 +64,20 @@ export type ArticleSeoProps = {
 } & NextSeoProps;
 
 export const ArticleSeo: FC<ArticleSeoProps> = (props) => {
+  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
   const {
     path,
     title = "",
     description,
     ogImage = {
       alt: `${title}のサムネイル`,
-      url: "https://user-images.githubusercontent.com/38467746/206959970-b3ef349e-e1fc-4646-973f-a7862e1f5d09.png",
+      url: `${APP_ROOT_URL}/logo/logo_transparent.png`,
       type: "image/png",
     },
     noindexAndFollow,
     articleOgp,
   } = props;
 
-  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
   const pageUrl = APP_ROOT_URL + path;
 
   return (
