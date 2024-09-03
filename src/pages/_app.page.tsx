@@ -2,13 +2,11 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import type { ReactElement, ReactNode } from "react";
 
-import { DefaultSeo } from "next-seo";
 import { RecoilRoot } from "recoil";
 import { RecoilHistorySyncJSONNext } from "recoil-sync-next";
 
 import { GoogleTagManager } from "@/features/gtm/components";
 import { gtmId } from "@/features/gtm/constants/gtmId";
-import { useTranslation } from "@/libs/i18n";
 import { MantineProvider } from "@/libs/mantine/provider";
 import QueryClientProvider from "@/libs/reactQuery/QueryClientProvider";
 
@@ -34,16 +32,12 @@ type AppPropsWithLayout = AppProps & {
 function MyApp({ Component, pageProps }: AppPropsWithLayout): JSX.Element {
   const getLayout = Component.getLayout ?? ((page) => page);
 
-  const { t } = useTranslation();
-  const titleTemplate = `${t.SITE_NAME}`;
-
   return (
     <>
       <Head>
         <meta content="minimum-scale=1, initial-scale=1, width=device-width" name="viewport" />
       </Head>
       <GoogleTagManager googleTagManagerId={gtmId as GoogleTagManagerIdType} />
-      {/* <DefaultSeo titleTemplate={titleTemplate} /> */}
       <QueryClientProvider dehydratedState={pageProps.dehydratedState}>
         <RecoilRoot>
           <RecoilHistorySyncJSONNext storeKey="ui-state">

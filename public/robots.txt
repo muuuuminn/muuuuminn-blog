@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://muuuuminn.com
-
-# Sitemaps
-Sitemap: https://muuuuminn.com/sitemap.xml
