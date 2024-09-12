@@ -1,6 +1,6 @@
 ---
 title: "OrvalでuseInfiniteQueryを自動生成するときに、特定のAPI定義に絞り込んで自動生成したいんだ"
-description: "OrvalでuseInfiniteQueryを生成する際の注意点と回避方法を解説します。特定のAPI定義に絞り込んで自動生成する方法を紹介します。"
+description: "OrvalでuseInfiniteQueryを生成する際の注意点と特定のAPI定義に絞り込んで自動生成する方法を紹介します。"
 date: "2024-09-10T11:38:13.374Z"
 coverImage: "/post/akira_thumbnail.png"
 ogImageUrl: "/post/akira_thumbnail.png"
