@@ -198,4 +198,16 @@ export const MASTER_TAGS = [
     color: "00A67E",
     categoryId: "0",
   },
+  {
+    id: "36",
+    name: "Orval",
+    color: "FF6B4A",
+    categoryId: "0",
+  },
+  {
+    id: "37",
+    name: "Tanstack Query",
+    color: "FF4154",
+    categoryId: "0",
+  },
 ];
