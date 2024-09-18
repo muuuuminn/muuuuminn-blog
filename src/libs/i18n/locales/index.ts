@@ -54,8 +54,8 @@ export default {
       WISH_LIST: "Wish list",
     },
     DESCRIPTION: {
-      POSTS: "This page shows post written by muuuuminn.",
-      POLICY: "This page shows privacy policy.",
+      POSTS: "This page shows a post written by muuuuminn.",
+      POLICY: "This page shows a privacy policy.",
     },
     ALT: {
       SITE_LOGO: "Site logo",
@@ -72,10 +72,10 @@ export default {
     COMPONENTS: {
       TAG: {
         PLACEHOLDER: "All",
-        LABEL: "tag is used by filtering.",
+        LABEL: "tag filters posts.",
       },
       RELATED_POST_AREA: {
-        TITLE: "関連する投稿があります",
+        TITLE: "There are some related posts",
       },
     },
     ...COMMON_I18N,
