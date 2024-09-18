@@ -30,7 +30,7 @@ export const Category: FC<CategoryProps> = ({ posts, tags }) => {
 
   return (
     <>
-      <Box sx={{ flex: "1 1 auto" }}>
+      <Box px={8} sx={{ flex: "1 1 auto" }}>
         <PostCardList posts={postsFilteredByTag} />
       </Box>
     </>
