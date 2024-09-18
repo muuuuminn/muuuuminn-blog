@@ -210,4 +210,10 @@ export const MASTER_TAGS = [
     color: "FF4154",
     categoryId: "0",
   },
+  {
+    id: "38",
+    name: "OGP",
+    color: "3B5998",
+    categoryId: "0",
+  },
 ];
