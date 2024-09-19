@@ -14,6 +14,12 @@ const MenuLinks = [
     targetBlank: false,
   },
   {
+    isNextLink: true,
+    name: "RESUME",
+    href: "/resume",
+    targetBlank: false,
+  },
+  {
     isNextLink: false,
     name: "WISH_LIST",
     href: "https://www.amazon.co.jp/-/en/hz/wishlist/ls/15U19H5XG5941",
