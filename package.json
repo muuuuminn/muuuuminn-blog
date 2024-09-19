@@ -1,5 +1,6 @@
 {
   "name": "muuuuminn-blog",
+  "description": "muuuuminnの個人ブログ",
   "version": "1.0.0",
   "author": {
     "name": "muuuuminn",
@@ -13,6 +14,7 @@
     "export": "next export",
     "lint": "next lint",
     "lint:js": "eslint '**/*.@(js|ts|tsx)'",
+    "lint:md": "textlint src/features/resume/resume.md",
     "check": "tsc && prettier --list-different . && npm run lint:js",
     "format": "prettier --write . && npm run lint:js -- --fix",
     "scaffdog": "scaffdog generate",
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "@emotion/eslint-plugin": "11.11.0",
+    "@textlint-ja/textlint-rule-no-insert-dropping-sa": "^2.0.1",
     "@types/node": "20.12.12",
     "@types/react": "18.3.2",
     "@types/react-virtualized-auto-sizer": "1.0.4",
@@ -63,6 +66,25 @@
     "npm-check-updates": "16.14.20",
     "prettier": "2.8.8",
     "scaffdog": "^4.0.0",
+    "textlint": "^14.2.0",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-filter-rule-whitelist": "^2.0.0",
+    "textlint-rule-abbr-within-parentheses": "^1.0.2",
+    "textlint-rule-footnote-order": "^1.0.3",
+    "textlint-rule-general-novel-style-ja": "^1.3.0",
+    "textlint-rule-ja-hiragana-fukushi": "^1.3.0",
+    "textlint-rule-ja-hiragana-hojodoushi": "^1.1.0",
+    "textlint-rule-ja-hiragana-keishikimeishi": "^1.1.0",
+    "textlint-rule-ja-unnatural-alphabet": "^2.0.1",
+    "textlint-rule-ng-word": "^1.0.0",
+    "textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "^1.0.1",
+    "textlint-rule-period-in-list-item": "^1.0.1",
+    "textlint-rule-prefer-tari-tari": "^1.0.3",
+    "textlint-rule-preset-ja-spacing": "^2.4.3",
+    "textlint-rule-preset-ja-technical-writing": "^10.0.1",
+    "textlint-rule-preset-jtf-style": "^2.3.14",
+    "textlint-rule-prh": "^6.0.0",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0",
     "typescript": "5.4.5"
   },
   "engines": {
