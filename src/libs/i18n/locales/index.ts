@@ -14,10 +14,12 @@ export default {
       CONTACT: "お問い合わせ",
       COFFEE: "おひねり",
       WISH_LIST: "欲しいものリスト",
+      RESUME: "経歴",
     },
     DESCRIPTION: {
       POSTS: "muuuuminnによる投稿一覧ページです。",
       POLICY: "muuuuminn blogのプライバシーポリシーを載せたページです",
+      RESUME: "muuuuminn の経歴が載っているページです",
     },
     ALT: {
       SITE_LOGO: "サイトロゴ",
@@ -52,10 +54,12 @@ export default {
       CONTACT: "Contact",
       COFFEE: "Buy me a coffee",
       WISH_LIST: "Wish list",
+      RESUME: "Resume",
     },
     DESCRIPTION: {
       POSTS: "This page shows a post written by muuuuminn.",
       POLICY: "This page shows a privacy policy.",
+      RESUME: "This page contains muuuuminn's resume and career history.",
     },
     ALT: {
       SITE_LOGO: "Site logo",

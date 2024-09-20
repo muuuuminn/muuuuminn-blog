@@ -77,3 +77,31 @@
 .znc .token.inserted {
   color: #9dfafa;
 }
+
+/* アコーディオン */
+.znc summary {
+  font-weight: bold;
+  background: light-dark(#e8e8e8, #2a4447);
+}
+
+.znc details[open] > summary {
+  font-weight: bold;
+  background: light-dark(#e8e8e8, #2a4447);
+}
+
+.znc .details-content {
+  background: light-dark(#e8e8e8, #2a4447);
+}
+/* アコーディオン */
+
+/* テーブル */
+.znc th {
+  background: light-dark(#d9d9d9, #243c3f);
+  color: light-dark(#000, #c1c2c5);
+}
+
+.znc td {
+  background: light-dark(#e8e8e8, #2a4447);
+  color: light-dark(#000, #c1c2c5);
+}
+/* テーブル */

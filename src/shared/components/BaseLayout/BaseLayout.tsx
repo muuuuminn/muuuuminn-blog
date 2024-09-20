@@ -1,4 +1,4 @@
-import { DotGothic16 } from "next/font/google";
+import { BIZ_UDPGothic } from "next/font/google";
 import type { FC } from "react";
 
 import { em, getBreakpointValue, SimpleGrid, useMantineTheme } from "@mantine/core";
@@ -13,7 +13,7 @@ import type { SimpleGridProps } from "@mantine/core";
 
 type BaseLayoutProps = SimpleGridProps;
 
-const font = DotGothic16({ weight: "400", subsets: ["latin"] });
+const font = BIZ_UDPGothic({ weight: "400", subsets: ["latin"] });
 
 export const BaseLayout: FC<BaseLayoutProps> = (props) => {
   const { children } = props;
