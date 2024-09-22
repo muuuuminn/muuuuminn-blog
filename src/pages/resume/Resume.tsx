@@ -8,13 +8,15 @@ import { Box, HStack, Stack } from "@/libs/mantine/layout";
 import { BasicSeo, RichMarkdownContent } from "@/shared/components";
 
 import type { ResumeType } from "@/features/resume/types/resume";
+import type { LocalesType } from "@/libs/i18n";
 import type { BasicSeoProps } from "@/shared/components";
 
 type ResumeProps = {
   resume: ResumeType;
+  locale: LocalesType;
 };
 
-export const Resume: FC<ResumeProps> = ({ resume }) => {
+export const Resume: FC<ResumeProps> = ({ resume, locale }) => {
   const { t } = useTranslation();
   const seo: BasicSeoProps = {
     title: t.PAGE.RESUME,

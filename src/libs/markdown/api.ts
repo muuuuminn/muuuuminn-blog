@@ -7,6 +7,8 @@ import matter from "gray-matter";
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { MASTER_TAGS } from "@/features/tag/constants";
 
+import type { LocalesType } from "../i18n/types";
+
 const POSTS_DIRECTORY_NAME = "src/muuuuminn-blog/posts";
 
 const MARKDOWN_FIELDS = [
@@ -66,8 +68,8 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
-export function getPostBySlug(slug: string, fields: FieldsType[]) {
-  const fullPath = join(postsDirectory, `${slug}/index.md`);
+export function getPostBySlug(slug: string, fields: FieldsType[], locale: LocalesType) {
+  const fullPath = join(postsDirectory, `${slug}/index.${locale}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -95,10 +97,10 @@ export function getPostBySlug(slug: string, fields: FieldsType[]) {
   };
 }
 
-export function getAllPosts(fields: FieldsType[]) {
+export function getAllPosts(fields: FieldsType[], locale: LocalesType) {
   const slugs = getPostSlugs();
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
+    .map((slug) => getPostBySlug(slug, fields, locale))
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
     .filter((post) => {
@@ -113,9 +115,10 @@ export const getMarkdownFileByFilename = (
   filename: string,
   fields: FieldsType[],
   directoryName: string = POSTS_DIRECTORY_NAME,
+  locale: LocalesType,
 ) => {
   const directory = join(process.cwd(), directoryName);
-  const fullPath = join(directory, `${filename}.md`);
+  const fullPath = join(directory, `${filename}.${locale}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
   return formatPost(data, content, fields, filename);
