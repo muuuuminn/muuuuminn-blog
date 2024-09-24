@@ -14,7 +14,7 @@
     "export": "next export",
     "lint": "next lint",
     "lint:js": "eslint '**/*.@(js|ts|tsx)'",
-    "lint:md": "textlint src/features/resume/resume.md",
+    "lint:md": "textlint src/features/resume/locales/resume.ja.md",
     "check": "tsc && prettier --list-different . && npm run lint:js",
     "format": "prettier --write . && npm run lint:js -- --fix",
     "scaffdog": "scaffdog generate",
@@ -22,7 +22,7 @@
     "gen:eslint-doc": "npm run eslint:rules && node script/show-eslint-config.js",
     "tsc:rules": "tsc --showConfig > tsconfig-result.json",
     "gen:tsconfig-doc": "npm run tsc:rules && node script/show-tsconfig-config.js",
-    "gen:resume-pdf": "md-to-pdf src/features/resume/resume.md --config-file src/libs/pdf/config.js"
+    "gen:resume-pdf": "md-to-pdf src/features/resume/locales/resume.ja.md --config-file src/libs/pdf/config.js"
   },
   "dependencies": {
     "@emotion/react": "11.11.4",
