@@ -1,277 +1,273 @@
 ---
 title: "Resume"
-date: "2024-09-21"
+date: "2024-09-24"
 ---
 
-## 基本情報
+## Basic Information
 
-|          |                  |
-| -------- | ---------------- |
-| Name     | Ohmi Hiroki      |
-| Birthday | 1994/4/13        |
-| 居住地   | 東京都           |
-| 最終学歴 | 明治大学商学部卒 |
+|               |                                       |
+| ------------- | ------------------------------------- |
+| Name          | Ohmi Hiroki (近江宏樹)                |
+| Date of Birth | 1994/4/13                             |
+| Location      | Tokyo, Japan                          |
+| Education     | Meiji University, Faculty of Commerce |
 
-## アカウント
+## Accounts
 
 - [GitHub](https://github.com/muuuuminn)
 - [X(Twitter)](https://x.com/4ho_v)
-- 更新頻度低
+- Low posting frequency:
   - [Qiita](https://qiita.com/muuuuminn)
   - [Zenn](https://zenn.dev/muuuuminn)
 
-## 経歴要約
+## Career Summary
 
-2017 年に SE としてテラスカイに新卒入社、その後 2019 年からゆめみに入社しフロントエンドエンジニアとして入社。Next.js、TypeScript を主に使用し、多様なウェブアプリケーション開発に従事。
-医療系予約サイト、エンターテイメント系コミュニティサイトなどでリーダーを務め、効率的な技術選択や週次振り返り会の実施などでチーム運営を改善。
-国際チームでの経験も積む。また 5 年間の CMS 開発ではメンバーからリーダーへと成長。
-Mantine UI や Orval の活用など、常に効率的な開発手法を模索。
-5〜20 人規模のプロジェクトで要件定義から運用まで幅広く担当し、顧客折衝やスケジュール管理スキルも磨く。チーム全体の生産性向上に貢献した。
+In 2017, I joined TerraSky as a new graduate SE. In 2019, I joined Yumemi as a front-end engineer. I have worked extensively with Next.js and TypeScript, developing various web applications.
 
-## 興味・関心
+I served as a lead for projects such as a medical reservation site and an entertainment community site. I improved team operations by implementing effective technology choices and weekly retrospectives. I also gained experience in international teams. Over five years, I grew from a member to a leader in CMS development, always seeking efficient development methods, like leveraging Mantine UI and Orval.
 
-- 人に役立つ・自分も気に入るプロダクトをつくっていきたい
-  - 不幸な人が生まれないと尚良い
-- 使いやすさを考えるのが好き
-- 知識を集めるのが好き
+I worked on projects with teams of 5 to 20 people, covering everything from requirements definition to operation. I honed my skills in customer negotiations and schedule management, contributing to the team's overall productivity.
 
-## 仕事でのマインド
+## Interests & Focus
 
-- 当たり前を当たり前と思わない
-- 誰に対してもリスペクトをもつ
-- ネガティブにならない、かといってポジティブになり過ぎない
-  - フラットな気持ちを保つ
-- 体調に左右させない、整える
+- I want to create products that are both useful to people and something I personally like
+  - Even better if no one is left unhappy
+- I enjoy thinking about usability
+- I love gathering knowledge
 
-## 就業条件
+## Work Mindset
 
-- リモートワーク
-  - 出社が必要な場合は、電車で 30 分前後の範囲が望ましい
-- 服装自由
+- Never take things for granted
+- Always show respect to everyone
+- Stay neutral—don’t become too negative or overly positive
+  - Maintain a balanced outlook
+- Don’t let physical condition affect work—stay in good shape
 
-## 経歴詳細
+## Job Preferences
 
-::::details 株式会社ゆめみ（2019/5〜2024/5）
+- Remote work
+  - If commuting is required, around 30 minutes by train would be ideal
+- No dress code
 
-### 2023 年 11 月〜2024 年 3 月 / 医療・医薬 / CMS と予約サイト
+## Detailed Work History
 
-- CMS と予約サイトの 2 つを同時並行で開発
-- スケジュールの遅延がすでに発生していた
-- プロジェクトはパートナー企業とも協力して進行
-- 途中からフロントチームのリーダーとして参加
+Since I’ve been involved in many projects, I will only list the key ones here.
+For more projects, visit [this Notion page](https://muuuuminn.notion.site/2c73b77aa6ae4b3c8fde02813ae7c9d3?v=a08e9ef62a0c4e40b68641924f3fa21d&pvs=4).
 
-#### 【規模（人）】
+::::details Yumemi Inc. (May 2019 – May 2024) / Full-Time / Fully Remote
 
-20（フロント：9）
+### Nov 2023 – Mar 2024 / Healthcare / CMS and Reservation Site
 
-#### 【役割】
+- Simultaneously developed a CMS and a reservation site
+- The schedule was already delayed
+- The project was carried out in collaboration with a partner company
+- I joined as the front-end team leader partway through
 
-チームリーダー
+#### 【Team Size】
 
-#### 【担当フェーズ】
+20 (Front-end: 9)members
 
-要件定義、設計、開発、テスト
+#### 【Role】
 
-#### 【実績・取り組み】
+Team Leader
 
-- デザイナー、サーバー間のコミュニケーションの橋渡しになるよう動いた
-  - どのプロジェクトにおいても意識していたが、より一層意識した
-- プロジェクト内でしばしば重たい空気になることが多かったが、雰囲気に飲まれずに必要なアクションを判断するよう努めた
-- メンバーの能力とスケジュールを鑑みて、タスクの振り分けをするようになった
-- メンバーがある機能に詳しい人となるようにタスク割り振りをした
-  - 時間が経つにつれ理解度が増し、後工程の作業がスムーズになる
-  - 属人化する懸念があるが、レビューでカバー
-- Cognito を使った認証機能の実装をした
-- 途中から Orval を導入して、コードの統一化を図った
-- 項目数の多い画面は GitHub Copilot でバリデーションのベースを自動生成するなどして、時間短縮を図った
+#### 【Responsibilities】
 
-#### 【反省・課題】
+Requirements definition, design, development, testing
 
-- デザイン・フロント間で合意がとれている UI で仕様を再調整する必要が発生してしまった
-  - 参加時にどの UI がどこまで話が進んでいるかを把握すべきだった
+#### 【Achievements & Initiatives】
 
-### 2023 年 3 月〜2024 年 1 月 / エンターテイメント / コミュニティサイト
+- Acted as a communication bridge between designers and the server team
+  - I always aimed for this, but especially focused on it for this project
+- The project atmosphere was often tense, but I worked hard to remain unaffected and make necessary decisions
+- Assigned tasks based on team members' capabilities and schedules
+- Delegated tasks to ensure members developed expertise in specific features
+  - As understanding deepened, downstream tasks became smoother
+  - Addressed concerns of dependence by covering through code reviews
+- Implemented authentication using Cognito
+- Introduced Orval midway to unify the codebase
+- Used GitHub Copilot to auto-generate validation bases for screens with many fields, saving time
 
-- あるゲームのユーザーをターゲットにした大会やユーザー同士の交流ができるコミュニティサイト
-- 短納期
+#### 【Reflections & Challenges】
 
-#### 【規模（人）】
+- Had to readjust the UI specifications, even after agreement between design and front-end
+  - I should have grasped the progress of each UI element upon joining the project
 
-14（フロント：3）
+### Mar 2023 – Jan 2024 / Entertainment / Community Site
 
-#### 【役割】
+- Developed a community site where users of a particular game could hold tournaments and interact with each other
+- Short deadline
 
-チームリーダー
+#### 【Team Size】
 
-#### 【担当フェーズ】
+14 (Front-end: 3)members
 
-要件定義、設計、開発、テスト、運用・保守
+#### 【Role】
 
-#### 【実績・取り組み】
+Team Leader
 
-- 開発規模に対して短納期だったため、開発スピードを重視した技術選択をした
-  - フロントエンドでは Next.js(Page Router)と Mantine UI を採用し、開発を効率化した
-  - バックエンドでは OpenAPI を使用し、フロントエンドでは MSW と Tanstack query を予定していたため、Orval を採用してコードを自動生成した
-    - モック作成時のブレや迷いを防ぎ、Tanstack query のキー管理の手間も省けた
-    - 振り返ると、この選択が大幅な開発遅延を防いだと考えられる
-  - Scaffdog でコンポーネントの雛形を生成可能にし、開発初期の開発スピードをあげた
-    - 雛形を作成しておくことで、どんなコンポーネント設計をしてほしいかを共有できる
-- 週 1 回の開発振り返り会を実施し、知見と懸念の共有の場とした
-  - LT のような形式や、不具合の確認、リファクタリング推奨箇所の共有など、様々な形で行われた
-  - 緊急度に応じて即時または翌週のタスクとして対応し、チームの当事者意識向上につながった
-- デザインに対しては、技術的な実現可能性やスケジュールとの整合性を判断し、フィードバックをした
-  - 必要に応じて代替案や工数別の提案をした
-  - ユーザビリティ向上のアイデアも提案した
+#### 【Responsibilities】
 
-#### 【反省・課題】
+Requirements definition, design, development, testing, operation & maintenance
 
-- テストコードの充実が不十分だった
-  - 特に複雑な状態遷移を持つコンポーネントについては、テストでカバーするべきだった
-  - 結果として仕様・設計の考慮漏れが生じた
-  - 設計書の更新だけでは不十分で、見積もり時にテストコードも含めるべきだった
+#### 【Achievements & Initiatives】
 
-### 2019 年 11 月〜2020 年 7 月 / アパレル / EC サイト
+- Given the short deadline relative to project size, I prioritized speed in technology selection
+  - For the front-end, I chose Next.js (Page Router) and Mantine UI to streamline development
+  - On the back-end, I used OpenAPI, and since we planned to use MSW and Tanstack Query on the front-end, we adopted Orval to auto-generate code
+    - Prevented discrepancies and hesitation during mock creation and saved time managing Tanstack Query keys
+    - In hindsight, this choice likely prevented significant delays
+  - Utilized Scaffdog to auto-generate component templates, speeding up early-stage development
+    - The templates facilitated the sharing of component design expectations
+- Held weekly retrospectives to share knowledge and concerns
+  - The meetings were held in various formats, including LT-style presentations, bug confirmations, and sharing of suggested refactoring points
+  - Addressed tasks based on urgency, boosting team ownership
+- Provided feedback on design decisions based on technical feasibility and schedule alignment
+  - Suggested alternatives and labor-based proposals when needed
+  - Also proposed ideas to improve usability
 
-- 現行サイトへの追加機能実装とサイトのリニューアル
-- 六割くらいが外国人メンバー
-- マイクロサービスで複数のベンダーが関わる
-- 客先常駐
+#### 【Reflections & Challenges】
 
-#### 【規模（人）】
+- The test coverage was insufficient
+  - Particularly for components with complex state transitions, testing should have been more thorough
+  - As a result, there were gaps in specifications and design considerations
+  - Merely updating the design documents wasn’t enough; test coverage should have been factored into the estimates
 
-20（フロント：9）
+### Nov 2019 – Jul 2020 / Apparel / E-Commerce Site
 
-#### 【役割】
+- Implemented additional features and revamped the existing site
+- About 60% of the team were foreign members
+- Multiple vendors were involved in the microservice-based architecture
+- Onsite work at the client’s location
 
-メンバー
+#### 【Team Size】
 
-#### 【担当フェーズ】
+20 (Front-end: 9)members
 
-開発
+#### 【Role】
 
-#### 【実績・取り組み】
+Member
 
-- ネイティブアプリとやりとりするために SDK を利用する処理があり、ローカルでデバッグできなかったため大変だった
-  - 開発環境で地道に確認するしかなかった
-  - 退場時に改善すべき点としてお客様に共有した
-- キャッチアップするために積極的にコードレビューをした
-- 他社ベンダーとのすり合わせ
-  - 誰に話を通せばスムーズなのかなどを考慮して、事を進めた
-- 英語表現を学んだ
-  - 語彙を増やすために類語を勉強し、タスク共有時に言い回しをかえて覚える
+#### 【Responsibilities】
 
-#### 【反省・課題】
+Development
 
-- リーダーの負担を減らしてほしいという意図に参加初期の頃は気づかなかった
-  - ランチや仕事の合間の雑談で察して、求められる動きがわかった
-    - 以降はメンバーや PO からの質問に答えたり、他社ベンダーから得た情報を共有するなどサポートするように徹した
+#### 【Achievements & Initiatives】
 
-### 2019 年 5 月〜2024 年 1 月 / エンターテイメント / CMS
+- Implemented SDK-based processes for interacting with the native app, which was difficult to debug locally
+  - Had to verify in the development environment step by step
+  - Shared points for improvement with the client at the time of leaving
+- Proactively participated in code reviews to stay up to date
+- Coordinated with other vendors
+  - Thought carefully about who to approach to ensure smooth progress
+- Learned English expressions
+  - Studied synonyms to expand vocabulary and used them in task sharing to improve fluency
 
-- アプリに配信するコンテンツの管理画面
-- メンバーとして参加し、途中からリーダー（約 2 年）として活動
-- 開発フローがかなりカチッと決まっていて安定していた
-- 3 ヶ月ごとのリリース
-- CMS においてはデザイナーがいなかったため、お客様とすり合わせしながら画面デザインをする
+#### 【Reflections & Challenges】
 
-#### 【規模（人）】
+- I didn’t realize the intention to reduce the leader’s burden early on
+  - Gradually noticed it through casual conversations during lunch breaks and work, understanding the necessary steps
+    - From then on, I supported the team by answering questions from members or the PO and sharing information from other vendors
 
-20（フロント：3）
+### May 2019 – January 2024 / Entertainment / CMS
 
-#### 【役割】
+- Developed a content management system (CMS) for managing content distributed to an app
+- Participated as a member and later worked as the team leader (for approximately 2 years)
+- The development process was well-structured and stable
+- Releases were scheduled every three months
+- Since there was no designer for the CMS, I collaborated with the client to align on the screen design
 
-メンバー, チームリーダー
+#### 【Team Size】
 
-#### 【担当フェーズ】
+20 (Front-end: 3)members
 
-要件定義、設計、開発、テスト、運用・保守
+#### 【Role】
 
-#### 【実績・取り組み】
+Team member, Team leader
 
-- Notion にチームのページを作成し、新メンバー向けのオンボーディングやリーター向けのドキュメントを作成した
-- 開発フローに則ったタスク管理用の Notion ページを作成し、1 サイクルごとに運用した
-- 画面要素の一部を画像として保存する機能を実装した
-- リーダーになったタイミングでリファクタを少しづつ進めた
-  - マジックナンバーが数多く存在していたので、定数ファイルとして管理した
-  - Scss の&が多用され、かつ階層が深くなっていたスタイルをシンプルな構造に見直した
-- 複雑なステータス管理があり、お客様・バックエンドチームを交えて調整をした
+#### 【Project Phases】
 
-#### 【反省・課題】
+Requirements definition, design, development, testing, operation, and maintenance
 
-- コンポーネント設計のリファクタリングを完了できなかった
-  - 運用に影響はなかったものの、開発スピードの足枷にはなっていた
-  - 着手が容易、かつリファクタリングの恩恵が高い箇所から始めるべきだった
-- CMS の使い心地について対面で伺う機会があり、そこで意見の引き出しがうまくいってないように感じた
-  - 漠然とした質問を投げかけてしまっていた
-  - 質問や形式を練ったうえでヒアリングすべきだった（匿名のアンケートなど）
+#### 【Achievements and Initiatives】
 
----
+- Created a team page on Notion for onboarding new members and preparing documentation for team leaders
+- Set up a Notion page for task management in line with the development workflow, which was operated for each cycle
+- Implemented a feature that saves part of the screen elements as images
+- Began gradual refactoring when I became the team leader
+  - Managed numerous magic numbers by consolidating them into a constants file
+  - Simplified deeply nested styles that made heavy use of SCSS `&`
+- Coordinated with the client and back-end team to manage complex status configurations
 
-さらに詳しい経歴は[こちらの Notion へ](https://muuuuminn.notion.site/2c73b77aa6ae4b3c8fde02813ae7c9d3?v=a08e9ef62a0c4e40b68641924f3fa21d&pvs=4)
+#### 【Reflections and Challenges】
+
+- Couldn’t complete the refactoring of component design
+  - Although it didn’t affect operations, it became a bottleneck for development speed
+  - Should have started with areas where the impact was high and the refactoring was easier to implement
+- Had a chance to directly ask clients about the usability of the CMS but felt I wasn't able to draw out useful feedback
+  - I asked vague questions
+  - I should have prepared better-structured questions and formats for the hearing process (e.g., anonymous surveys)
 
 ::::
 
-::::details 株式会社テラスカイ（2017/4〜2019/12）
+::::details Terrasky Co., Ltd. (April 2017 – December 2019) / Full-Time / On-site
 
-### 2018 年 4 月〜2018 年 12 月 / ブライダル / スケジュール管理システム
+### April 2018 – December 2018 / Bridal / Schedule Management System
 
-- ブライダルで使用されるプランナー、施設などのリソースをタイムライン上で管理するシステム
-- 要件定義、設計をしつつ、先行してプロトタイプをつくっていた
-- フロントの 7 割くらいを実装
-- 途中からサブリーダー的な位置付けになり、タスク管理やお客様の相談窓口をした
+- Developed a system to manage resources such as planners and venues on a timeline, specifically for the bridal industry
+- Worked on requirements definition and design while also creating a prototype in advance
+- Implemented around 70% of the front-end
+- Later took on a sub-leader role, managing tasks and acting as a liaison for client consultations
 
-#### 【規模（人）】
+#### 【Team Size】
 
-4
+4 members
 
-#### 【役割】
+#### 【Role】
 
-メンバー、チームリーダー
+Team member, Team leader
 
-#### 【担当フェーズ】
+#### 【Project Phases】
 
-要件定義、設計、開発、テスト、運用・保守
+Requirements definition, design, development, testing, operation, and maintenance
 
-#### 【実績・取り組み】
+#### 【Achievements and Initiatives】
 
-- 本格的にフロントの開発をはじめた
-  - HTML, CSS, JavaScript, jQuery の勉強をしながら実装
-- リッチな画面の実装
-  - D&D、要素のリサイズ、要素の表示位置の計算
-  - 週表示の Google カレンダーがイメージに近い
-- パフォーマンス改善をした
-  - API の呼び出しや描画のタイミングなどを調整
-  - アニメーションまわりも Devtools の performance をみながら、なにか調整した（記憶が定かではない）
-  - 要素取得するときには、なるべく id で取得するように変更した
-- お客様の要求とスケジュールの調整ができるようになった
-- なんでもテキストとして残しておくことが大事だと感じた
-  - 仕様として Fix した機能を変えたいとお客様から要望があったときに、事が進めやすくなる
-- フレームワークの不具合をみつけた
-  - オープンソースではないので修正するまでには至らなかったが、不具合回避方法をみつけて対処した
-- ユーザーマニュアルを作成した
+- Began full-fledged front-end development
+  - Implemented while studying HTML, CSS, JavaScript, and jQuery
+- Developed a rich UI
+  - Implemented drag & drop, resizing elements, and calculating the display position of elements
+  - The design was inspired by the weekly view in Google Calendar
+- Improved performance
+  - Adjusted the timing of API calls and rendering
+  - Fine-tuned animations while checking the performance in DevTools (details are a bit unclear)
+  - Switched to retrieving elements by `id` where possible to optimize element access
+- Became proficient at adjusting client requirements and schedules
+- Realized the importance of documenting everything in writing
+  - When clients requested changes to features that were already fixed in the specifications, having written records made it easier to proceed
+- Discovered a bug in the framework
+  - As it was not open-source, I couldn’t fix it directly, but I found a workaround and resolved the issue
+- Created a user manual for the system
 
-#### 【反省・課題】
+#### 【Reflections and Challenges】
 
-- 実装に時間がかかってしまい、多少なりともスケジュールに影響を与えてしまった
-  - 社内だけではなく外部コミュニティに技術的な質問をしてサポートを受けてもよかったと思う
+- The implementation took longer than expected, which had some impact on the schedule
+  - In hindsight, seeking technical support from external communities, in addition to internal resources, might have been beneficial
 
----
-
-さらに詳しい経歴は[こちらの Notion へ](https://muuuuminn.notion.site/2c73b77aa6ae4b3c8fde02813ae7c9d3?v=a08e9ef62a0c4e40b68641924f3fa21d&pvs=4)
 ::::
 
-## 運営ブログ
+## Blog
 
-- [個人ブログ](https://muuuuminn.com/posts)
-- [個人ブログ(投稿者別)](https://toritama-diary.com/)
+- [Personal Blog](https://muuuuminn.com/posts)
+- [Personal Blog (Author-specific)](https://toritama-diary.com/)
 
-## スキルキーワード
+## Skill Keywords
 
-Next.js, Nuxt, TypeScript, React, Vue, JavaScript, HTML, CSS, SCSS, Mantine UI, Bootstrap, Tailwind CSS, Styled components, Emotion, Redux, Vuex, Zustand, Jotai, Tanstack Query, SWR, Apollo Client, GraphQL, MSW, Jest, Storybook, ESLint, Prettier, Git, GitHub Actions, Docker, Vercel, Orval, Zod, OpenAPI, レスポンシブデザイン, WebView, CMS 開発, WYSIWYG エディター, JIRA, Confluence, Notion, GA4, Cognito, スクラム開発, アジャイル開発, 要件定義, 設計, テスト, 運用・保守, プロジェクトマネジメント, チームリーダーシップ, 顧客折衝, 工数見積, スケジュール管理, 英語
+Next.js, Nuxt, TypeScript, React, Vue, JavaScript, HTML, CSS, SCSS, Mantine UI, Bootstrap, Tailwind CSS, Styled components, Emotion, Redux, Vuex, Zustand, Jotai, Tanstack Query, SWR, Apollo Client, GraphQL, MSW, Jest, Storybook, ESLint, Prettier, Git, GitHub Actions, Docker, Vercel, Orval, Zod, OpenAPI, Responsive Design, WebView, CMS Development, WYSIWYG Editor, JIRA, Confluence, Notion, GA4, Cognito, Scrum Development, Agile Development, Requirements Definition, Design, Testing, Operations & Maintenance, Project Management, Team Leadership, Client Negotiations, Estimation, Schedule Management, English
 
-## リンク集
+## Links
 
-- [経歴を PDF でダウンロード](https://muuuuminn.com/resume.pdf)
-- [未読記事](https://www.notion.so/muuuuminn/5e044befd9a9486e92f727169a59d6c9?v=ec5ede1125a44b898f8e40369eb871a9&pvs=73)
-- [既読記事](https://www.notion.so/muuuuminn/1d6db77b5bac4bd29ba1c4c54cbbb98e?v=7d25267df5b54f6a8194e746b58d4278)
-- [YouTube チャンネル](https://www.youtube.com/@nyakinyaki/videos)
+- [Download Resume in PDF](https://muuuuminn.com/resume.pdf)
+- [Unread Articles](https://www.notion.so/muuuuminn/5e044befd9a9486e92f727169a59d6c9?v=ec5ede1125a44b898f8e40369eb871a9&pvs=73)
+- [Read Articles](https://www.notion.so/muuuuminn/1d6db77b5bac4bd29ba1c4c54cbbb98e?v=7d25267df5b54f6a8194e746b58d4278)
+- [YouTube Channel](https://www.youtube.com/@nyakinyaki/videos)
