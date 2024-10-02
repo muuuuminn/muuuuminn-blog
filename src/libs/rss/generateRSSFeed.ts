@@ -4,18 +4,15 @@ import RSS from "rss";
 
 import { getAllPosts } from "../markdown/api";
 
-export default function generateRssFeed() {
+import type { LocalesType } from "../i18n/types";
+
+export default function generateRssFeed(locale: LocalesType) {
   const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
 
-  const posts = getAllPosts([
-    "title",
-    "date",
-    "slug",
-    "coverImage",
-    "description",
-    "category",
-    "tags",
-  ]);
+  const posts = getAllPosts(
+    ["title", "date", "slug", "coverImage", "description", "category", "tags"],
+    locale,
+  );
 
   const feedOptions = {
     title: "RSS Feed | muuuuminn blog",

@@ -7,13 +7,15 @@ import { Policy } from "./Policy";
 import { PolicyLayout } from "./PolicyLayout";
 
 import type { PolicyType } from "@/features/policy/types";
+import type { LocalesType } from "@/libs/i18n";
 import type { NextPageWithLayout } from "@/pages/_app.page";
 
 type PolicyPageProps = {
   policy: PolicyType;
+  locale: LocalesType;
 };
 
-const PolicyPage: NextPageWithLayout<PolicyPageProps> = ({ policy }) => {
+const PolicyPage: NextPageWithLayout<PolicyPageProps> = ({ policy, locale }) => {
   return <Policy policy={policy} />;
 };
 
