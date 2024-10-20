@@ -18,7 +18,7 @@ module.exports = {
       </style>
       <section>
         <span>職務経歴書</span>
-        <span>2024/09/24</span>
+        <span>2024/10/18</span>
       </section>`,
     footerTemplate: `
       <div style="font-size: 10px; margin: 0 auto;">
