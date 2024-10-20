@@ -22,7 +22,7 @@
     "gen:eslint-doc": "npm run eslint:rules && node script/show-eslint-config.js",
     "tsc:rules": "tsc --showConfig > tsconfig-result.json",
     "gen:tsconfig-doc": "npm run tsc:rules && node script/show-tsconfig-config.js",
-    "gen:resume-pdf": "md-to-pdf src/features/resume/resume.md --config-file src/libs/pdf/config.js"
+    "gen:resume-pdf": "md-to-pdf src/features/resume/resume-for-pdf.md --config-file src/libs/pdf/config.js"
   },
   "dependencies": {
     "@emotion/react": "11.11.4",
