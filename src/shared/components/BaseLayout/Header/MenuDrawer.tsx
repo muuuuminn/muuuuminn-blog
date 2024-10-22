@@ -26,12 +26,6 @@ const MenuLinks = [
     targetBlank: true,
   },
   {
-    isNextLink: false,
-    name: "COFFEE",
-    href: "https://www.buymeacoffee.com/muuuuminn",
-    targetBlank: true,
-  },
-  {
     isNextLink: true,
     name: "POLICY",
     href: "/policy",
