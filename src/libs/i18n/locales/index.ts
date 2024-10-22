@@ -17,9 +17,9 @@ export default {
       RESUME: "経歴",
     },
     DESCRIPTION: {
-      POSTS: "muuuuminnによる投稿一覧ページです。",
+      POSTS: "muuuumonnによる投稿一覧ページです。",
       POLICY: "muuuuminn blogのプライバシーポリシーを載せたページです",
-      RESUME: "muuuuminn の経歴が載っているページです",
+      RESUME: "muuuumonn の経歴が載っているページです",
     },
     ALT: {
       SITE_LOGO: "サイトロゴ",
@@ -57,9 +57,9 @@ export default {
       RESUME: "Resume",
     },
     DESCRIPTION: {
-      POSTS: "This page shows a post written by muuuuminn.",
+      POSTS: "This page shows a post written by muuuumonn.",
       POLICY: "This page shows a privacy policy.",
-      RESUME: "This page contains muuuuminn's resume and career history.",
+      RESUME: "This page contains muuuumonn's resume and career history.",
     },
     ALT: {
       SITE_LOGO: "Site logo",

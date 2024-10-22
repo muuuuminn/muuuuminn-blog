@@ -58,4 +58,4 @@ Amazon のアソシエイトとして、[muuuuminn blog]は適格販売により
 改定日:2022 年 2 月 1 日
 
 【muuuuminn blog】
-【muuuuminn】
+【muuuumonn】
