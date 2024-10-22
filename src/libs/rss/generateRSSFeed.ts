@@ -19,7 +19,7 @@ export default function generateRssFeed() {
 
   const feedOptions = {
     title: "RSS Feed | muuuuminn blog",
-    description: "muuuunによるブログです。",
+    description: "muuuumonnによるブログです。",
     site_url: APP_ROOT_URL,
     feed_url: `${APP_ROOT_URL}/rss.xml`,
     image_url: `${APP_ROOT_URL}/logo/logo.png`,
@@ -35,7 +35,7 @@ export default function generateRssFeed() {
       description: post.description,
       url: `${APP_ROOT_URL}/post/${post.slug}`,
       date: post.date,
-      author: "muuuun",
+      author: "muuuumonn",
       categories: [post.category.name, ...post.tags.map((tag) => tag.name)],
     });
   });
