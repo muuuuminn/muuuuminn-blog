@@ -1,4 +1,4 @@
-# muuuuminn blog is a personal markdown blog.
+# muuuun blog is a personal markdown blog.
 
 ## Tech stack
 

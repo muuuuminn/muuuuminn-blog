@@ -30,7 +30,7 @@ export const ArticleJsonLd: FC<ArticleJsonLdProps> = (props) => {
     <_ArticleJsonLd
       authorName={[
         {
-          name: "muuuuminn",
+          name: "muuuun",
           url: "https://twitter.com/4ho_v",
         },
       ]}
@@ -40,7 +40,7 @@ export const ArticleJsonLd: FC<ArticleJsonLdProps> = (props) => {
       images={images}
       isAccessibleForFree={true}
       publisherLogo="https://user-images.githubusercontent.com/38467746/206959970-b3ef349e-e1fc-4646-973f-a7862e1f5d09.png"
-      publisherName="muuuuminn"
+      publisherName="muuuun"
       title={title}
       url={pageUrl}
     />

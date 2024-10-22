@@ -1,6 +1,6 @@
 ---
 title: "職務経歴書"
-date: "2024-10-18"
+date: "2024-10-22"
 ---
 
 # 基本情報
@@ -15,7 +15,6 @@ date: "2024-10-18"
 # アカウント
 
 - [GitHub](https://github.com/muuuuminn)
-- [X(Twitter)](https://x.com/4ho_v)
 
 # 経歴要約
 
