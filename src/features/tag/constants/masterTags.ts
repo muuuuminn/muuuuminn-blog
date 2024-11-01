@@ -216,4 +216,10 @@ export const MASTER_TAGS = [
     color: "3B5998",
     categoryId: "0",
   },
+  {
+    id: "39",
+    name: "メモ書き",
+    color: "808080",
+    categoryId: "0",
+  },
 ];
