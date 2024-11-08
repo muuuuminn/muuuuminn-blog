@@ -1,5 +1,5 @@
 module.exports = {
-  dest: "public/resume.pdf",
+  dest: "public/職務経歴書_20241108.pdf",
   marked_options: {
     headerIds: false,
     smartypants: true,
@@ -18,7 +18,7 @@ module.exports = {
       </style>
       <section>
         <span>職務経歴書</span>
-        <span>2024/10/22</span>
+        <span>2024/11/8</span>
       </section>`,
     footerTemplate: `
       <div style="font-size: 10px; margin: 0 auto;">
