@@ -3,9 +3,6 @@
  */
 const nextConfig = {
   reactStrictMode: true,
-  compiler: {
-    emotion: true,
-  },
   images: {
     domains: ["user-images.githubusercontent.com", "s3.us-west-2.amazonaws.com"],
   },
@@ -22,7 +19,6 @@ const nextConfig = {
       },
     ];
   },
-  pageExtensions: ["page.tsx", "page.ts"],
   experimental: {
     scrollRestoration: true,
   },

@@ -1,6 +1,5 @@
 /** @type {import('eslint/lib/shared/types').ConfigData} */
 const eslintConfig = {
-  plugins: ["@emotion"],
   extends: [
     "eslint:recommended",
     "next/core-web-vitals",
