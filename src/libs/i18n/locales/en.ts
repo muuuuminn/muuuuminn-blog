@@ -8,11 +8,13 @@ export default {
     CONTACT: "Contact",
     WISH_LIST: "Wish list",
     RESUME: "Resume",
+    NOT_FOUND: "Not found",
   },
   DESCRIPTION: {
     POSTS: "This page shows a post written by muuuumonn.",
     POLICY: "This page shows a privacy policy.",
     RESUME: "This page contains muuuumonn's resume and career history.",
+    NOT_FOUND: "The page you are looking for does not exist or may have been deleted.",
   },
   ALT: {
     SITE_LOGO: "Site logo",

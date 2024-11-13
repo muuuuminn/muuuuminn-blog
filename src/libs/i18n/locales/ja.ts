@@ -8,11 +8,13 @@ export default {
     CONTACT: "お問い合わせ",
     WISH_LIST: "欲しいものリスト",
     RESUME: "経歴",
+    NOT_FOUND: "ページが見つかりません",
   },
   DESCRIPTION: {
     POSTS: "muuuumonnによる投稿一覧ページです。",
     POLICY: "muuuuminn blogのプライバシーポリシーを載せたページです",
     RESUME: "muuuumonn の経歴が載っているページです",
+    NOT_FOUND: "お探しのページは存在しないか、削除された可能性があります。",
   },
   ALT: {
     SITE_LOGO: "サイトロゴ",

@@ -1,7 +1,9 @@
-import { FC, ReactNode } from "react";
 import "@radix-ui/themes/styles.css";
 import "zenn-content-css";
 import "@/libs/markdown/prism-override-style.css";
+
+import { FC, ReactNode } from "react";
+import { Theme } from "@radix-ui/themes";
 
 import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
 import { gtmId } from "@/features/gtm/constant";
@@ -30,7 +32,9 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
       <link href="/favicons/site.webmanifest" rel="manifest" />
     </head>
     <GoogleTagManager googleTagManagerId={gtmId as GoogleTagManagerIdType} />
-    <body>{children}</body>
+    <body>
+      <Theme>{children}</Theme>
+    </body>
   </html>
 );
 
