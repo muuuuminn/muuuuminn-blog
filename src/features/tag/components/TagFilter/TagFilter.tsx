@@ -6,7 +6,7 @@ import { Select } from "@radix-ui/themes";
 
 import { useTranslation } from "@/libs/i18n";
 import { Flex } from "@/libs/radix/layout/Container/Container";
-import { Text } from "@/libs/mantine/typography";
+import { Text } from "@/libs/radix/typography/Text";
 
 import type { TagType } from "@/features/tag/types";
 

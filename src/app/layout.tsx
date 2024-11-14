@@ -10,6 +10,7 @@ import { gtmId } from "@/features/gtm/constant";
 import type { GoogleTagManagerIdType } from "@/features/gtm/type";
 import { Metadata } from "next";
 import { getMetadata } from "@/libs/metadata";
+import { Header } from "@/shared/components/BaseLayout/Header";
 
 export const metadata: Metadata = getMetadata();
 
@@ -33,7 +34,10 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
     </head>
     <GoogleTagManager googleTagManagerId={gtmId as GoogleTagManagerIdType} />
     <body>
-      <Theme>{children}</Theme>
+      <Theme>
+        <Header />
+        {children}
+      </Theme>
     </body>
   </html>
 );

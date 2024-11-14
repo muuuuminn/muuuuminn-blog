@@ -2,7 +2,7 @@ import type { FC, ReactNode } from "react";
 
 import { Badge } from "@radix-ui/themes";
 
-import { Text } from "@/libs/mantine/typography";
+import { Text } from "@/libs/radix/typography/Text";
 import { CustomNextLink } from "@/libs/next";
 
 import type { CategoryType } from "@/features/category/types";

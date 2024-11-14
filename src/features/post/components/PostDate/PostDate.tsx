@@ -5,10 +5,10 @@ import { formatDistance, format } from "date-fns";
 import { ja } from "date-fns/locale";
 
 import { useTranslation } from "@/libs/i18n";
-import { Text } from "@/libs/mantine/typography";
+import { Text } from "@/libs/radix/typography/Text";
 
 import type { Locales, LocalesType } from "@/libs/i18n";
-import type { TextProps } from "@/libs/mantine/typography";
+import type { TextProps } from "@/libs/radix/typography/Text";
 
 const DATE_FORMAT = "yyyy/M/d";
 

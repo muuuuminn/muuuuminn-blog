@@ -1,11 +1,12 @@
 import type { FC } from "react";
 
 import { useTranslation } from "@/libs/i18n";
-import { Box, Flex } from "@/libs/radix/layout/Container/Container";
-import { Text } from "@/libs/mantine/typography";
+import { Flex } from "@/libs/radix/layout/Flex";
+import { Box } from "@/libs/radix/layout/Box";
+import { Text } from "@/libs/radix/typography/Text";
 import { CustomNextLink } from "@/libs/next/link/CustomNextLink";
 
-import type { FlexProps } from "@/libs/radix/layout/Container/Container";
+import type { FlexProps } from "@/libs/radix/layout/Flex";
 
 type FooterProps = FlexProps;
 

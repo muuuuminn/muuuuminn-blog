@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { memo } from "react";
 
-import { Text } from "@/libs/mantine/typography";
+import { Text } from "@/libs/radix/typography/Text";
 import { CustomNextLink } from "@/libs/next";
 
 import type { PostType } from "@/features/post/types";

@@ -8,7 +8,7 @@ import { PostDate, PostThumbnail, PostTitleLink } from "@/features/post/componen
 import { NoWrapTagList } from "@/features/tag/components";
 import { useTranslation } from "@/libs/i18n";
 import { HStack, Stack, Box } from "@/libs/radix/layout/Container/Container";
-import { Text } from "@/libs/mantine/typography";
+import { Text } from "@/libs/radix/typography/Text";
 
 import type { PostType } from "@/features/post/types";
 import type { BoxProps } from "@/libs/radix/layout/Container/Container";

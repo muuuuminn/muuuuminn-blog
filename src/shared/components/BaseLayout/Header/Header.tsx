@@ -1,66 +1,49 @@
 import type { FC } from "react";
 import { memo } from "react";
+import { Heading } from "@radix-ui/themes";
+import Link from "next/link";
 
-import {
-  em,
-  getBreakpointValue,
-  Title,
-  useMantineColorScheme,
-  useMantineTheme,
-} from "@radix-ui/themes";
-import { useMediaQuery } from "@mantine/hooks";
-
-import { useTranslation } from "@/libs/i18n";
-import { Flex, HStack } from "@/libs/radix/layout/Container/Container";
-import { Text } from "@/libs/mantine/typography";
-import { CustomNextLink } from "@/libs/next";
-
+import { Box } from "@/libs/radix/layout/Box";
+import { Flex } from "@/libs/radix/layout/Flex";
+import { Text } from "@/libs/radix/typography/Text";
+import { getDictionary } from "@/libs/i18n";
 import { Logo } from "./Logo";
-import { MenuDrawer } from "./MenuDrawer";
-import { ToggleAppearanceButton } from "./ToggleAppearanceButton";
+// import { MenuDrawer } from "./MenuDrawer";
 
-import type { FlexProps } from "@/libs/radix/layout/Container/Container";
+type HeaderProps = {};
 
-type HeaderProps = FlexProps;
-
-// TODO: PCのレイアウトも用意する
-export const Header: FC<HeaderProps> = memo(function _header() {
-  const { t } = useTranslation();
-  const { colorScheme } = useMantineColorScheme();
-  const { breakpoints } = useMantineTheme();
-  const largerThanSm = useMediaQuery(`(min-width: ${em(getBreakpointValue(breakpoints.sm))})`);
+export const Header: FC<HeaderProps> = memo(async function Header() {
+  const d = await getDictionary();
 
   return (
-    <Flex align={"center"} component={"header"} justify={"space-between"} py={16}>
-      <CustomNextLink
-        href={"/posts"}
-        p={8}
-        prefetch={false}
-        sx={{
-          textDecoration: "none",
-          borderRadius: "0.75rem",
-          "&:hover": {
+    <Flex align="center" asChild justify="between" py="16">
+      <header>
+        <Box
+          asChild
+          style={{
+            padding: "8px",
             textDecoration: "none",
-            backgroundColor: "#fec8c82e",
-          },
-        }}
-      >
-        <Flex align={"center"} gap={8}>
-          <Logo />
-          <Text
-            color={colorScheme === "dark" ? "#fec8c8" : "#473a39"}
-            fz={largerThanSm ? "lg" : "sm"}
-            weight={"bolder"}
-          >
-            {t.SITE_NAME}
-          </Text>
-        </Flex>
-        <Title hidden>{t.SITE_NAME}</Title>
-      </CustomNextLink>
-      <HStack>
-        <ToggleAppearanceButton />
-        <MenuDrawer />
-      </HStack>
+            borderRadius: "0.75rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            backgroundColor: "transparent",
+            transition: "background-color 0.2s ease",
+          }}
+          // onMouseEnter={(e) => {
+          //   (e.currentTarget as HTMLElement).style.backgroundColor = "#fec8c82e";
+          // }}
+          // onMouseLeave={(e) => {
+          //   (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+          // }}
+        >
+          <Link href="/posts">
+            <Logo />
+            <Text weight="bold">{d.SITE_NAME}</Text>
+            <Heading hidden>{d.SITE_NAME}</Heading>
+          </Link>
+        </Box>
+      </header>
     </Flex>
   );
 });

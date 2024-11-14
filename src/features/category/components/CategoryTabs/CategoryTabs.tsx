@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { useCallback, useMemo } from "react";
 
 import { Box, HStack } from "@/libs/radix/layout/Container/Container";
-import { Text } from "@/libs/mantine/typography";
+import { Text } from "@/libs/radix/typography/Text";
 import { CustomNextLink } from "@/libs/next";
 
 import type { CategoryType } from "@/features/category/types";
