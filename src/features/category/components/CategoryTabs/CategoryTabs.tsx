@@ -2,12 +2,12 @@ import { useRouter } from "next/router";
 import type { FC } from "react";
 import { useCallback, useMemo } from "react";
 
-import { Box, HStack } from "@/libs/mantine/layout";
+import { Box, HStack } from "@/libs/radix/layout/Container/Container";
 import { Text } from "@/libs/mantine/typography";
 import { CustomNextLink } from "@/libs/next";
 
 import type { CategoryType } from "@/features/category/types";
-import type { BoxProps } from "@/libs/mantine/layout";
+import type { BoxProps } from "@/libs/radix/layout/Container/Container";
 
 type CategoryTabsProps = BoxProps & {
   categories: CategoryType[];
@@ -32,7 +32,7 @@ export const CategoryTabs: FC<CategoryTabsProps> = ({ categories }) => {
 
   return (
     <Box>
-      <HStack noWrap sx={{ overflowX: "scroll" }}>
+      <HStack wrap={"nowrap"} overflowX={"scroll"}>
         {tabList.map((tab) => (
           <Box
             data-selected={

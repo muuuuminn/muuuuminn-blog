@@ -2,14 +2,14 @@ import { useRouter } from "next/router";
 import type { FC } from "react";
 import { memo, useMemo } from "react";
 
-import { Badge, useMantineColorScheme } from "@mantine/core";
+import { Badge, useMantineColorScheme } from "@radix-ui/themes";
 
 import { fireClickTagTrigger } from "@/features/gtm/utils";
 import { CustomNextLink } from "@/libs/next";
 
 import type { TagType } from "@/features/tag/types";
 import type { CustomNextLinkProps } from "@/libs/next";
-import type { BadgeProps } from "@mantine/core";
+import type { BadgeProps } from "@radix-ui/themes";
 
 type TagProps = Omit<CustomNextLinkProps, "href"> & {
   tag: TagType;

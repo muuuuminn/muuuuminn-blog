@@ -1,11 +1,11 @@
 import type { FC } from "react";
 import { memo } from "react";
 
-import { Title } from "@mantine/core";
+import { Title } from "@radix-ui/themes";
 
 import { PostCard } from "@/features/post/components";
 import { useTranslation } from "@/libs/i18n";
-import { Stack } from "@/libs/mantine/layout";
+import { Stack } from "@/libs/radix/layout/Container/Container";
 
 import type { PostListType } from "@/features/post/types";
 

@@ -1,4 +1,4 @@
-import { ActionIcon, useMantineColorScheme } from "@mantine/core";
+import { ActionIcon, useMantineColorScheme } from "@radix-ui/themes";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 
 import { useTranslation } from "@/libs/i18n";

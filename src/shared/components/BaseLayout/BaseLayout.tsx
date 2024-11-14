@@ -1,15 +1,15 @@
 import { BIZ_UDPGothic } from "next/font/google";
 import type { FC } from "react";
 
-import { em, getBreakpointValue, SimpleGrid, useMantineTheme } from "@mantine/core";
+import { em, getBreakpointValue, SimpleGrid, useMantineTheme } from "@radix-ui/themes";
 import { useMediaQuery } from "@mantine/hooks";
 
-import { Box } from "@/libs/mantine/layout";
+import { Box } from "@/libs/radix/layout/Container/Container";
 
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-import type { SimpleGridProps } from "@mantine/core";
+import type { SimpleGridProps } from "@radix-ui/themes";
 
 type BaseLayoutProps = SimpleGridProps;
 

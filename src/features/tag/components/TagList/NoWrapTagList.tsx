@@ -1,15 +1,15 @@
 import type { FC } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
 
-import { createStyles } from "@mantine/core";
+import { createStyles } from "@radix-ui/themes";
 
-import { Box, Flex } from "@/libs/mantine/layout";
+import { Box, Flex } from "@/libs/radix/layout/Container/Container";
 
 import { Tag } from "./Tag";
 import { TagMenu } from "./TagMenu";
 
 import type { TagType } from "@/features/tag/types";
-import type { FlexProps } from "@/libs/mantine/layout";
+import type { FlexProps } from "@/libs/radix/layout/Container/Container";
 
 type NoWrapTagListProps = FlexProps & {
   tags: TagType[];

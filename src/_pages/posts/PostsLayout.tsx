@@ -4,7 +4,7 @@ import type { FC, ReactNode } from "react";
 import { CategoryTabs } from "@/features/category/components";
 import { TagFilter } from "@/features/tag/components";
 import { useTranslation } from "@/libs/i18n";
-import { Flex } from "@/libs/mantine/layout";
+import { Flex } from "@/libs/radix/layout/Container/Container";
 import { BasicSeo } from "@/shared/components";
 
 import type { CategoryType } from "@/features/category/types";

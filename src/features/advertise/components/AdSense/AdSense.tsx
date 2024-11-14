@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import { Box } from "@/libs/mantine/layout";
+import { Box } from "@/libs/radix/layout/Container/Container";
 
 export const AdSense: React.FC = () => {
   const { asPath } = useRouter();

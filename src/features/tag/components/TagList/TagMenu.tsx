@@ -1,14 +1,14 @@
 import type { FC } from "react";
 import { memo } from "react";
 
-import { Badge, Popover } from "@mantine/core";
+import { Badge, Popover } from "@radix-ui/themes";
 
-import { Box, Flex } from "@/libs/mantine/layout";
+import { Box, Flex } from "@/libs/radix/layout/Container/Container";
 
 import { Tag } from "./Tag";
 
 import type { TagType } from "@/features/tag/types";
-import type { BadgeProps } from "@mantine/core";
+import type { BadgeProps } from "@radix-ui/themes";
 
 type TagProps = BadgeProps & {
   countsOfTagInMenu?: number;

@@ -2,10 +2,10 @@ import { useRouter } from "next/router";
 import type { FC } from "react";
 import { memo, useCallback } from "react";
 
-import { Select } from "@mantine/core";
+import { Select } from "@radix-ui/themes";
 
 import { useTranslation } from "@/libs/i18n";
-import { Flex } from "@/libs/mantine/layout";
+import { Flex } from "@/libs/radix/layout/Container/Container";
 import { Text } from "@/libs/mantine/typography";
 
 import type { TagType } from "@/features/tag/types";

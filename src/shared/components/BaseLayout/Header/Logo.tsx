@@ -1,7 +1,7 @@
-import type { FC} from "react";
+import type { FC } from "react";
 import { memo } from "react";
 
-import { AspectRatio, createStyles, useMantineColorScheme } from "@mantine/core";
+import { AspectRatio, createStyles, useMantineColorScheme } from "@radix-ui/themes";
 
 import { useTranslation } from "@/libs/i18n";
 import { NextImage } from "@/libs/next";

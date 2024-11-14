@@ -1,12 +1,12 @@
 import type { FC, ReactNode } from "react";
 
-import { Badge } from "@mantine/core";
+import { Badge } from "@radix-ui/themes";
 
 import { Text } from "@/libs/mantine/typography";
 import { CustomNextLink } from "@/libs/next";
 
 import type { CategoryType } from "@/features/category/types";
-import type { BadgeProps } from "@mantine/core";
+import type { BadgeProps } from "@radix-ui/themes";
 
 type CategoryProps = BadgeProps & {
   category: CategoryType;

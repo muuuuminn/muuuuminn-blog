@@ -1,17 +1,17 @@
 import type { FC } from "react";
 import { memo } from "react";
 
-import { createStyles } from "@mantine/core";
+import { createStyles } from "@radix-ui/themes";
 
 import { Category } from "@/features/category/components";
 import { PostDate, PostThumbnail, PostTitleLink } from "@/features/post/components";
 import { NoWrapTagList } from "@/features/tag/components";
 import { useTranslation } from "@/libs/i18n";
-import { HStack, Stack, Box } from "@/libs/mantine/layout";
+import { HStack, Stack, Box } from "@/libs/radix/layout/Container/Container";
 import { Text } from "@/libs/mantine/typography";
 
 import type { PostType } from "@/features/post/types";
-import type { BoxProps } from "@/libs/mantine/layout";
+import type { BoxProps } from "@/libs/radix/layout/Container/Container";
 
 type PostCardProps = {
   post: PostType;

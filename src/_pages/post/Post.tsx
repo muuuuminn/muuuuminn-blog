@@ -4,7 +4,7 @@ import { AdSense } from "@/features/advertise/components";
 import { PostDetail } from "@/features/post/components";
 import { RelatedPostsArea } from "@/features/related-posts/components";
 import { useTranslation } from "@/libs/i18n";
-import { Stack } from "@/libs/mantine/layout";
+import { Stack } from "@/libs/radix/layout/Container/Container";
 import { ArticleSeo, ArticleJsonLd } from "@/shared/components";
 
 import type { PostDetailType, PostListType } from "@/features/post/types";

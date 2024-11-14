@@ -1,17 +1,17 @@
 import type { FC } from "react";
 
-import { em, getBreakpointValue, Title, useMantineTheme } from "@mantine/core";
+import { em, getBreakpointValue, Title, useMantineTheme } from "@radix-ui/themes";
 import { useMediaQuery } from "@mantine/hooks";
 
 import { Category } from "@/features/category/components";
 import { PostDate, PostThumbnail } from "@/features/post/components";
 import { WrapTagList } from "@/features/tag/components";
 import { useTranslation } from "@/libs/i18n";
-import { Box, HStack, Stack } from "@/libs/mantine/layout";
+import { Box, HStack, Stack } from "@/libs/radix/layout/Container/Container";
 import { RichMarkdownContent } from "@/shared/components";
 
 import type { PostDetailType } from "@/features/post/types";
-import type { BoxProps } from "@/libs/mantine/layout";
+import type { BoxProps } from "@/libs/radix/layout/Container/Container";
 
 type PostDetailProps = {
   postDetail: PostDetailType;

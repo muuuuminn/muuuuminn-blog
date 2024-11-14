@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { useMemo } from "react";
 
 import { PostCardList } from "@/features/post/components";
-import { Box } from "@/libs/mantine/layout";
+import { Box } from "@/libs/radix/layout/Container/Container";
 
 import type { PostListType } from "@/features/post/types";
 import type { TagType } from "@/features/tag/types";

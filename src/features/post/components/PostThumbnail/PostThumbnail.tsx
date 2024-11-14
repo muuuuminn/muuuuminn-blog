@@ -1,11 +1,11 @@
 import type { FC } from "react";
 import { memo } from "react";
 
-import { AspectRatio } from "@mantine/core";
+import { AspectRatio } from "@radix-ui/themes";
 
 import { NextImage } from "@/libs/next";
 
-import type { AspectRatioProps } from "@mantine/core";
+import type { AspectRatioProps } from "@radix-ui/themes";
 
 interface PostThumbnailProps extends AspectRatioProps {
   src: string;

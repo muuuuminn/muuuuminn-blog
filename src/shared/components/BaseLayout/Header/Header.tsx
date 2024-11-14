@@ -1,4 +1,4 @@
-import type { FC} from "react";
+import type { FC } from "react";
 import { memo } from "react";
 
 import {
@@ -7,11 +7,11 @@ import {
   Title,
   useMantineColorScheme,
   useMantineTheme,
-} from "@mantine/core";
+} from "@radix-ui/themes";
 import { useMediaQuery } from "@mantine/hooks";
 
 import { useTranslation } from "@/libs/i18n";
-import { Flex, HStack } from "@/libs/mantine/layout";
+import { Flex, HStack } from "@/libs/radix/layout/Container/Container";
 import { Text } from "@/libs/mantine/typography";
 import { CustomNextLink } from "@/libs/next";
 
@@ -19,7 +19,7 @@ import { Logo } from "./Logo";
 import { MenuDrawer } from "./MenuDrawer";
 import { ToggleAppearanceButton } from "./ToggleAppearanceButton";
 
-import type { FlexProps} from "@/libs/mantine/layout";
+import type { FlexProps } from "@/libs/radix/layout/Container/Container";
 
 type HeaderProps = FlexProps;
 
