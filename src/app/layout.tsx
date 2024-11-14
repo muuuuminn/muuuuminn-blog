@@ -4,13 +4,15 @@ import "@/libs/markdown/prism-override-style.css";
 
 import { FC, ReactNode } from "react";
 import { Theme } from "@radix-ui/themes";
-
-import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
-import { gtmId } from "@/features/gtm/constant";
-import type { GoogleTagManagerIdType } from "@/features/gtm/type";
 import { Metadata } from "next";
+
 import { getMetadata } from "@/libs/metadata";
 import { Header } from "@/shared/components/BaseLayout/Header";
+import { Footer } from "@/shared/components/BaseLayout/Footer";
+import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
+import { gtmId } from "@/features/gtm/constant";
+
+import type { GoogleTagManagerIdType } from "@/features/gtm/type";
 
 export const metadata: Metadata = getMetadata();
 
@@ -37,6 +39,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
       <Theme>
         <Header />
         {children}
+        <Footer />
       </Theme>
     </body>
   </html>

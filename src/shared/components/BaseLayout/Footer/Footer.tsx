@@ -1,37 +1,44 @@
 import type { FC } from "react";
+import Link from "next/link";
 
-import { useTranslation } from "@/libs/i18n";
-import { Flex } from "@/libs/radix/layout/Flex";
+import { getDictionary } from "@/libs/i18n";
 import { Box } from "@/libs/radix/layout/Box";
+import { Flex } from "@/libs/radix/layout/Flex";
 import { Text } from "@/libs/radix/typography/Text";
-import { CustomNextLink } from "@/libs/next/link/CustomNextLink";
 
-import type { FlexProps } from "@/libs/radix/layout/Flex";
+type FooterProps = React.ComponentProps<typeof Flex>;
 
-type FooterProps = FlexProps;
+export const Footer: FC<FooterProps> = async () => {
+  const d = await getDictionary();
 
-export const Footer: FC<FooterProps> = () => {
-  const { t } = useTranslation();
   return (
-    <Flex align={"center"} component={"footer"} direction={"column"} py={"1"}>
-      <Box
-        component={CustomNextLink}
-        href={"/policy"}
-        prefetch={false}
-        sx={{
-          textDecoration: "none",
-          ":hover": {
-            textDecoration: "underline",
-          },
-        }}
-      >
-        <Text color={"gray"} fz={"sm"} weight={"bold"}>
-          {t.PAGE.POLICY}
+    <Flex align="center" asChild direction="column" py="1">
+      <footer>
+        <Box asChild>
+          <Link href="/policy" passHref>
+            <Text
+              style={{
+                color: "var(--color-gray)",
+                fontSize: "var(--font-size-sm)",
+                fontWeight: "bold",
+                textDecoration: "none",
+                transition: "text-decoration 0.2s ease",
+              }}
+              // onMouseEnter={(e) => {
+              //   (e.currentTarget as HTMLElement).style.textDecoration = "underline";
+              // }}
+              // onMouseLeave={(e) => {
+              //   (e.currentTarget as HTMLElement).style.textDecoration = "none";
+              // }}
+            >
+              {d.PAGE.POLICY}
+            </Text>
+          </Link>
+        </Box>
+        <Text style={{ color: "var(--color-gray)", fontSize: "var(--font-size-xs)" }}>
+          {d.COPYRIGHT}
         </Text>
-      </Box>
-      <Text color={"gray"} fz={"xs"}>
-        {t.COPYRIGHT}
-      </Text>
+      </footer>
     </Flex>
   );
 };
