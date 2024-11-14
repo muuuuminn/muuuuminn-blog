@@ -23,6 +23,8 @@ export const SITE_METADATA = {
 
 const TITLE_SUFFIX = " | muuuuminn blog";
 
+export const OG_IMAGE_EXTENSION_TYPE = "image/png";
+
 export const getMetadata = (
   option?: Partial<{
     title: string;
@@ -38,10 +40,9 @@ export const getMetadata = (
       publishedTime: string;
       section: string;
       tags: string[];
-      authors: string[];
     };
   }>,
-): Metadata => {
+) => {
   const {
     title = SITE_METADATA.TITLE,
     description = SITE_METADATA.DESCRIPTION,
@@ -49,12 +50,10 @@ export const getMetadata = (
     ogImage = {
       alt: `${title}のサムネイル`,
       url: `${SITE_METADATA.APP_ROOT_URL}${SITE_METADATA.LOGO_PATH}`,
-      type: "image/png",
+      type: OG_IMAGE_EXTENSION_TYPE,
     },
     openGraphType = "website",
-    article = {
-      authors: [SITE_METADATA.AUTHOR.URL],
-    },
+    article,
   } = option || {};
 
   const pageUrl = SITE_METADATA.APP_ROOT_URL + path;
@@ -71,7 +70,12 @@ export const getMetadata = (
       title,
       description,
       images: [ogImage],
-      ...(openGraphType === "article" ? article : {}),
+      ...(openGraphType === "article"
+        ? {
+            ...article,
+            authors: [SITE_METADATA.AUTHOR.URL],
+          }
+        : {}),
     },
     authors: {
       url: SITE_METADATA.AUTHOR.URL,
