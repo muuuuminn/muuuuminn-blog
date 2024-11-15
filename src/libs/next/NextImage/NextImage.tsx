@@ -15,6 +15,7 @@ const _NextImage = (props: NextImageProps) => {
       alt={alt}
       fill={fill}
       height={height}
+      width={width}
       placeholder={enableBlur ? "blur" : undefined}
       quality={quality}
       src={src}
@@ -22,7 +23,6 @@ const _NextImage = (props: NextImageProps) => {
         objectFit: "contain",
         transition: "all 0.01s",
       }}
-      width={width}
     />
   ) : (
     <Box style={{ backgroundColor: "currentcolor", width: `${width}px`, height: `${height}px` }} />

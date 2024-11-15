@@ -4,7 +4,7 @@ import { memo, useCallback } from "react";
 
 import { Select } from "@radix-ui/themes";
 
-import { useTranslation } from "@/libs/i18n";
+import { getDictionary } from "@/libs/i18n";
 import { Flex } from "@/libs/radix/layout/Container/Container";
 import { Text } from "@/libs/radix/typography/Text";
 
@@ -14,8 +14,8 @@ type TagFilterProps = {
   tags: TagType[];
 };
 
-const _TagFilter: FC<TagFilterProps> = ({ tags }) => {
-  const { t } = useTranslation();
+const _TagFilter: FC<TagFilterProps> = async ({ tags }) => {
+  const d = await getDictionary();
   const router = useRouter();
   const categoryNameAsQuery = (router.query.category_name as string) || "";
   const tagNameAsQuery = (router.query.tag as string) || "";
@@ -47,11 +47,11 @@ const _TagFilter: FC<TagFilterProps> = ({ tags }) => {
       <Select
         clearable
         data={[
-          { value: "", label: t.COMPONENTS.TAG.PLACEHOLDER },
+          { value: "", label: d.COMPONENTS.TAG.PLACEHOLDER },
           ...tags.map((tag) => ({ value: tag.name, label: tag.name })),
         ]}
         onChange={onChange}
-        placeholder={t.COMPONENTS.TAG.PLACEHOLDER}
+        placeholder={d.COMPONENTS.TAG.PLACEHOLDER}
         searchable
         styles={(theme) => ({
           fontSize: "16px",
@@ -69,7 +69,7 @@ const _TagFilter: FC<TagFilterProps> = ({ tags }) => {
         w={"100%"}
       />
       <Text fz={"xs"} sx={{ flexShrink: 0 }}>
-        {t.COMPONENTS.TAG.LABEL}
+        {d.COMPONENTS.TAG.LABEL}
       </Text>
     </Flex>
   );

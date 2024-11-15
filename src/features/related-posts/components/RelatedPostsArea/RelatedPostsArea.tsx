@@ -1,11 +1,10 @@
 import type { FC } from "react";
 import { memo } from "react";
+import { Heading } from "@radix-ui/themes";
 
-import { Title } from "@radix-ui/themes";
-
-import { PostCard } from "@/features/post/components";
-import { useTranslation } from "@/libs/i18n";
-import { Stack } from "@/libs/radix/layout/Container/Container";
+import { getDictionary } from "@/libs/i18n";
+import { HStack } from "@/libs/radix/layout/Stack";
+import { PostCard } from "@/features/post/components/PostCard";
 
 import type { PostListType } from "@/features/post/types";
 
@@ -13,27 +12,25 @@ type RelatedPostsArea = {
   relatedPosts: PostListType;
 };
 
-const _RelatedPostsArea: FC<RelatedPostsArea> = ({ relatedPosts }) => {
-  const { t } = useTranslation();
+const _RelatedPostsArea: FC<RelatedPostsArea> = async ({ relatedPosts }) => {
+  const d = await getDictionary();
   return (
-    <Stack>
-      <Title
-        fw={"bold"}
-        fz={"lg"}
-        sx={(theme) => ({
-          borderBottom: `2px solid ${
-            theme.colorScheme === "dark"
-              ? theme.colors["light-coral"][1]
-              : theme.colors["light-coral"][8]
-          }`,
-        })}
+    <HStack>
+      <Heading
+      // sx={(theme) => ({
+      //   borderBottom: `2px solid ${
+      //     theme.colorScheme === "dark"
+      //       ? theme.colors["light-coral"][1]
+      //       : theme.colors["light-coral"][8]
+      //   }`,
+      // })}
       >
-        {t.COMPONENTS.RELATED_POST_AREA.TITLE}
-      </Title>
+        {d.COMPONENTS.RELATED_POST_AREA.TITLE}
+      </Heading>
       {relatedPosts.map((relatedPost) => (
         <PostCard key={relatedPost.slug} post={relatedPost} />
       ))}
-    </Stack>
+    </HStack>
   );
 };
 

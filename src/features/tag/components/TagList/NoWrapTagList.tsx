@@ -1,17 +1,15 @@
 import type { FC } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
 
-import { createStyles } from "@radix-ui/themes";
-
-import { Box, Flex } from "@/libs/radix/layout/Container/Container";
-
+import { Box } from "@/libs/radix/layout/Box";
+import { Flex } from "@/libs/radix/layout/Flex";
 import { Tag } from "./Tag";
 import { TagMenu } from "./TagMenu";
 
 import type { TagType } from "@/features/tag/types";
-import type { FlexProps } from "@/libs/radix/layout/Container/Container";
+import type { ComponentProps } from "react";
 
-type NoWrapTagListProps = FlexProps & {
+type NoWrapTagListProps = ComponentProps<typeof Flex> & {
   tags: TagType[];
   tagProps?: {
     shallow?: boolean;
@@ -19,21 +17,7 @@ type NoWrapTagListProps = FlexProps & {
   };
 };
 
-const useStyles = createStyles(() => ({
-  tagWrapper: {
-    flexShrink: 0,
-    cursor: "pointer",
-  },
-  tag: {
-    visibility: "hidden",
-    "&[data-visibility='true']": {
-      visibility: "visible",
-    },
-  },
-}));
-
 const _NoWrapTagList: FC<NoWrapTagListProps> = ({ tags, tagProps, ...flexProps }) => {
-  const { classes } = useStyles();
   const childrenWrapper = useRef<HTMLDivElement>(null);
   const [visibilityMap, setVisibilityMap] = useState<Record<string, boolean>>({});
 
@@ -50,14 +34,8 @@ const _NoWrapTagList: FC<NoWrapTagListProps> = ({ tags, tagProps, ...flexProps }
   const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
     const updatedEntries: Record<string, boolean> = {};
     entries.forEach((entry) => {
-      if (entry.target) {
-        const targetId = (entry.target as HTMLElement).dataset.id || "";
-        if (entry.isIntersecting) {
-          updatedEntries[targetId] = true;
-        } else {
-          updatedEntries[targetId] = false;
-        }
-      }
+      const targetId = (entry.target as HTMLElement).dataset.id || "";
+      updatedEntries[targetId] = entry.isIntersecting;
     });
     setVisibilityMap((prev) => ({
       ...prev,
@@ -78,22 +56,29 @@ const _NoWrapTagList: FC<NoWrapTagListProps> = ({ tags, tagProps, ...flexProps }
   }, [handleIntersection]);
 
   return (
-    <Flex gap={8} ref={childrenWrapper} w={"max-content"} {...flexProps}>
+    <Flex ref={childrenWrapper} gap="8px" style={{ width: "max-content" }} {...flexProps}>
       {tags.map((tag, index) => {
         const isVisibleTag = visibilityMap[tag.id];
         return (
           <Box
-            className={classes.tagWrapper}
-            data-id={tag.id}
-            h={24}
             key={tag.id}
-            // タグがひとつであれば、省略せずに全表示する
-            w={tags.length === 1 ? "100%" : "90px"}
+            data-id={tag.id}
+            style={{
+              flexShrink: 0,
+              cursor: "pointer",
+              height: "24px",
+              width: tags.length === 1 ? "100%" : "90px",
+            }}
           >
             {index === lastVisibleTagIndex ? (
               <TagMenu countsOfTagInMenu={invisibleTags.length} tags={invisibleTags} />
             ) : (
-              <Tag className={classes.tag} data-visibility={isVisibleTag} tag={tag} {...tagProps} />
+              <Tag
+                data-visibility={isVisibleTag}
+                style={{ visibility: isVisibleTag ? "visible" : "hidden" }}
+                tag={tag}
+                {...tagProps}
+              />
             )}
           </Box>
         );

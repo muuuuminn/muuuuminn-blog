@@ -3,7 +3,7 @@ import { memo } from "react";
 
 import { Box } from "@/libs/radix/layout/Box";
 import { getDictionary } from "@/libs/i18n";
-import { NextImage } from "@/libs/next/image/NextImage";
+import { NextImage } from "@/libs/next/NextImage";
 
 const RATIO = 1 / 0.689;
 

@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 import type { FC } from "react";
 import { memo, useMemo } from "react";
 
-import { Badge, useMantineColorScheme } from "@radix-ui/themes";
+import { Badge } from "@radix-ui/themes";
 
-import { fireClickTagTrigger } from "@/features/gtm/utils";
+import { fireClickTagTrigger } from "@/features/gtm/eventTrigger";
 import { CustomNextLink } from "@/libs/next";
 
 import type { TagType } from "@/features/tag/types";
@@ -33,35 +33,31 @@ const _Tag: FC<TagProps> = ({ tag, ...rest }) => {
     }
   }, [categoryNameAsQuery, tag]);
 
-  const { colorScheme } = useMantineColorScheme();
-  const hoverBackgroundColor = colorScheme === "dark" ? "#333333" : "#3333332e";
+  const hoverBackgroundColor = "#333333";
 
   return (
     <Badge
       {...rest}
-      component={CustomNextLink}
-      fullWidth
-      fz={"sm"}
-      href={href}
-      onClick={() => fireClickTagTrigger(tag)}
-      prefetch={false}
-      px={8}
-      radius={"lg"}
-      size={"lg"}
-      sx={(theme) => ({
-        cursor: "pointer",
-        "--var-badge-color": tag.color ? `#${tag.color}` : "currentcolor",
-        fontWeight: "normal",
-        color: theme.colorScheme === "dark" ? "white" : "black",
-        textTransform: "none",
-        ":hover": {
-          textDecoration: "none",
-          backgroundColor: tag.color ? `#${tag.color}2E` : hoverBackgroundColor,
-        },
-      })}
+      asChild
+      // fz={"sm"}
+      // px={8}
+      size={"3"}
+      // sx={(theme) => ({
+      //   cursor: "pointer",
+      //   "--var-badge-color": tag.color ? `#${tag.color}` : "currentcolor",
+      //   fontWeight: "normal",
+      //   color: theme.colorScheme === "dark" ? "white" : "black",
+      //   textTransform: "none",
+      //   ":hover": {
+      //     textDecoration: "none",
+      //     backgroundColor: tag.color ? `#${tag.color}2E` : hoverBackgroundColor,
+      //   },
+      // })}
       variant="outline"
     >
-      #{tag.name}
+      <CustomNextLink prefetch={false} href={href} onClick={() => fireClickTagTrigger(tag)}>
+        #{tag.name}
+      </CustomNextLink>
     </Badge>
   );
 };

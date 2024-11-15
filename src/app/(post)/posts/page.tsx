@@ -3,6 +3,7 @@ import { FC } from "react";
 import { getAllPosts } from "@/libs/markdown/api";
 import { getDictionary } from "@/libs/i18n";
 import { getMetadata } from "@/libs/metadata";
+import { PostCardList } from "@/features/post/components/PostCardList";
 
 type PostsPageProps = {
   searchParams: Promise<{ tag: string }>;
@@ -30,7 +31,11 @@ const PostsPage: FC<PostsPageProps> = () => {
     "tags",
   ]);
 
-  return <div>{JSON.stringify(posts)}</div>;
+  return (
+    <div>
+      <PostCardList posts={posts} />
+    </div>
+  );
 };
 
 export default PostsPage;

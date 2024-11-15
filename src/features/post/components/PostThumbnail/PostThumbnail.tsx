@@ -1,13 +1,9 @@
 import type { FC } from "react";
 import { memo } from "react";
 
-import { AspectRatio } from "@radix-ui/themes";
+import { NextImage } from "@/libs/next/NextImage";
 
-import { NextImage } from "@/libs/next";
-
-import type { AspectRatioProps } from "@radix-ui/themes";
-
-interface PostThumbnailProps extends AspectRatioProps {
+interface PostThumbnailProps {
   src: string;
   imageQuality?: number;
   sizeSet?: {
@@ -25,31 +21,21 @@ const _PostThumbnail: FC<PostThumbnailProps> = ({
   sizeSet = { width: 100, height: 100 },
   enableBlur,
   alt = "",
-  ratio = 1 / 1,
+  // ratio = 1 / 1,
   ...rest
 }) => {
   return (
-    <AspectRatio
-      h={sizeSet.height}
-      ratio={ratio}
-      sx={{
+    <NextImage
+      // borderRadius={"xl"}
+      alt={alt}
+      enableBlur={enableBlur}
+      quality={imageQuality}
+      src={src}
+      style={{
         borderRadius: "10px",
       }}
-      w={sizeSet.width}
-      {...rest}
-    >
-      <NextImage
-        // borderRadius={"xl"}
-        alt={alt}
-        enableBlur={enableBlur}
-        quality={imageQuality}
-        src={src}
-        style={{
-          borderRadius: "10px",
-        }}
-        {...sizeSet}
-      />
-    </AspectRatio>
+      {...sizeSet}
+    />
   );
 };
 

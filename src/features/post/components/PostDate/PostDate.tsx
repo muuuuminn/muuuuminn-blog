@@ -4,15 +4,15 @@ import { memo } from "react";
 import { formatDistance, format } from "date-fns";
 import { ja } from "date-fns/locale";
 
-import { useTranslation } from "@/libs/i18n";
+import { getDictionary } from "@/libs/i18n";
 import { Text } from "@/libs/radix/typography/Text";
 
-import type { Locales, LocalesType } from "@/libs/i18n";
+import type { LocalesType, DictionaryKeys } from "@/libs/i18n";
 import type { TextProps } from "@/libs/radix/typography/Text";
 
 const DATE_FORMAT = "yyyy/M/d";
 
-const getRelativeDate = (date: string, t: Locales, locale: LocalesType) => {
+const getRelativeDate = (date: string, t: DictionaryKeys, locale: LocalesType) => {
   const isInvalidDate = Number.isNaN(new Date(date).getTime());
 
   if (isInvalidDate) {
@@ -39,9 +39,9 @@ type PostDateProps = {
 } & TextProps;
 
 // TODO: 日付も表示させることを考えてみる
-const _PostDate: FC<PostDateProps> = ({ date, ...rest }) => {
-  const { t, locale } = useTranslation();
-  const relativeDate = getRelativeDate(date, t, locale as LocalesType);
+const _PostDate: FC<PostDateProps> = async ({ date, ...rest }) => {
+  const d = await getDictionary();
+  const relativeDate = getRelativeDate(date, d, "ja");
   return (
     <Text {...rest} color={"gray"}>
       {relativeDate}

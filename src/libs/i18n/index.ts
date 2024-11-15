@@ -1,7 +1,7 @@
 import "server-only";
 
-type LocalesType = keyof typeof dictionaries;
-// type DictionaryKeys = (typeof dictionaries)[LocalesType];
+export type LocalesType = keyof typeof dictionaries;
+export type DictionaryKeys = Awaited<ReturnType<(typeof dictionaries)[LocalesType]>>;
 
 const dictionaries = {
   ja: () => import("./locales/ja").then((module) => module.default),
