@@ -1,24 +1,23 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 import { Box } from "@/libs/radix/layout/Box";
 
 export const AdSense: React.FC = () => {
-  const { asPath } = useRouter();
+  const pathname = usePathname();
+
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (err) {
       console.log({ AdSenseCmpError: err });
     }
-  }, [asPath]);
-
-  if (asPath === "/policy") {
-    return null;
-  }
+  }, [pathname]);
 
   return (
-    <Box key={asPath}>
+    <Box key={pathname}>
       <ins
         className="adsbygoogle"
         data-ad-client="ca-pub-9104412012929052"

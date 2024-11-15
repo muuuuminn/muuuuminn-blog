@@ -8,6 +8,7 @@ import { getMetadata, OG_IMAGE_EXTENSION_TYPE, SITE_METADATA } from "@/libs/meta
 import { PostDetail } from "@/features/post/components/PostDetail";
 import { RelatedPostsArea } from "@/features/related-posts/components/RelatedPostsArea";
 import { getRelatedPosts } from "@/features/related-posts/utils/getRelatedPosts";
+import { AdSense } from "@/features/advertise/components/AdSense";
 
 type PostPageProps = {
   params: Promise<{
@@ -98,6 +99,7 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
         }}
       />
       {relatedPosts.length !== 0 && <RelatedPostsArea relatedPosts={relatedPosts} />}
+      <AdSense />
     </div>
   );
 };
