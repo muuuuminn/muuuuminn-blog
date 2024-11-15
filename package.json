@@ -64,6 +64,7 @@
     "npm-check-updates": "17.1.11",
     "prettier": "3.3.3",
     "scaffdog": "4.1.0",
+    "schema-dts": "^1.1.2",
     "textlint": "14.3.0",
     "textlint-filter-rule-comments": "1.2.2",
     "textlint-filter-rule-whitelist": "2.0.0",

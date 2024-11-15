@@ -3,7 +3,7 @@ import { PostCardList } from "@/features/post/components/PostCardList";
 import { MASTER_TAGS } from "@/features/tag/constants";
 import { getDictionary } from "@/libs/i18n";
 import { getAllPosts } from "@/libs/markdown/api";
-import { getMetadata } from "@/libs/metadata";
+import { getMetadata } from "@/libs/seo/metadata";
 import { Metadata } from "next";
 import { FC } from "react";
 

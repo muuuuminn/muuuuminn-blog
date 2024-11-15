@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { getAllPosts } from "@/libs/markdown/api";
 import { getDictionary } from "@/libs/i18n";
-import { getMetadata } from "@/libs/metadata";
+import { getMetadata } from "@/libs/seo/metadata";
 import { PostCardList } from "@/features/post/components/PostCardList";
 import { MASTER_TAGS } from "@/features/tag/constants";
 

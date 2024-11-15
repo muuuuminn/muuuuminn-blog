@@ -1,54 +1,18 @@
-import { Metadata } from "next";
 import { FC } from "react";
 import markdownToHtml from "zenn-markdown-html";
 
-import { getDictionary } from "@/libs/i18n";
 import { getAllPosts, getPostBySlug } from "@/libs/markdown/api";
-import { getMetadata, OG_IMAGE_EXTENSION_TYPE, SITE_METADATA } from "@/libs/metadata";
 import { PostDetail } from "@/features/post/components/PostDetail";
 import { RelatedPostsArea } from "@/features/related-posts/components/RelatedPostsArea";
 import { getRelatedPosts } from "@/features/related-posts/utils/getRelatedPosts";
 import { AdSense } from "@/features/advertise/components/AdSense";
+import { getPostJsonLd } from "./jsonLd";
 
 type PostPageProps = {
   params: Promise<{
     slug: string;
   }>;
 };
-
-export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-  const d = await getDictionary();
-  const slug = (await params).slug;
-  const post = getPostBySlug(slug, [
-    "title",
-    "date",
-    "slug",
-    "content",
-    "ogImageUrl",
-    "coverImage",
-    "description",
-    "category",
-    "tags",
-  ]);
-
-  const metadata = getMetadata({
-    title: post.title,
-    description: post.description,
-    path: `/post/${post.slug}`,
-    ogImage: {
-      type: OG_IMAGE_EXTENSION_TYPE,
-      url: SITE_METADATA.APP_ROOT_URL + post.ogImageUrl,
-      alt: `${post.title}${d.ALT.THUMBNAIL_OF}`,
-    },
-    article: {
-      publishedTime: post.date,
-      section: post.category.name,
-      tags: post.tags.map((tag) => tag.name),
-    },
-  });
-
-  return metadata;
-}
 
 export async function generateStaticParams() {
   const posts = getAllPosts(["slug", "date"]);
@@ -90,8 +54,11 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
     excludeSlug: slug,
   });
 
+  const jsonLd = getPostJsonLd(post);
+
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <PostDetail
         post={{
           ...post,

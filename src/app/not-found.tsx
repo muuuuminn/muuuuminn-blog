@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Heading, Text, Button, Flex } from "@radix-ui/themes";
 import { getDictionary } from "@/libs/i18n";
-import { getMetadata } from "@/libs/metadata";
+import { getMetadata } from "@/libs/seo/metadata";
 
 export async function generateMetadata() {
   const d = await getDictionary();

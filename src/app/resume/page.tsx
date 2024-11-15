@@ -3,7 +3,7 @@ import markdownToHtml from "zenn-markdown-html";
 import { RichMarkdownContent } from "@/shared/components/RichMarkdownContent";
 import { getMarkdownFileByFilename } from "@/libs/markdown/api";
 import { getDictionary } from "@/libs/i18n";
-import { getMetadata } from "@/libs/metadata";
+import { getMetadata } from "@/libs/seo/metadata";
 
 export async function generateMetadata() {
   const d = await getDictionary();

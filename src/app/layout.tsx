@@ -6,7 +6,7 @@ import { FC, ReactNode } from "react";
 import { Theme } from "@radix-ui/themes";
 import { Metadata } from "next";
 
-import { getMetadata } from "@/libs/metadata";
+import { getMetadata } from "@/libs/seo/metadata";
 import { Header } from "@/shared/components/Header";
 import { Footer } from "@/shared/components/Footer";
 import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
