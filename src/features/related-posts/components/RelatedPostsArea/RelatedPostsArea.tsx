@@ -3,7 +3,7 @@ import { memo } from "react";
 import { Heading } from "@radix-ui/themes";
 
 import { getDictionary } from "@/libs/i18n";
-import { HStack } from "@/libs/radix/layout/Stack";
+import { VStack } from "@/libs/radix/layout/Stack";
 import { PostCard } from "@/features/post/components/PostCard";
 
 import type { PostListType } from "@/features/post/types";
@@ -15,7 +15,7 @@ type RelatedPostsArea = {
 const _RelatedPostsArea: FC<RelatedPostsArea> = async ({ relatedPosts }) => {
   const d = await getDictionary();
   return (
-    <HStack>
+    <VStack>
       <Heading
       // sx={(theme) => ({
       //   borderBottom: `2px solid ${
@@ -30,7 +30,7 @@ const _RelatedPostsArea: FC<RelatedPostsArea> = async ({ relatedPosts }) => {
       {relatedPosts.map((relatedPost) => (
         <PostCard key={relatedPost.slug} post={relatedPost} />
       ))}
-    </HStack>
+    </VStack>
   );
 };
 

@@ -1,4 +1,5 @@
 import { MASTER_CATEGORIES } from "@/features/category/constants";
+import { PostCardList } from "@/features/post/components/PostCardList";
 import { getDictionary } from "@/libs/i18n";
 import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/metadata";
@@ -44,7 +45,11 @@ const CategoryPage: FC<CategoryPageProps> = async ({ params }) => {
     "tags",
   ]).filter((post) => post.category.name.toLowerCase() === categoryName);
 
-  return <div>{JSON.stringify(posts)}</div>;
+  return (
+    <div>
+      <PostCardList posts={posts} />
+    </div>
+  );
 };
 
 export default CategoryPage;

@@ -5,10 +5,10 @@ import { memo, useMemo } from "react";
 import { Badge } from "@radix-ui/themes";
 
 import { fireClickTagTrigger } from "@/features/gtm/eventTrigger";
-import { CustomNextLink } from "@/libs/next";
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
 
 import type { TagType } from "@/features/tag/types";
-import type { CustomNextLinkProps } from "@/libs/next";
+import type { CustomNextLinkProps } from "@/libs/next/CustomNextLink";
 import type { BadgeProps } from "@radix-ui/themes";
 
 type TagProps = Omit<CustomNextLinkProps, "href"> & {

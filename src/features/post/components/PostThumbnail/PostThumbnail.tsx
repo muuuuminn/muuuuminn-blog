@@ -28,7 +28,7 @@ const _PostThumbnail: FC<PostThumbnailProps> = ({
     <NextImage
       // borderRadius={"xl"}
       alt={alt}
-      enableBlur={enableBlur}
+      // enableBlur={enableBlur}
       quality={imageQuality}
       src={src}
       style={{

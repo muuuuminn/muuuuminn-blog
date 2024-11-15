@@ -6,7 +6,7 @@ import { Category } from "@/features/category/components/Category";
 import { PostDate } from "@/features/post/components/PostDate";
 import { PostThumbnail } from "@/features/post/components/PostThumbnail";
 import { PostTitleLink } from "@/features/post/components/PostTitleLink";
-import { NoWrapTagList } from "@/features/tag/components/TagList";
+import { NoWrapTagList } from "@/features/tag/components/TagList/NoWrapTagList";
 
 import type { PostType } from "@/features/post/types";
 import type { ComponentProps } from "react";

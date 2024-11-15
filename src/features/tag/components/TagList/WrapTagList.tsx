@@ -1,14 +1,13 @@
 import type { FC } from "react";
 import { memo } from "react";
 
-import { Flex } from "@/libs/radix/layout/Container/Container";
-
 import { Tag } from "./Tag";
+import { Flex } from "@/libs/radix/layout/Flex";
 
 import type { TagType } from "@/features/tag/types";
-import type { FlexProps } from "@/libs/radix/layout/Container/Container";
+import type { ComponentProps } from "react";
 
-type WrapTagListProps = FlexProps & {
+type WrapTagListProps = ComponentProps<typeof Flex> & {
   tags: TagType[];
   tagProps?: {
     shallow?: boolean;
@@ -16,12 +15,12 @@ type WrapTagListProps = FlexProps & {
   };
 };
 
-const _WrapTagList: FC<WrapTagListProps> = ({ tags, tagProps, ...boxProps }) => {
+const _WrapTagList: FC<WrapTagListProps> = ({ tags, tagProps, ...flexProps }) => {
   return (
-    <Flex gap={8} {...boxProps}>
-      {tags.map((tag) => {
-        return <Tag {...tagProps} key={tag.id} tag={tag} w={"min-content"} />;
-      })}
+    <Flex gap="2" wrap="wrap" {...flexProps}>
+      {tags.map((tag) => (
+        <Tag {...tagProps} key={tag.id} tag={tag} style={{ width: "min-content" }} />
+      ))}
     </Flex>
   );
 };

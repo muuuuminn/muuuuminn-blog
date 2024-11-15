@@ -5,6 +5,9 @@ import markdownToHtml from "zenn-markdown-html";
 import { getDictionary } from "@/libs/i18n";
 import { getAllPosts, getPostBySlug } from "@/libs/markdown/api";
 import { getMetadata, OG_IMAGE_EXTENSION_TYPE, SITE_METADATA } from "@/libs/metadata";
+import { PostDetail } from "@/features/post/components/PostDetail";
+import { RelatedPostsArea } from "@/features/related-posts/components/RelatedPostsArea";
+import { getRelatedPosts } from "@/features/related-posts/utils/getRelatedPosts";
 
 type PostPageProps = {
   params: Promise<{
@@ -67,9 +70,36 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
     "category",
     "tags",
   ]);
-  const content = markdownToHtml(post.content || "");
+  const htmlContent = markdownToHtml(post.content || "");
 
-  return <div>{content}</div>;
+  const posts = getAllPosts([
+    "title",
+    "date",
+    "slug",
+    "coverImage",
+    "description",
+    "category",
+    "tags",
+  ]);
+  const relatedPosts = getRelatedPosts(posts, {
+    category: post.category,
+    tags: post.tags,
+    tagMatchLevel: 2,
+    limit: 5,
+    excludeSlug: slug,
+  });
+
+  return (
+    <div>
+      <PostDetail
+        post={{
+          ...post,
+          content: htmlContent,
+        }}
+      />
+      {relatedPosts.length !== 0 && <RelatedPostsArea relatedPosts={relatedPosts} />}
+    </div>
+  );
 };
 
 export default PostPage;
