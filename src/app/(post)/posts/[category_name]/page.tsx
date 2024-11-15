@@ -1,5 +1,6 @@
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { PostCardList } from "@/features/post/components/PostCardList";
+import { MASTER_TAGS } from "@/features/tag/constants";
 import { getDictionary } from "@/libs/i18n";
 import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/metadata";
@@ -32,10 +33,18 @@ export async function generateStaticParams() {
   }));
 }
 
-const CategoryPage: FC<CategoryPageProps> = async ({ params }) => {
+const CategoryPage: FC<CategoryPageProps> = async ({ params, searchParams }) => {
   const categoryName = (await params).category_name;
+  const tagNameAsQuery = (await searchParams).tag;
 
-  const posts = getAllPosts([
+  const selectedCategory = MASTER_CATEGORIES.find(
+    (category) => category.name.toLowerCase() === categoryName,
+  );
+  const selectedTag = MASTER_TAGS.find(
+    (tag) => tag.name === tagNameAsQuery && tag.categoryId === selectedCategory?.id,
+  );
+
+  const filteredPosts = getAllPosts([
     "title",
     "date",
     "slug",
@@ -43,11 +52,18 @@ const CategoryPage: FC<CategoryPageProps> = async ({ params }) => {
     "description",
     "category",
     "tags",
-  ]).filter((post) => post.category.name.toLowerCase() === categoryName);
+  ]).filter((post) => {
+    const isCategoryMatch = post.category.name.toLowerCase() === categoryName;
+    if (selectedTag) {
+      const isTagMatch = post.tags.some((tag) => tag.name === selectedTag.name);
+      return isCategoryMatch && isTagMatch;
+    }
+    return isCategoryMatch;
+  });
 
   return (
     <div>
-      <PostCardList posts={posts} />
+      <PostCardList posts={filteredPosts} />
     </div>
   );
 };
