@@ -26,7 +26,9 @@ export const CategorySegmentControl = () => {
       gap={{ initial: "2", sm: "1" }}
       align="center"
       justify="center"
-      p="1"
+      py="1"
+      px="2"
+      wrap="wrap"
       className={styles.segmentControlRoot}
     >
       {categories.map((category) => (
