@@ -1,7 +1,7 @@
 import markdownToHtml from "zenn-markdown-html";
 
 import { getMarkdownFileByFilename } from "@/libs/markdown/api";
-import { RichMarkdownContent } from "@/shared/components/RichMarkdownContent";
+import { RichMarkdownContent } from "@/components/RichMarkdownContent";
 
 import { getDictionary } from "@/libs/i18n";
 import { getMetadata } from "@/libs/seo/metadata";

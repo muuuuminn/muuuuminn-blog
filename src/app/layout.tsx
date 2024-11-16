@@ -9,8 +9,8 @@ import { Theme } from "@radix-ui/themes";
 import { Metadata } from "next";
 
 import { getMetadata } from "@/libs/seo/metadata";
-import { Header } from "@/shared/components/Header";
-import { Footer } from "@/shared/components/Footer";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
 import { gtmId } from "@/features/gtm/constant";
 

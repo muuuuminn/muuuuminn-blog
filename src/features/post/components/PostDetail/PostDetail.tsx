@@ -6,7 +6,7 @@ import { WrapTagList } from "@/features/tag/components/TagList/WrapTagList";
 import { getDictionary } from "@/libs/i18n";
 import { Box, Heading, Text } from "@radix-ui/themes";
 import { VStack, HStack } from "@/libs/radix/layout/Stack";
-import { RichMarkdownContent } from "@/shared/components/RichMarkdownContent";
+import { RichMarkdownContent } from "@/components/RichMarkdownContent";
 
 import type { PostDetailType } from "@/features/post/types";
 import type { ComponentProps } from "react";
