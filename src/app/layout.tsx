@@ -1,4 +1,4 @@
-import "ress";
+import "./reset.css";
 import "@radix-ui/themes/styles.css";
 import "@/libs/radix/theme/accent.css";
 import "@/libs/radix/theme/background.css";
