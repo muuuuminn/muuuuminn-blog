@@ -1,3 +1,6 @@
+import "zenn-content-css";
+import "@/libs/markdown/prism-override-style.css";
+
 import { Metadata } from "next";
 import { FC, ReactNode } from "react";
 

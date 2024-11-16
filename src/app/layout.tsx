@@ -1,6 +1,5 @@
+import "ress";
 import "@radix-ui/themes/styles.css";
-import "zenn-content-css";
-import "@/libs/markdown/prism-override-style.css";
 import "@/libs/radix/theme/accent.css";
 import "@/libs/radix/theme/background.css";
 
