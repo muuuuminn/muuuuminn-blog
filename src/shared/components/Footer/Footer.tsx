@@ -1,44 +1,28 @@
 import type { FC } from "react";
-import Link from "next/link";
 
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { getDictionary } from "@/libs/i18n";
-import { Box } from "@/libs/radix/layout/Box";
 import { Flex } from "@/libs/radix/layout/Flex";
 import { Text } from "@/libs/radix/typography/Text";
+import { Link } from "@radix-ui/themes";
 
-type FooterProps = React.ComponentProps<typeof Flex>;
+type FooterProps = {};
 
 export const Footer: FC<FooterProps> = async () => {
   const d = await getDictionary();
 
   return (
-    <Flex align="center" asChild direction="column" py="1">
-      <footer>
-        <Box asChild>
-          <Link href="/policy" passHref>
-            <Text
-              style={{
-                color: "var(--color-gray)",
-                fontSize: "var(--font-size-sm)",
-                fontWeight: "bold",
-                textDecoration: "none",
-                transition: "text-decoration 0.2s ease",
-              }}
-              // onMouseEnter={(e) => {
-              //   (e.currentTarget as HTMLElement).style.textDecoration = "underline";
-              // }}
-              // onMouseLeave={(e) => {
-              //   (e.currentTarget as HTMLElement).style.textDecoration = "none";
-              // }}
-            >
+    <footer>
+      <Flex align="center" direction="column" py="1">
+        <Link asChild underline="none">
+          <CustomNextLink href="/policy">
+            <Text weight="bold" size="2">
               {d.PAGE.POLICY}
             </Text>
-          </Link>
-        </Box>
-        <Text style={{ color: "var(--color-gray)", fontSize: "var(--font-size-xs)" }}>
-          {d.COPYRIGHT}
-        </Text>
-      </footer>
-    </Flex>
+          </CustomNextLink>
+        </Link>
+        <Text size="1">{d.COPYRIGHT}</Text>
+      </Flex>
+    </footer>
   );
 };

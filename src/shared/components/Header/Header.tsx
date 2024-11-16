@@ -1,5 +1,4 @@
 import type { FC } from "react";
-import { memo } from "react";
 import { Heading, Link } from "@radix-ui/themes";
 
 import { getDictionary } from "@/libs/i18n";
@@ -12,7 +11,7 @@ import styles from "./Header.module.css";
 
 type HeaderProps = {};
 
-export const Header: FC<HeaderProps> = memo(async function Header() {
+export const Header: FC<HeaderProps> = async () => {
   const d = await getDictionary();
 
   return (
@@ -29,4 +28,4 @@ export const Header: FC<HeaderProps> = memo(async function Header() {
       </Flex>
     </header>
   );
-});
+};
