@@ -2,6 +2,7 @@ import "./reset.css";
 import "@radix-ui/themes/styles.css";
 import "@/libs/radix/theme/accent.css";
 import "@/libs/radix/theme/background.css";
+import "@/libs/radix/theme/cursor.css";
 
 import { FC, ReactNode } from "react";
 import { Theme } from "@radix-ui/themes";

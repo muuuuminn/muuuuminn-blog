@@ -1,28 +1,22 @@
 import type { FC } from "react";
 
-import { CustomNextLink } from "@/libs/next/CustomNextLink";
-import { getDictionary } from "@/libs/i18n";
-import { Flex } from "@/libs/radix/layout/Flex";
-import { Text } from "@/libs/radix/typography/Text";
-import { Link } from "@radix-ui/themes";
+import { Box } from "@radix-ui/themes";
 
-type FooterProps = {};
+import { VStack } from "@/libs/radix/layout/Stack";
+import { CategorySegmentControl } from "./CategorySegmentControl";
+import { Navigation } from "./Navigation";
+import { MenuIconButton } from "./MenuIconButton";
 
-export const Footer: FC<FooterProps> = async () => {
-  const d = await getDictionary();
-
+export const Footer: FC = () => {
   return (
     <footer>
-      <Flex align="center" direction="column" py="1">
-        <Link asChild underline="none">
-          <CustomNextLink href="/policy">
-            <Text weight="bold" size="2">
-              {d.PAGE.POLICY}
-            </Text>
-          </CustomNextLink>
-        </Link>
-        <Text size="1">{d.COPYRIGHT}</Text>
-      </Flex>
+      <VStack position="fixed" bottom="0" width="100%" gap="2">
+        <CategorySegmentControl />
+        <Navigation />
+        <Box position="absolute" right="4" bottom="4">
+          <MenuIconButton />
+        </Box>
+      </VStack>
     </footer>
   );
 };

@@ -1,0 +1,21 @@
+.segmentControlRoot {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-6);
+}
+
+.segmentControlItem {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-4);
+  transition: all 0.2s ease;
+}
+
+.segmentControlItem:hover {
+  background: var(--gray-a4);
+  color: var(--red-a10);
+}
+
+.segmentControlItem[data-selected="true"] {
+  background: var(--red-a7);
+}
