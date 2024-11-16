@@ -15,7 +15,6 @@ export const Logo: FC<LogoProps> = memo(async function Logo() {
   return (
     <Box
       style={{
-        borderRadius: "12px",
         width: "40px",
         aspectRatio: RATIO.toString(),
         display: "block",

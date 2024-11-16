@@ -10,6 +10,7 @@ type NextImageProps = {
 
 const _NextImage = (props: NextImageProps) => {
   const { src, alt = "", width, quality, height, fill, enableBlur, ...rest } = props;
+
   return src ? (
     <OriginNextImage
       alt={alt}
