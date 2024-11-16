@@ -39,7 +39,9 @@ export const Header: FC<HeaderProps> = memo(async function Header() {
         >
           <Link href="/posts">
             <Logo />
-            <Text weight="bold">{d.SITE_NAME}</Text>
+            <Text color="red" weight="bold">
+              {d.SITE_NAME}
+            </Text>
             <Heading hidden>{d.SITE_NAME}</Heading>
           </Link>
         </Box>
