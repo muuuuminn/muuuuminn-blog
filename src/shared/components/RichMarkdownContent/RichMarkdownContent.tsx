@@ -1,3 +1,6 @@
+import "zenn-content-css";
+import "@/libs/markdown/prism-override-style.css";
+
 import type { FC } from "react";
 
 type RichMarkdownContentProps = { html: string };
