@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import "server-only";
 
 const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
@@ -41,7 +42,7 @@ export const getMetadata = (
       tags: string[];
     };
   }>,
-) => {
+): Metadata => {
   const {
     title = SITE_METADATA.TITLE,
     description = SITE_METADATA.DESCRIPTION,
