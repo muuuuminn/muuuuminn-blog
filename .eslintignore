@@ -2,5 +2,4 @@ storybook-static/*
 public/*
 /node_modules/*
 **/*.js
-src/generated
 .next/*

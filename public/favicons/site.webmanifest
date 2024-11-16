@@ -1,6 +1,7 @@
 {
   "name": "muuuuminn blog",
   "short_name": "muuuuminn blog",
+  "description": "muuuuminnによるブログです。",
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",
@@ -13,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "background_color": "#1f3134",
+  "theme_color": "#1f3134",
   "display": "standalone"
 }

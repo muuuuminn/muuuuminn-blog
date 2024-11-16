@@ -11,9 +11,9 @@ export default {
     NOT_FOUND: "Not found",
   },
   DESCRIPTION: {
-    POSTS: "This page shows a post written by muuuumonn.",
+    POSTS: "This page shows a post written by muuuuminn.",
     POLICY: "This page shows a privacy policy.",
-    RESUME: "This page contains muuuumonn's resume and career history.",
+    RESUME: "This page contains muuuuminn's resume and career history.",
     NOT_FOUND: "The page you are looking for does not exist or may have been deleted.",
   },
   ALT: {

@@ -1,5 +1,6 @@
-import { Metadata } from "next";
 import "server-only";
+
+import { Metadata } from "next";
 
 const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
 

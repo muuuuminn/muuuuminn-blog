@@ -11,9 +11,9 @@ export default {
     NOT_FOUND: "ページが見つかりません",
   },
   DESCRIPTION: {
-    POSTS: "muuuumonnによる投稿一覧ページです。",
+    POSTS: "muuuuminnによる投稿一覧ページです。",
     POLICY: "muuuuminn blogのプライバシーポリシーを載せたページです",
-    RESUME: "muuuumonn の経歴が載っているページです",
+    RESUME: "muuuuminn の経歴が載っているページです",
     NOT_FOUND: "お探しのページは存在しないか、削除された可能性があります。",
   },
   ALT: {

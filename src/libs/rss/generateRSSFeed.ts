@@ -4,9 +4,9 @@ import RSS from "rss";
 
 import { getAllPosts } from "../markdown/api";
 
-export default function generateRssFeed() {
-  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
+const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
 
+export default function generateRssFeed() {
   const posts = getAllPosts([
     "title",
     "date",
@@ -19,7 +19,7 @@ export default function generateRssFeed() {
 
   const feedOptions = {
     title: "RSS Feed | muuuuminn blog",
-    description: "muuuumonnによるブログです。",
+    description: "muuuuminnによるブログです。",
     site_url: APP_ROOT_URL,
     feed_url: `${APP_ROOT_URL}/rss.xml`,
     image_url: `${APP_ROOT_URL}/logo/logo.png`,
@@ -35,7 +35,7 @@ export default function generateRssFeed() {
       description: post.description,
       url: `${APP_ROOT_URL}/post/${post.slug}`,
       date: post.date,
-      author: "muuuumonn",
+      author: "muuuuminn",
       categories: [post.category.name, ...post.tags.map((tag) => tag.name)],
     });
   });
