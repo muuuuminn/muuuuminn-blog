@@ -1,3 +1,5 @@
+export const dynamicParams = false;
+
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { PostCardList } from "@/features/post/components/PostCardList";
 import { MASTER_TAGS } from "@/features/tag/constants";
@@ -29,7 +31,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
 export async function generateStaticParams() {
   return MASTER_CATEGORIES.map((category) => ({
-    category_name: category.name,
+    category_name: category.name.toLowerCase(),
   }));
 }
 
