@@ -17,6 +17,8 @@ import { gtmId } from "@/features/gtm/constant";
 import type { GoogleTagManagerIdType } from "@/features/gtm/type";
 import generateRssFeed from "@/libs/rss/generateRSSFeed";
 
+const FOOTER_HEIGHT = "112px";
+
 export const metadata: Metadata = getMetadata();
 
 type RootLayoutProps = {
@@ -44,7 +46,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       <body>
         <Theme appearance="dark" accentColor="red" radius="large">
           <Header />
-          <Box pb="4" mb={"112px"}>
+          <Box pb="4" mb={FOOTER_HEIGHT}>
             {children}
           </Box>
           <Footer />
