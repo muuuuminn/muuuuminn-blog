@@ -21,6 +21,8 @@ const _NextImage = (props: NextImageProps) => {
       quality={quality}
       src={src}
       style={{
+        width: "100%",
+        height: "100%",
         objectFit: "contain",
         transition: "all 0.01s",
       }}

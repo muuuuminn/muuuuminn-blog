@@ -1,3 +1,5 @@
+"use client";
+
 import type { FC } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
 
@@ -70,7 +72,7 @@ const _NoWrapTagList: FC<NoWrapTagListProps> = ({ tags, tagProps, ...flexProps }
               width: tags.length === 1 ? "100%" : "90px",
             }}
           >
-            {index === lastVisibleTagIndex ? (
+            {/* {index === lastVisibleTagIndex ? (
               <TagMenu countsOfTagInMenu={invisibleTags.length} tags={invisibleTags} />
             ) : (
               <Tag
@@ -79,7 +81,7 @@ const _NoWrapTagList: FC<NoWrapTagListProps> = ({ tags, tagProps, ...flexProps }
                 tag={tag}
                 {...tagProps}
               />
-            )}
+            )} */}
           </Box>
         );
       })}

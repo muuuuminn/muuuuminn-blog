@@ -1,72 +1,114 @@
-import type { FC } from "react";
 import { memo } from "react";
-import { getDictionary } from "@/libs/i18n";
-import { Box, Text, Flex } from "@radix-ui/themes";
-import { Category } from "@/features/category/components/Category";
-import { PostDate } from "@/features/post/components/PostDate";
-import { PostThumbnail } from "@/features/post/components/PostThumbnail";
-import { PostTitleLink } from "@/features/post/components/PostTitleLink";
-import { NoWrapTagList } from "@/features/tag/components/TagList/NoWrapTagList";
+import { Link } from "@radix-ui/themes";
 
-import type { PostType } from "@/features/post/types";
+import { Box } from "@/libs/radix/layout/Box";
+import { Text } from "@/libs/radix/typography/Text";
+import { Grid } from "@/libs/radix/layout/Grid";
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
+import { Category } from "@/features/category/components/Category";
+import { Tag } from "@/features/tag/components/TagList/Tag";
+
+import { PostDate } from "../PostDate";
+import { PostTitleLink } from "../PostTitleLink";
+import { PostThumbnail } from "../PostThumbnail";
+
+import type { FC } from "react";
 import type { ComponentProps } from "react";
+import type { PostType } from "@/features/post/types";
 
 type PostCardProps = {
   post: PostType;
 } & ComponentProps<typeof Box>;
 
-const _PostCard: FC<PostCardProps> = async ({ post, ...rest }) => {
-  const d = await getDictionary();
-  const alt = `${post.title}${d.ALT.THUMBNAIL_OF}`;
-
+const _PostCard: FC<PostCardProps> = ({ post }) => {
   return (
-    <Box asChild style={{ padding: "16px", overflowX: "hidden" }} {...rest}>
-      <article>
-        <Flex direction="column" gap="8px">
-          {/* カテゴリと日付 */}
-          <Flex gap="8px" align="center">
-            {post.category && <Category asLink category={post.category} />}
-            <PostDate date={post.date} size="2" />
-          </Flex>
+    <article aria-labelledby={post.slug}>
+      <Grid
+        areas={`
+          "category date"
+          "thumbnail title"
+          "thumbnail tag"
+          "description description"
+        `}
+        gapX="4"
+        gapY="2"
+        align="start"
+        style={{
+          gridTemplateColumns: "auto 1fr",
+        }}
+      >
+        {/* タイトル */}
+        <Box
+          style={{
+            gridArea: "title",
+          }}
+        >
+          <PostTitleLink title={post.title} slug={post.slug} size="3" />
+        </Box>
 
-          {/* サムネイルとタイトル・タグ */}
-          <Flex gap="16px" align="start" style={{ flexWrap: "nowrap" }}>
-            <Box style={{ flexShrink: 0 }}>
-              <PostThumbnail
-                alt={alt}
-                imageQuality={50}
-                // ratio={1 / 1}
-                src={post.coverImage}
-                // style={{
-                //   width: "80px",
-                //   height: "80px",
-                //   objectFit: "cover",
-                //   borderRadius: "8px",
-                // }}
-              />
-            </Box>
-            <Flex direction="column" gap="4px" align="start">
-              <PostTitleLink post={post} />
-              {/* <NoWrapTagList tagProps={{ shallow: true, replace: true }} tags={post.tags} /> */}
-            </Flex>
-          </Flex>
+        {/* カテゴリ */}
+        <Box
+          style={{
+            gridArea: "category",
+          }}
+        >
+          <Category category={post.category} />
+        </Box>
 
-          {/* 説明文 */}
-          <Text
-            size="2"
-            color="gray"
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
-          >
-            {post.description}
-          </Text>
-        </Flex>
-      </article>
-    </Box>
+        {/* 投稿日 */}
+        <Box
+          style={{
+            gridArea: "date",
+          }}
+        >
+          <PostDate date={post.date} />
+        </Box>
+
+        {/* タグ */}
+        <Box
+          style={{
+            gridArea: "tag",
+          }}
+        >
+          {post.tags.map((tag) => (
+            <Tag tag={tag} />
+          ))}
+        </Box>
+
+        {/* 概要 */}
+        <Text
+          style={{
+            gridArea: "description",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            lineHeight: "1.5",
+          }}
+          as="p"
+          size="2"
+        >
+          {post.description}
+        </Text>
+
+        {/* サムネイル */}
+        <Box
+          style={{
+            gridArea: "thumbnail",
+          }}
+          position="relative"
+          width="100px"
+          height="100px"
+        >
+          <Link asChild tabIndex={-1} aria-hidden="true">
+            <CustomNextLink href={`/post/${post.slug}`}>
+              <PostThumbnail src={post.coverImage} alt="" />
+            </CustomNextLink>
+          </Link>
+        </Box>
+      </Grid>
+    </article>
   );
 };
 

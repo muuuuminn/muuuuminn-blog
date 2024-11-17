@@ -19,17 +19,17 @@ export const MenuIconButton = async () => {
         <VStack gap="3">
           {MenuLinks.map((menuLink) =>
             menuLink.isNextLink ? (
-              <Link asChild color="gray" highContrast>
+              <Link key={menuLink.href} asChild color="gray" highContrast>
                 <CustomNextLink href={menuLink.href} key={menuLink.name}>
                   {d.PAGE[menuLink.name]}
                 </CustomNextLink>
               </Link>
             ) : (
               <Link
+                key={menuLink.href}
                 color="gray"
                 highContrast
                 href={menuLink.href}
-                key={menuLink.name}
                 target={menuLink.targetBlank ? "_blank" : undefined}
               >
                 {d.PAGE[menuLink.name]}

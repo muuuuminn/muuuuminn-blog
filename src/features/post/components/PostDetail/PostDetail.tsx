@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { Category } from "@/features/category/components/Category";
 import { PostThumbnail } from "@/features/post/components/PostThumbnail";
 import { PostDate } from "@/features/post/components/PostDate";
-import { WrapTagList } from "@/features/tag/components/TagList/WrapTagList";
+// import { WrapTagList } from "@/features/tag/components/TagList/WrapTagList";
 import { getDictionary } from "@/libs/i18n";
 import { Box, Heading, Text } from "@radix-ui/themes";
 import { VStack, HStack } from "@/libs/radix/layout/Stack";
@@ -24,7 +24,7 @@ export const PostDetail: FC<PostDetailProps> = async ({ post, ...rest }) => {
       <VStack gap="16px">
         {/* カテゴリと日付 */}
         <HStack gap="8px" align="center">
-          {post.category && <Category asLink category={post.category} />}
+          {post.category && <Category category={post.category} />}
           <PostDate date={post.date} size="2" />
         </HStack>
 
@@ -46,11 +46,9 @@ export const PostDetail: FC<PostDetailProps> = async ({ post, ...rest }) => {
       </VStack>
 
       {/* 記事コンテンツ */}
-      {post.content && (
-        <Box mt="16px" pl="8px" pr="4px">
-          <RichMarkdownContent html={post.content} />
-        </Box>
-      )}
+      <Box mt="16px" pl="8px" pr="4px">
+        <RichMarkdownContent html={post.content} />
+      </Box>
     </Box>
   );
 };

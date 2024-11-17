@@ -1,64 +1,75 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { useParams } from "next/navigation";
 import type { FC } from "react";
 import { memo, useMemo } from "react";
 
-import { Badge } from "@radix-ui/themes";
-
-import { fireClickTagTrigger } from "@/features/gtm/eventTrigger";
+import { Box } from "@/libs/radix/layout/Box";
+import { Text } from "@/libs/radix/typography/Text";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 
 import type { TagType } from "@/features/tag/types";
 import type { CustomNextLinkProps } from "@/libs/next/CustomNextLink";
-import type { BadgeProps } from "@radix-ui/themes";
+import type { ComponentProps } from "react";
+import { Link } from "@radix-ui/themes";
 
 type TagProps = Omit<CustomNextLinkProps, "href"> & {
   tag: TagType;
   className?: string;
-} & BadgeProps;
+} & ComponentProps<typeof Box>;
 
-const _Tag: FC<TagProps> = ({ tag, ...rest }) => {
-  const router = useRouter();
-  const categoryNameAsQuery = (router.query.category_name as string) || "";
+const _Tag: FC<TagProps> = ({ tag, className, ...rest }) => {
+  const { category_name } = useParams<{ category_name: string | undefined }>();
+
+  // タグへのリンクを計算
   const href = useMemo(() => {
-    // TODO: クエリ作成を関数化する
     const params = new URLSearchParams();
     params.append("tag", tag.name);
     const searchParams = params.toString();
     const urlSuffix = searchParams ? `/?${searchParams}` : "";
 
-    if (categoryNameAsQuery) {
-      return `/posts/${categoryNameAsQuery}${urlSuffix}`;
+    if (category_name) {
+      return `/posts/${category_name.toLowerCase()}${urlSuffix}`; // カテゴリが指定されている場合
     } else {
-      return `/posts${urlSuffix}`;
+      return `/posts${urlSuffix}`; // カテゴリが指定されていない場合
     }
-  }, [categoryNameAsQuery, tag]);
+  }, [category_name, tag]);
 
-  const hoverBackgroundColor = "#333333";
+  // ホバー時のスタイルをJavaScriptで追加
+  const baseStyle = {
+    border: `1px solid ${tag.color ? `#${tag.color}` : "#ccc"}`,
+    borderRadius: "var(--radius-6)",
+    backgroundColor: "transparent",
+    transition: "background-color 0.3s ease, color 0.3s ease",
+  };
+
+  const hoverStyle = {
+    backgroundColor: tag.color ? `#${tag.color}2E` : "#f5f5f5",
+  };
 
   return (
-    <Badge
+    <Box
+      display={"inline-block"}
+      py="1"
+      px="2"
+      className={className}
       {...rest}
-      asChild
-      // fz={"sm"}
-      // px={8}
-      size={"3"}
-      // sx={(theme) => ({
-      //   cursor: "pointer",
-      //   "--var-badge-color": tag.color ? `#${tag.color}` : "currentcolor",
-      //   fontWeight: "normal",
-      //   color: theme.colorScheme === "dark" ? "white" : "black",
-      //   textTransform: "none",
-      //   ":hover": {
-      //     textDecoration: "none",
-      //     backgroundColor: tag.color ? `#${tag.color}2E` : hoverBackgroundColor,
-      //   },
-      // })}
-      variant="outline"
+      style={baseStyle}
+      onMouseEnter={(e) => {
+        Object.assign(e.currentTarget.style, hoverStyle);
+      }}
+      onMouseLeave={(e) => {
+        Object.assign(e.currentTarget.style, baseStyle);
+      }}
     >
-      <CustomNextLink prefetch={false} href={href} onClick={() => fireClickTagTrigger(tag)}>
-        #{tag.name}
-      </CustomNextLink>
-    </Badge>
+      <Link asChild underline="none" color="gray" highContrast>
+        <CustomNextLink prefetch={false} href={href}>
+          <Text as="span" size="1">
+            #{tag.name}
+          </Text>
+        </CustomNextLink>
+      </Link>
+    </Box>
   );
 };
 

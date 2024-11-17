@@ -5,17 +5,18 @@ import "@/libs/radix/theme/background.css";
 import "@/libs/radix/theme/cursor.css";
 
 import { FC, ReactNode } from "react";
-import { Box, Theme } from "@radix-ui/themes";
+import { Theme } from "@radix-ui/themes";
 import { Metadata } from "next";
 
 import { getMetadata } from "@/libs/seo/metadata";
+import generateRssFeed from "@/libs/rss/generateRSSFeed";
+import { Box } from "@/libs/radix/layout/Box";
+import { gtmId } from "@/features/gtm/constant";
+import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
-import { gtmId } from "@/features/gtm/constant";
 
 import type { GoogleTagManagerIdType } from "@/features/gtm/type";
-import generateRssFeed from "@/libs/rss/generateRSSFeed";
 
 const FOOTER_HEIGHT = "112px";
 
@@ -46,7 +47,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       <body>
         <Theme appearance="dark" accentColor="red" radius="large">
           <Header />
-          <Box pb="4" mb={FOOTER_HEIGHT}>
+          <Box mx="auto" mb={FOOTER_HEIGHT} px="2" pb="4" maxWidth="690px">
             {children}
           </Box>
           <Footer />
