@@ -5,7 +5,7 @@ import "@/libs/radix/theme/background.css";
 import "@/libs/radix/theme/cursor.css";
 
 import { FC, ReactNode } from "react";
-import { Theme } from "@radix-ui/themes";
+import { Box, Theme } from "@radix-ui/themes";
 import { Metadata } from "next";
 
 import { getMetadata } from "@/libs/seo/metadata";
@@ -44,7 +44,9 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       <body>
         <Theme appearance="dark" accentColor="red" radius="large">
           <Header />
-          {children}
+          <Box pb="4" mb={"112px"}>
+            {children}
+          </Box>
           <Footer />
         </Theme>
       </body>
