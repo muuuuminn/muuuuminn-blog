@@ -1,3 +1,5 @@
+export const dynamicParams = false;
+
 import { Metadata } from "next";
 import { FC, ReactNode } from "react";
 
