@@ -1,7 +1,7 @@
 "use client";
 
 import type { FC } from "react";
-import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Box } from "@/libs/radix/layout/Box";
 import { Flex } from "@/libs/radix/layout/Flex";
@@ -19,9 +19,15 @@ type NoWrapTagListProps = ComponentProps<typeof Flex> & {
   };
 };
 
-const _NoWrapTagList: FC<NoWrapTagListProps> = ({ tags, tagProps, ...flexProps }) => {
+const _NoWrapTagList: FC<NoWrapTagListProps> = ({
+  tags,
+  tagProps,
+  ...flexProps
+}) => {
   const childrenWrapper = useRef<HTMLDivElement>(null);
-  const [visibilityMap, setVisibilityMap] = useState<Record<string, boolean>>({});
+  const [visibilityMap, setVisibilityMap] = useState<Record<string, boolean>>(
+    {},
+  );
 
   const lastVisibleTagIndex = useMemo(
     () => Object.values(visibilityMap).findIndex((v) => !v) - 1,
@@ -33,17 +39,20 @@ const _NoWrapTagList: FC<NoWrapTagListProps> = ({ tags, tagProps, ...flexProps }
     return [tags[lastVisibleTagIndex], ...invisibleTags];
   }, [tags, visibilityMap, lastVisibleTagIndex]);
 
-  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
-    const updatedEntries: Record<string, boolean> = {};
-    entries.forEach((entry) => {
-      const targetId = (entry.target as HTMLElement).dataset.id || "";
-      updatedEntries[targetId] = entry.isIntersecting;
-    });
-    setVisibilityMap((prev) => ({
-      ...prev,
-      ...updatedEntries,
-    }));
-  }, []);
+  const handleIntersection = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      const updatedEntries: Record<string, boolean> = {};
+      entries.forEach((entry) => {
+        const targetId = (entry.target as HTMLElement).dataset.id || "";
+        updatedEntries[targetId] = entry.isIntersecting;
+      });
+      setVisibilityMap((prev) => ({
+        ...prev,
+        ...updatedEntries,
+      }));
+    },
+    [],
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection, {
@@ -58,7 +67,12 @@ const _NoWrapTagList: FC<NoWrapTagListProps> = ({ tags, tagProps, ...flexProps }
   }, [handleIntersection]);
 
   return (
-    <Flex ref={childrenWrapper} gap="8px" style={{ width: "max-content" }} {...flexProps}>
+    <Flex
+      ref={childrenWrapper}
+      gap="8px"
+      style={{ width: "max-content" }}
+      {...flexProps}
+    >
       {tags.map((tag, index) => {
         const isVisibleTag = visibilityMap[tag.id];
         return (

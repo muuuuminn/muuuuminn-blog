@@ -1,10 +1,10 @@
-import type { FC } from "react";
 import { memo } from "react";
 
 import { VStack } from "@/libs/radix/layout/Stack";
 import { PostCard } from "../PostCard";
 
 import type { PostListType } from "@/features/post/types";
+import type { FC } from "react";
 
 type PostCardListProps = {
   posts: PostListType;

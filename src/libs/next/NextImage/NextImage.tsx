@@ -9,7 +9,16 @@ type NextImageProps = {
 } & ImageProps;
 
 const _NextImage = (props: NextImageProps) => {
-  const { src, alt = "", width, quality, height, fill, enableBlur, ...rest } = props;
+  const {
+    src,
+    alt = "",
+    width,
+    quality,
+    height,
+    fill,
+    enableBlur,
+    ...rest
+  } = props;
 
   return src ? (
     <OriginNextImage
@@ -28,7 +37,13 @@ const _NextImage = (props: NextImageProps) => {
       }}
     />
   ) : (
-    <Box style={{ backgroundColor: "currentcolor", width: `${width}px`, height: `${height}px` }} />
+    <Box
+      style={{
+        backgroundColor: "currentcolor",
+        width: `${width}px`,
+        height: `${height}px`,
+      }}
+    />
   );
 };
 

@@ -9,10 +9,13 @@ export const AdSense: React.FC = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.log({ AdSenseCmpError: err });
+    if (pathname) {
+      try {
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.push({});
+      } catch (err) {
+        console.log({ AdSenseCmpError: err });
+      }
     }
   }, [pathname]);
 
@@ -25,7 +28,7 @@ export const AdSense: React.FC = () => {
         data-ad-slot="4647394274"
         data-adtest={process.env.NODE_ENV === "production" ? "off" : "on"}
         style={{ display: "block" }}
-      ></ins>
+      />
     </Box>
   );
 };

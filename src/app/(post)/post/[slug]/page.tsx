@@ -1,12 +1,13 @@
-import { FC } from "react";
 import markdownToHtml from "zenn-markdown-html";
 
-import { getAllPosts, getPostBySlug } from "@/libs/markdown/api";
+import { AdSense } from "@/features/advertise/components/AdSense";
 import { PostDetail } from "@/features/post/components/PostDetail";
 import { RelatedPostsArea } from "@/features/related-posts/components/RelatedPostsArea";
 import { getRelatedPosts } from "@/features/related-posts/utils/getRelatedPosts";
-import { AdSense } from "@/features/advertise/components/AdSense";
+import { getAllPosts, getPostBySlug } from "@/libs/markdown/api";
 import { getPostJsonLd } from "./jsonLd";
+
+import type { FC } from "react";
 
 type PostPageProps = {
   params: Promise<{
@@ -58,14 +59,20 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
 
   return (
     <div>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+        dangerouslySetInnerHTML={{ __html: jsonLd }}
+      />
       <PostDetail
         post={{
           ...post,
           content: htmlContent,
         }}
       />
-      {relatedPosts.length !== 0 && <RelatedPostsArea relatedPosts={relatedPosts} />}
+      {relatedPosts.length !== 0 && (
+        <RelatedPostsArea relatedPosts={relatedPosts} />
+      )}
       <AdSense />
     </div>
   );

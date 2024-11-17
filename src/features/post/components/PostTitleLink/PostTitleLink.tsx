@@ -1,7 +1,7 @@
-import type { FC } from "react";
+import { Heading, type HeadingProps } from "@radix-ui/themes";
 import { memo } from "react";
+import type { FC } from "react";
 
-import { Heading, HeadingProps } from "@radix-ui/themes";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 
 type PostTitleProps = {

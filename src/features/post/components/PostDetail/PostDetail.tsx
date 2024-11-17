@@ -1,14 +1,13 @@
-import type { FC } from "react";
-import { Category } from "@/features/category/components/Category";
-import { PostThumbnail } from "@/features/post/components/PostThumbnail";
-import { PostDate } from "@/features/post/components/PostDate";
-// import { WrapTagList } from "@/features/tag/components/TagList/WrapTagList";
-import { getDictionary } from "@/libs/i18n";
-import { Box, Heading, Text } from "@radix-ui/themes";
-import { VStack, HStack } from "@/libs/radix/layout/Stack";
 import { RichMarkdownContent } from "@/components/RichMarkdownContent";
+import { Category } from "@/features/category/components/Category";
+import { PostDate } from "@/features/post/components/PostDate";
+import { PostThumbnail } from "@/features/post/components/PostThumbnail";
+import { getDictionary } from "@/libs/i18n";
+import { HStack, VStack } from "@/libs/radix/layout/Stack";
+import { Box, Heading } from "@radix-ui/themes";
 
 import type { PostDetailType } from "@/features/post/types";
+import type { FC } from "react";
 import type { ComponentProps } from "react";
 
 type PostDetailProps = {

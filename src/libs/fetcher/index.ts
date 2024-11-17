@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 const url = `${process.env.NEXT_PUBLIC_APP_ROOT_URL || ""}${
   process.env.NEXT_PUBLIC_APP_GITHUB_API_ENDPOINT || ""
 }`;

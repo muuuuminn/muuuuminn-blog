@@ -4,19 +4,19 @@ import "@/libs/radix/theme/accent.css";
 import "@/libs/radix/theme/background.css";
 import "@/libs/radix/theme/cursor.css";
 
-import { FC, ReactNode } from "react";
 import { Theme } from "@radix-ui/themes";
-import { Metadata } from "next";
 
-import { getMetadata } from "@/libs/seo/metadata";
-import generateRssFeed from "@/libs/rss/generateRSSFeed";
-import { Box } from "@/libs/radix/layout/Box";
-import { gtmId } from "@/features/gtm/constant";
-import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
+import { gtmId } from "@/features/gtm/constant";
+import { Box } from "@/libs/radix/layout/Box";
+import generateRssFeed from "@/libs/rss/generateRSSFeed";
+import { getMetadata } from "@/libs/seo/metadata";
 
 import type { GoogleTagManagerIdType } from "@/features/gtm/type";
+import type { Metadata } from "next";
+import type { FC, ReactNode } from "react";
 
 const FOOTER_HEIGHT = "112px";
 
@@ -36,8 +36,12 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
           async
           crossOrigin="anonymous"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9104412012929052"
-        ></script>
-        <script async defer src="https://embed.zenn.studio/js/listen-embed-event.js"></script>
+        />
+        <script
+          async
+          defer
+          src="https://embed.zenn.studio/js/listen-embed-event.js"
+        />
         <link href="/favicons/favicon.ico" rel="icon" sizes="any" />
         <link href="/favicons/icon.svg" rel="icon" type="image/svg+xml" />
         <link href="/favicons/apple-touch-icon.png" rel="apple-touch-icon" />

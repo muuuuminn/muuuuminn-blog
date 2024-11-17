@@ -1,4 +1,6 @@
-import fs from "fs";
+import "server-only";
+
+import fs from "node:fs";
 
 import RSS from "rss";
 
@@ -24,7 +26,7 @@ export default function generateRssFeed() {
     feed_url: `${APP_ROOT_URL}/rss.xml`,
     image_url: `${APP_ROOT_URL}/logo/logo.png`,
     pubDate: new Date(),
-    copyright: `© 2022 muuuuminn blog. All rights reserved.`,
+    copyright: "© 2022 muuuuminn blog. All rights reserved.",
   };
 
   const feed = new RSS(feedOptions);

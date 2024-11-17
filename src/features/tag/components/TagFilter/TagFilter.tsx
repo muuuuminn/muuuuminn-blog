@@ -32,9 +32,13 @@ const _TagFilter: FC<TagFilterProps> = async ({ tags }) => {
       const urlSuffix = searchParams ? `/?${searchParams}` : "";
 
       if (categoryNameAsQuery) {
-        void router.replace(`/posts/${categoryNameAsQuery}${urlSuffix}`, undefined, {
-          shallow: true,
-        });
+        void router.replace(
+          `/posts/${categoryNameAsQuery}${urlSuffix}`,
+          undefined,
+          {
+            shallow: true,
+          },
+        );
       } else {
         void router.replace(`/posts${urlSuffix}`, undefined, { shallow: true });
       }

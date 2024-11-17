@@ -1,10 +1,10 @@
-import { FC } from "react";
-
-import { getAllPosts } from "@/libs/markdown/api";
-import { getDictionary } from "@/libs/i18n";
-import { getMetadata } from "@/libs/seo/metadata";
 import { PostCardList } from "@/features/post/components/PostCardList";
 import { MASTER_TAGS } from "@/features/tag/constants";
+import { getDictionary } from "@/libs/i18n";
+import { getAllPosts } from "@/libs/markdown/api";
+import { getMetadata } from "@/libs/seo/metadata";
+
+import type { FC } from "react";
 
 type PostsPageProps = {
   searchParams: Promise<{ tag: string }>;
@@ -39,7 +39,9 @@ const PostsPage: FC<PostsPageProps> = async ({ searchParams }) => {
   const filteredPosts = selectedTag
     ? posts.filter((post) => {
         if (selectedTag) {
-          const isTagMatch = post.tags.some((tag) => tag.name === selectedTag.name);
+          const isTagMatch = post.tags.some(
+            (tag) => tag.name === selectedTag.name,
+          );
           return isTagMatch;
         }
         return true;

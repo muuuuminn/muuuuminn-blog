@@ -1,26 +1,29 @@
 "use client";
 
-import { Flex, Link } from "@radix-ui/themes";
-
-import { CustomNextLink } from "@/libs/next/CustomNextLink";
-import { MASTER_CATEGORIES } from "@/features/category/constants";
-import { CategoryType } from "@/features/category/types";
 import styles from "./CategorySegmentControl.module.css";
+
+import { Flex, Link } from "@radix-ui/themes";
 import { useParams, usePathname } from "next/navigation";
+
+import { MASTER_CATEGORIES } from "@/features/category/constants";
+import type { CategoryType } from "@/features/category/types";
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
 
 const getHref = (category: CategoryType) => {
   if (category.id === "-1") {
-    return `/posts`;
-  } else {
-    return `/posts/${category.name.toLowerCase()}`;
+    return "/posts";
   }
+  return `/posts/${category.name.toLowerCase()}`;
 };
 
 export const CategorySegmentControl = () => {
   const pathname = usePathname();
   const { category_name } = useParams<{ category_name: string | undefined }>();
 
-  const categories: CategoryType[] = [{ id: "-1", name: "All", color: "" }, ...MASTER_CATEGORIES];
+  const categories: CategoryType[] = [
+    { id: "-1", name: "All", color: "" },
+    ...MASTER_CATEGORIES,
+  ];
 
   const hereIsPostsPage = pathname.includes("posts");
 
@@ -44,11 +47,15 @@ export const CategorySegmentControl = () => {
           size="3"
           underline="none"
           data-selected={
-            category_name ? category.name.toLowerCase() === category_name : category.id === "-1"
+            category_name
+              ? category.name.toLowerCase() === category_name
+              : category.id === "-1"
           }
           className={styles.segmentControlItem}
         >
-          <CustomNextLink href={getHref(category)}>{category.name}</CustomNextLink>
+          <CustomNextLink href={getHref(category)}>
+            {category.name}
+          </CustomNextLink>
         </Link>
       ))}
     </Flex>

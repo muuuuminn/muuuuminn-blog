@@ -1,19 +1,22 @@
-import type { FC } from "react";
+import { format, formatDistance } from "date-fns";
+import { ja } from "date-fns/locale";
 import { memo } from "react";
 
-import { formatDistance, format } from "date-fns";
-import { ja } from "date-fns/locale";
-
+import { VisuallyHiddenElement } from "@/components/VisuallyHiddenElement";
 import { getDictionary } from "@/libs/i18n";
 import { Text } from "@/libs/radix/typography/Text";
-import { VisuallyHiddenElement } from "@/components/VisuallyHiddenElement";
 
-import type { LocalesType, DictionaryKeys } from "@/libs/i18n";
+import type { DictionaryKeys, LocalesType } from "@/libs/i18n";
 import type { TextProps } from "@/libs/radix/typography/Text";
+import type { FC } from "react";
 
 const DATE_FORMAT = "yyyy/M/d";
 
-const getRelativeDate = (date: string, d: DictionaryKeys, locale: LocalesType) => {
+const getRelativeDate = (
+  date: string,
+  d: DictionaryKeys,
+  locale: LocalesType,
+) => {
   const isInvalidDate = Number.isNaN(new Date(date).getTime());
 
   if (isInvalidDate) {
@@ -28,11 +31,11 @@ const getRelativeDate = (date: string, d: DictionaryKeys, locale: LocalesType) =
 
   if (time.indexOf("less than") !== -1) {
     return d.DATE_TIME.JUST_NOW;
-  } else if (time.indexOf("month") !== -1 || time.indexOf("year") !== -1) {
-    return format(parsedDate, DATE_FORMAT, options);
-  } else {
-    return `${formatDistance(now, parsedDate, options)}${d.DATE_TIME.AGO}`;
   }
+  if (time.indexOf("month") !== -1 || time.indexOf("year") !== -1) {
+    return format(parsedDate, DATE_FORMAT, options);
+  }
+  return `${formatDistance(now, parsedDate, options)}${d.DATE_TIME.AGO}`;
 };
 
 type PostDateProps = {

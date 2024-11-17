@@ -1,5 +1,0 @@
-storybook-static/*
-public/*
-/node_modules/*
-**/*.js
-.next/*

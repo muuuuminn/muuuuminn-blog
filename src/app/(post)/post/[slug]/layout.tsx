@@ -1,11 +1,15 @@
 export const dynamicParams = false;
 
-import { Metadata } from "next";
-import { FC, ReactNode } from "react";
-
 import { getDictionary } from "@/libs/i18n";
 import { getPostBySlug } from "@/libs/markdown/api";
-import { getMetadata, OG_IMAGE_EXTENSION_TYPE, SITE_METADATA } from "@/libs/seo/metadata";
+import {
+  OG_IMAGE_EXTENSION_TYPE,
+  SITE_METADATA,
+  getMetadata,
+} from "@/libs/seo/metadata";
+
+import type { Metadata } from "next";
+import type { FC, ReactNode } from "react";
 
 type PostLayoutProps = {
   params: Promise<{
@@ -14,7 +18,9 @@ type PostLayoutProps = {
   children: ReactNode;
 };
 
-export async function generateMetadata({ params }: PostLayoutProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PostLayoutProps): Promise<Metadata> {
   const d = await getDictionary();
   const slug = (await params).slug;
   const post = getPostBySlug(slug, [

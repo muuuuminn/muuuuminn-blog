@@ -1,15 +1,12 @@
-import type { FC } from "react";
-import { memo } from "react";
+import { type FC, memo } from "react";
 
-import { Box } from "@/libs/radix/layout/Box";
 import { getDictionary } from "@/libs/i18n";
 import { NextImage } from "@/libs/next/NextImage";
+import { Box } from "@/libs/radix/layout/Box";
 
 const RATIO = 1 / 0.689;
 
-type LogoProps = {};
-
-export const Logo: FC<LogoProps> = memo(async function Logo() {
+export const Logo: FC = memo(async function Logo() {
   const d = await getDictionary();
 
   return (

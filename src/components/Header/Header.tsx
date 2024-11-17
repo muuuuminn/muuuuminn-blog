@@ -1,17 +1,15 @@
-import type { FC } from "react";
-import { Heading, Link } from "@radix-ui/themes";
-
-import { getDictionary } from "@/libs/i18n";
-import { Flex } from "@/libs/radix/layout/Flex";
-import { HStack } from "@/libs/radix/layout/Stack";
-import { CustomNextLink } from "@/libs/next/CustomNextLink";
-
-import { Logo } from "./Logo";
 import styles from "./Header.module.css";
 
-type HeaderProps = {};
+import { Heading, Link } from "@radix-ui/themes";
+import type { FC } from "react";
 
-export const Header: FC<HeaderProps> = async () => {
+import { getDictionary } from "@/libs/i18n";
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
+import { Flex } from "@/libs/radix/layout/Flex";
+import { HStack } from "@/libs/radix/layout/Stack";
+import { Logo } from "./Logo";
+
+export const Header: FC = async () => {
   const d = await getDictionary();
 
   return (

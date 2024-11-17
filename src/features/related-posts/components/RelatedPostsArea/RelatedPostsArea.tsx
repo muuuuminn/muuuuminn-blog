@@ -1,12 +1,12 @@
-import type { FC } from "react";
-import { memo } from "react";
 import { Heading } from "@radix-ui/themes";
+import { memo } from "react";
 
+import { PostCard } from "@/features/post/components/PostCard";
 import { getDictionary } from "@/libs/i18n";
 import { VStack } from "@/libs/radix/layout/Stack";
-import { PostCard } from "@/features/post/components/PostCard";
 
 import type { PostListType } from "@/features/post/types";
+import type { FC } from "react";
 
 type RelatedPostsArea = {
   relatedPosts: PostListType;

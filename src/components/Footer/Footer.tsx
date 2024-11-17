@@ -1,11 +1,10 @@
-import type { FC } from "react";
-
 import { Box } from "@radix-ui/themes";
+import type { FC } from "react";
 
 import { VStack } from "@/libs/radix/layout/Stack";
 import { CategorySegmentControl } from "./CategorySegmentControl";
-import { Navigation } from "./Navigation";
 import { MenuIconButton } from "./MenuIconButton";
+import { Navigation } from "./Navigation";
 
 export const Footer: FC = () => {
   return (

@@ -6,8 +6,9 @@ import { MASTER_TAGS } from "@/features/tag/constants";
 import { getDictionary } from "@/libs/i18n";
 import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
-import { Metadata } from "next";
-import { FC } from "react";
+
+import type { Metadata } from "next";
+import type { FC } from "react";
 
 type CategoryPageProps = {
   params: Promise<{
@@ -16,7 +17,9 @@ type CategoryPageProps = {
   searchParams: Promise<{ tag: string }>;
 };
 
-export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: CategoryPageProps): Promise<Metadata> {
   const d = await getDictionary();
   const categoryName = (await params).category_name;
 
@@ -35,7 +38,10 @@ export async function generateStaticParams() {
   }));
 }
 
-const CategoryPage: FC<CategoryPageProps> = async ({ params, searchParams }) => {
+const CategoryPage: FC<CategoryPageProps> = async ({
+  params,
+  searchParams,
+}) => {
   const categoryName = (await params).category_name;
   const tagNameAsQuery = (await searchParams).tag;
 
@@ -43,7 +49,8 @@ const CategoryPage: FC<CategoryPageProps> = async ({ params, searchParams }) => 
     (category) => category.name.toLowerCase() === categoryName,
   );
   const selectedTag = MASTER_TAGS.find(
-    (tag) => tag.name === tagNameAsQuery && tag.categoryId === selectedCategory?.id,
+    (tag) =>
+      tag.name === tagNameAsQuery && tag.categoryId === selectedCategory?.id,
   );
 
   const filteredPosts = getAllPosts([

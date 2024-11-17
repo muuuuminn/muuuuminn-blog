@@ -12,11 +12,10 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "lint": "next lint",
-    "lint:js": "eslint '**/*.@(js|ts|tsx)'",
+    "lint": "biome lint -- apply ./src",
     "lint:md": "textlint src/app/resume/resume.md",
-    "check": "tsc && prettier --list-different . && npm run lint:js",
-    "format": "prettier --write . && npm run lint:js -- --fix",
+    "format": "biome format ./src --write",
+    "check": "biome check --apply ./src",
     "scaffdog": "scaffdog generate",
     "eslint:rules": "eslint --print-config .eslintrc.js > eslint-rules.json",
     "gen:eslint-doc": "npm run eslint:rules && node script/show-eslint-config.js",
@@ -48,6 +47,7 @@
     "zenn-markdown-html": "0.1.158"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
     "@types/node": "22.9.0",
     "@types/react": "18.3.12",

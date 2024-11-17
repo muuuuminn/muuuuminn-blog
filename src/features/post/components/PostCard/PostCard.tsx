@@ -1,20 +1,20 @@
-import { memo } from "react";
 import { Link } from "@radix-ui/themes";
+import { memo } from "react";
 
-import { Box } from "@/libs/radix/layout/Box";
-import { Text } from "@/libs/radix/typography/Text";
-import { Grid } from "@/libs/radix/layout/Grid";
-import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { Category } from "@/features/category/components/Category";
 import { Tag } from "@/features/tag/components/TagList/Tag";
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
+import { Box } from "@/libs/radix/layout/Box";
+import { Grid } from "@/libs/radix/layout/Grid";
+import { Text } from "@/libs/radix/typography/Text";
 
 import { PostDate } from "../PostDate";
-import { PostTitleLink } from "../PostTitleLink";
 import { PostThumbnail } from "../PostThumbnail";
+import { PostTitleLink } from "../PostTitleLink";
 
+import type { PostType } from "@/features/post/types";
 import type { FC } from "react";
 import type { ComponentProps } from "react";
-import type { PostType } from "@/features/post/types";
 
 type PostCardProps = {
   post: PostType;
@@ -71,7 +71,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
           }}
         >
           {post.tags.map((tag) => (
-            <Tag tag={tag} />
+            <Tag key={tag.id} tag={tag} />
           ))}
         </Box>
 

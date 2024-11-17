@@ -1,17 +1,16 @@
 "use client";
 
+import { Link } from "@radix-ui/themes";
 import { useParams } from "next/navigation";
-import type { FC } from "react";
 import { memo, useMemo } from "react";
 
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { Box } from "@/libs/radix/layout/Box";
 import { Text } from "@/libs/radix/typography/Text";
-import { CustomNextLink } from "@/libs/next/CustomNextLink";
 
 import type { TagType } from "@/features/tag/types";
 import type { CustomNextLinkProps } from "@/libs/next/CustomNextLink";
-import type { ComponentProps } from "react";
-import { Link } from "@radix-ui/themes";
+import type { ComponentProps, FC } from "react";
 
 type TagProps = Omit<CustomNextLinkProps, "href"> & {
   tag: TagType;
@@ -30,9 +29,8 @@ const _Tag: FC<TagProps> = ({ tag, className, ...rest }) => {
 
     if (category_name) {
       return `/posts/${category_name.toLowerCase()}${urlSuffix}`; // カテゴリが指定されている場合
-    } else {
-      return `/posts${urlSuffix}`; // カテゴリが指定されていない場合
     }
+    return `/posts${urlSuffix}`; // カテゴリが指定されていない場合
   }, [category_name, tag]);
 
   // ホバー時のスタイルをJavaScriptで追加

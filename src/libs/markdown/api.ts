@@ -1,6 +1,5 @@
-import fs from "fs";
-import { join } from "path";
-
+import fs from "node:fs";
+import { join } from "node:path";
 import { isBefore, isToday } from "date-fns";
 import matter from "gray-matter";
 
@@ -27,7 +26,7 @@ const postsDirectory = join(process.cwd(), POSTS_DIRECTORY_NAME);
 const formatPost = (
   data: { [key: string]: string },
   content: string,
-  fields: FieldsType[] = [],
+  fields: FieldsType[],
   slug: string,
 ) => {
   type Items = {
@@ -45,9 +44,8 @@ const formatPost = (
     category: "",
     tags: "",
   };
-
   // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
+  for (const field of fields) {
     if (field === "slug") {
       items[field] = slug;
     }
@@ -57,7 +55,7 @@ const formatPost = (
     if (typeof data[field] !== "undefined") {
       items[field] = data[field];
     }
-  });
+  }
 
   return items;
 };

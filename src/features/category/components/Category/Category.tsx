@@ -1,12 +1,12 @@
 import { Badge } from "@radix-ui/themes";
 
-import { Text } from "@/libs/radix/typography/Text";
-import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { VisuallyHiddenElement } from "@/components/VisuallyHiddenElement";
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
+import { Text } from "@/libs/radix/typography/Text";
 
-import type { FC } from "react";
 import type { CategoryType } from "@/features/category/types";
 import type { BadgeProps } from "@radix-ui/themes";
+import type { FC } from "react";
 
 type CategoryProps = BadgeProps & {
   category: CategoryType;
@@ -14,7 +14,10 @@ type CategoryProps = BadgeProps & {
 
 export const Category: FC<CategoryProps> = ({ category }) => {
   return (
-    <CustomNextLink href={`/posts/${category.name.toLowerCase()}`} prefetch={false}>
+    <CustomNextLink
+      href={`/posts/${category.name.toLowerCase()}`}
+      prefetch={false}
+    >
       <VisuallyHiddenElement>カテゴリ：</VisuallyHiddenElement>
       <Badge
         style={{

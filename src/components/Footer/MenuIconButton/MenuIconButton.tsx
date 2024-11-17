@@ -1,8 +1,8 @@
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Flex, IconButton, Link, Popover, Separator } from "@radix-ui/themes";
 
-import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { getDictionary } from "@/libs/i18n";
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { VStack } from "@/libs/radix/layout/Stack";
 import { Text } from "@/libs/radix/typography/Text";
 
