@@ -14,9 +14,10 @@ import type { FC } from "react";
 
 type TagProps = {
   tag: TagType;
+  onMouseDown?: () => void;
 };
 
-const _Tag: FC<TagProps> = ({ tag }) => {
+const _Tag: FC<TagProps> = ({ tag, onMouseDown }) => {
   const { category_name } = useParams<{ category_name: string | undefined }>();
 
   // タグへのリンクを計算
@@ -45,6 +46,7 @@ const _Tag: FC<TagProps> = ({ tag }) => {
       highContrast
       style={cssVariables}
       className={styles.linkWrapper}
+      onMouseDown={onMouseDown}
     >
       <CustomNextLink prefetch={false} href={href}>
         <Flex py="1" px="2" height="20px" align="center" justify="center">

@@ -4,13 +4,25 @@ import styles from "./TagSearchButton.module.css";
 
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { Button, IconButton } from "@radix-ui/themes";
+import {
+  Button,
+  Heading,
+  IconButton,
+  ScrollArea,
+  Theme,
+} from "@radix-ui/themes";
+import { type FC, useState } from "react";
 
-import type { FC } from "react";
+import { Tag } from "@/features/tag/components/TagList/Tag";
+import { MASTER_TAGS } from "@/features/tag/constants";
+import { Flex } from "@/libs/radix/layout/Flex";
+import { VStack } from "@/libs/radix/layout/Stack";
 
 export const TagSearchButton: FC = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <Button
           color="red"
@@ -24,17 +36,41 @@ export const TagSearchButton: FC = () => {
       <Dialog.Portal>
         <Dialog.Overlay className={styles.dialogOverlay} />
         <Dialog.Content className={styles.dialogContent}>
-          <Dialog.Title className={styles.dialogTitle}>
-            Edit profile
-          </Dialog.Title>
-          <Dialog.Description className={styles.dialogDescription}>
-            Make changes to your profile here. Click save when you're done.
-          </Dialog.Description>
-          <Dialog.Close asChild>
-            <IconButton aria-label="Close" className={styles.closeIconButton}>
-              <Cross2Icon />
-            </IconButton>
-          </Dialog.Close>
+          <Theme appearance="dark" accentColor="red" radius="large">
+            <VStack gap="4">
+              <Dialog.Title asChild>
+                <Heading size="4">タグで検索する</Heading>
+              </Dialog.Title>
+              <ScrollArea
+                type="auto"
+                scrollbars="vertical"
+                style={{
+                  height: 180,
+                }}
+              >
+                <Flex wrap="wrap" gapX="2" gapY="3">
+                  {MASTER_TAGS.map((tag) => (
+                    <Tag
+                      tag={tag}
+                      key={tag.id}
+                      onMouseDown={() => setOpen(false)}
+                    />
+                  ))}
+                </Flex>
+              </ScrollArea>
+              <Dialog.Close asChild>
+                <IconButton
+                  aria-label="Close"
+                  variant="ghost"
+                  size="4"
+                  color="gray"
+                  className={styles.closeIconButton}
+                >
+                  <Cross2Icon />
+                </IconButton>
+              </Dialog.Close>
+            </VStack>
+          </Theme>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
