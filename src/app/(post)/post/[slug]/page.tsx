@@ -7,6 +7,7 @@ import { getRelatedPosts } from "@/features/related-posts/utils/getRelatedPosts"
 import { getAllPosts, getPostBySlug } from "@/libs/markdown/api";
 import { getPostJsonLd } from "./jsonLd";
 
+import { VStack } from "@/libs/radix/layout/Stack";
 import type { FC } from "react";
 
 type PostPageProps = {
@@ -64,16 +65,18 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
-      <PostDetail
-        post={{
-          ...post,
-          content: htmlContent,
-        }}
-      />
-      {relatedPosts.length !== 0 && (
-        <RelatedPostsArea relatedPosts={relatedPosts} />
-      )}
-      <AdSense />
+      <VStack gap="6">
+        <PostDetail
+          post={{
+            ...post,
+            content: htmlContent,
+          }}
+        />
+        {relatedPosts.length !== 0 && (
+          <RelatedPostsArea relatedPosts={relatedPosts} />
+        )}
+        <AdSense />
+      </VStack>
     </div>
   );
 };

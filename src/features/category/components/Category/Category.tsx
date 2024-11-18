@@ -1,4 +1,6 @@
-import { Badge } from "@radix-ui/themes";
+import styles from "./Category.module.css";
+
+import { Badge, Link } from "@radix-ui/themes";
 
 import { VisuallyHiddenElement } from "@/components/VisuallyHiddenElement";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
@@ -14,23 +16,25 @@ type CategoryProps = BadgeProps & {
 
 export const Category: FC<CategoryProps> = ({ category }) => {
   return (
-    <CustomNextLink
-      href={`/posts/${category.name.toLowerCase()}`}
-      prefetch={false}
-    >
-      <VisuallyHiddenElement>カテゴリ：</VisuallyHiddenElement>
-      <Badge
-        style={{
-          width: "100px",
-          maxWidth: "100%",
-        }}
-        variant={"outline"}
-        highContrast
+    <Link asChild className={styles.link}>
+      <CustomNextLink
+        href={`/posts/${category.name.toLowerCase()}`}
+        prefetch={false}
       >
-        <Text size={"2"} mx="auto">
-          {category.name.toUpperCase()}
-        </Text>
-      </Badge>
-    </CustomNextLink>
+        <VisuallyHiddenElement>カテゴリ：</VisuallyHiddenElement>
+        <Badge
+          style={{
+            width: "100px",
+            maxWidth: "100%",
+          }}
+          variant={"outline"}
+          highContrast
+        >
+          <Text size={"2"} mx="auto">
+            {category.name.toUpperCase()}
+          </Text>
+        </Badge>
+      </CustomNextLink>
+    </Link>
   );
 };

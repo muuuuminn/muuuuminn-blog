@@ -15,21 +15,15 @@ type RelatedPostsArea = {
 const _RelatedPostsArea: FC<RelatedPostsArea> = async ({ relatedPosts }) => {
   const d = await getDictionary();
   return (
-    <VStack>
-      <Heading
-      // sx={(theme) => ({
-      //   borderBottom: `2px solid ${
-      //     theme.colorScheme === "dark"
-      //       ? theme.colors["light-coral"][1]
-      //       : theme.colors["light-coral"][8]
-      //   }`,
-      // })}
-      >
+    <VStack gap="3">
+      <Heading as="h3" size="4">
         {d.COMPONENTS.RELATED_POST_AREA.TITLE}
       </Heading>
-      {relatedPosts.map((relatedPost) => (
-        <PostCard key={relatedPost.slug} post={relatedPost} />
-      ))}
+      <VStack gap="2">
+        {relatedPosts.map((relatedPost) => (
+          <PostCard key={relatedPost.slug} post={relatedPost} />
+        ))}
+      </VStack>
     </VStack>
   );
 };

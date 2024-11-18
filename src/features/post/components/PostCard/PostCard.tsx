@@ -1,3 +1,5 @@
+import styles from "./PostCard.module.css";
+
 import { Link } from "@radix-ui/themes";
 import { memo } from "react";
 
@@ -10,7 +12,8 @@ import { Text } from "@/libs/radix/typography/Text";
 
 import { PostDate } from "../PostDate";
 import { PostThumbnail } from "../PostThumbnail";
-import { PostTitleLink } from "../PostTitleLink";
+import { PostTitle } from "../PostTitle";
+import { CardWrapper } from "./CardWrapper";
 
 import type { PostType } from "@/features/post/types";
 import type { FC } from "react";
@@ -22,7 +25,7 @@ type PostCardProps = {
 
 const _PostCard: FC<PostCardProps> = ({ post }) => {
   return (
-    <article aria-labelledby={post.slug}>
+    <CardWrapper post={post}>
       <Grid
         areas={`
           "category date"
@@ -31,7 +34,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
           "description description"
         `}
         gapX="4"
-        gapY="2"
+        gapY="1"
         align="start"
         style={{
           gridTemplateColumns: "auto 1fr",
@@ -43,7 +46,17 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
             gridArea: "title",
           }}
         >
-          <PostTitleLink title={post.title} slug={post.slug} size="2" />
+          <Link
+            asChild
+            highContrast
+            color="gray"
+            underline="none"
+            className={styles.titleLink}
+          >
+            <CustomNextLink href={`/post/${post.slug}`} prefetch={false}>
+              <PostTitle title={post.title} slug={post.slug} size="2" />
+            </CustomNextLink>
+          </Link>
         </Box>
 
         {/* カテゴリ */}
@@ -51,6 +64,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
           style={{
             gridArea: "category",
           }}
+          className={styles.category}
         >
           <Category category={post.category} />
         </Box>
@@ -69,6 +83,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
           style={{
             gridArea: "tag",
           }}
+          className={styles.tag}
         >
           <TagList tags={post.tags} />
         </Box>
@@ -82,10 +97,11 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",
-            lineHeight: "1.5",
           }}
           as="p"
-          size="2"
+          size="1"
+          color="gray"
+          highContrast
         >
           {post.description}
         </Text>
@@ -99,14 +115,10 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
           width="100px"
           height="100px"
         >
-          <Link asChild tabIndex={-1} aria-hidden="true">
-            <CustomNextLink href={`/post/${post.slug}`}>
-              <PostThumbnail src={post.coverImage} alt="" />
-            </CustomNextLink>
-          </Link>
+          <PostThumbnail src={post.coverImage} alt="" />
         </Box>
       </Grid>
-    </article>
+    </CardWrapper>
   );
 };
 

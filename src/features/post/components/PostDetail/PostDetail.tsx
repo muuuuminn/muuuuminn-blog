@@ -1,10 +1,12 @@
+import { Box, Heading } from "@radix-ui/themes";
+
 import { RichMarkdownContent } from "@/components/RichMarkdownContent";
 import { Category } from "@/features/category/components/Category";
 import { PostDate } from "@/features/post/components/PostDate";
 import { PostThumbnail } from "@/features/post/components/PostThumbnail";
+import { TagList } from "@/features/tag/components/TagList";
 import { getDictionary } from "@/libs/i18n";
 import { HStack, VStack } from "@/libs/radix/layout/Stack";
-import { Box, Heading } from "@radix-ui/themes";
 
 import type { PostDetailType } from "@/features/post/types";
 import type { FC } from "react";
@@ -20,32 +22,32 @@ export const PostDetail: FC<PostDetailProps> = async ({ post, ...rest }) => {
 
   return (
     <Box {...rest}>
-      <VStack gap="16px">
+      <VStack gap="4">
         {/* カテゴリと日付 */}
-        <HStack gap="8px" align="center">
-          {post.category && <Category category={post.category} />}
+        <HStack gap="2" align="center">
+          <Category category={post.category} />
           <PostDate date={post.date} size="2" />
         </HStack>
 
         {/* サムネイルとタイトル、タグ */}
-        <VStack align="center" gap="8px">
-          <PostThumbnail
-            alt={alt}
-            enableBlur
-            imageQuality={75}
-            // ratio={{ "@initial": 1.85 / 1.5, "@bp1": 16 / 9 }}
-            sizeSet={{ width: 300, height: 168 }}
-            src={post.coverImage}
-          />
-          <Heading as="h1" weight="bold" size="6" align="center">
+        <VStack align="center" gap="2">
+          <Box position="relative" width="300px" height="168px">
+            <PostThumbnail
+              alt={alt}
+              imageQuality={75}
+              sizeSet={{ width: 300, height: 168 }}
+              src={post.coverImage}
+            />
+          </Box>
+          <Heading as="h1" weight="bold" size="5" align="center" wrap="pretty">
             {post.title}
           </Heading>
-          {/* <WrapTagList justify="center" tags={post.tags} wrap="wrap" /> */}
+          <TagList tags={post.tags} />
         </VStack>
       </VStack>
 
       {/* 記事コンテンツ */}
-      <Box mt="16px" pl="8px" pr="4px">
+      <Box mt="4" pl="2" pr="1">
         <RichMarkdownContent html={post.content} />
       </Box>
     </Box>

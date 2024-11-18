@@ -1,0 +1,4 @@
+.link:hover {
+  background-color: color-mix(in srgb, var(--red-8) 24%, transparent);
+  transition: background-color 0.3s ease;
+}

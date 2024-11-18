@@ -12,7 +12,6 @@ interface PostThumbnailProps {
   };
   enableBlur?: boolean;
   alt: string;
-  // objectFit?: "cover" | "contain";
 }
 
 const _PostThumbnail: FC<PostThumbnailProps> = ({
@@ -21,7 +20,6 @@ const _PostThumbnail: FC<PostThumbnailProps> = ({
   sizeSet = { width: 100, height: 100 },
   enableBlur,
   alt = "",
-  // ratio = 1 / 1,
   ...rest
 }) => {
   return (
