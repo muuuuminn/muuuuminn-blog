@@ -51,7 +51,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       <body>
         <Theme appearance="dark" accentColor="red" radius="large">
           <Header />
-          <Box mx="auto" mb={FOOTER_HEIGHT} px="2" pb="4" maxWidth="690px">
+          <Box mx="auto" mb={FOOTER_HEIGHT} px="2" py="4" maxWidth="690px">
             {children}
           </Box>
           <Footer />

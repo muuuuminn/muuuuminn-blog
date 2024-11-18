@@ -2,7 +2,7 @@ import { Link } from "@radix-ui/themes";
 import { memo } from "react";
 
 import { Category } from "@/features/category/components/Category";
-import { Tag } from "@/features/tag/components/TagList/Tag";
+import { TagList } from "@/features/tag/components/TagList";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { Box } from "@/libs/radix/layout/Box";
 import { Grid } from "@/libs/radix/layout/Grid";
@@ -43,7 +43,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
             gridArea: "title",
           }}
         >
-          <PostTitleLink title={post.title} slug={post.slug} size="3" />
+          <PostTitleLink title={post.title} slug={post.slug} size="2" />
         </Box>
 
         {/* カテゴリ */}
@@ -70,9 +70,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
             gridArea: "tag",
           }}
         >
-          {post.tags.map((tag) => (
-            <Tag key={tag.id} tag={tag} />
-          ))}
+          <TagList tags={post.tags} />
         </Box>
 
         {/* 概要 */}

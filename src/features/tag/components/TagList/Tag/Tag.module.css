@@ -1,0 +1,10 @@
+.linkWrapper {
+  border: 1px solid var(--tag-color);
+  border-radius: var(--radius-6);
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.linkWrapper:hover {
+  background-color: color-mix(in srgb, var(--tag-color) 18%, transparent);
+}

@@ -1,15 +1,14 @@
-import { HomeIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { Button, Link } from "@radix-ui/themes";
-import type { FC } from "react";
-
-import { getDictionary } from "@/libs/i18n";
-import { CustomNextLink } from "@/libs/next/CustomNextLink";
-import { HStack } from "@/libs/radix/layout/Stack";
 import styles from "./Navigation.module.css";
 
-export const Navigation: FC = async () => {
-  const d = await getDictionary();
+import { HomeIcon } from "@radix-ui/react-icons";
+import { Link } from "@radix-ui/themes";
+import type { FC } from "react";
 
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
+import { HStack } from "@/libs/radix/layout/Stack";
+import { TagSearchButton } from "./TagSearchButton";
+
+export const Navigation: FC = () => {
   return (
     <HStack
       gap="9"
@@ -25,14 +24,7 @@ export const Navigation: FC = async () => {
         </CustomNextLink>
       </Link>
 
-      <Button
-        color="red"
-        highContrast
-        variant="ghost"
-        className={styles.navigationItem}
-      >
-        <MagnifyingGlassIcon width={24} height={24} />
-      </Button>
+      <TagSearchButton />
     </HStack>
   );
 };
