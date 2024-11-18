@@ -1,4 +1,6 @@
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import styles from "./MenuIconButton.module.css";
+
+import { Cross2Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Flex, IconButton, Link, Popover, Separator } from "@radix-ui/themes";
 
 import { getDictionary } from "@/libs/i18n";
@@ -16,6 +18,11 @@ export const MenuIconButton = async () => {
         </IconButton>
       </Popover.Trigger>
       <Popover.Content>
+        <Popover.Close className={styles.closeIconButton}>
+          <IconButton aria-label="Close" variant="ghost">
+            <Cross2Icon />
+          </IconButton>
+        </Popover.Close>
         <VStack gap="3">
           {MenuLinks.map((menuLink) =>
             menuLink.isNextLink ? (

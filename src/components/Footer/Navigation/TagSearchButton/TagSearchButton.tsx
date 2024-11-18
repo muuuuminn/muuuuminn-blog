@@ -62,8 +62,6 @@ export const TagSearchButton: FC = () => {
                 <IconButton
                   aria-label="Close"
                   variant="ghost"
-                  size="4"
-                  color="gray"
                   className={styles.closeIconButton}
                 >
                   <Cross2Icon />
