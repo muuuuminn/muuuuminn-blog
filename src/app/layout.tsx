@@ -32,6 +32,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
         <script
           async
           crossOrigin="anonymous"
+          defer
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9104412012929052"
         />
         <script
