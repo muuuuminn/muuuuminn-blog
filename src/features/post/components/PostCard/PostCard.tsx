@@ -84,7 +84,6 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
             gridArea: "tag",
           }}
           className={styles.tag}
-          width="max-content"
         >
           <TagList tags={post.tags} />
         </Box>
