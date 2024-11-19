@@ -1,17 +1,22 @@
+"use client";
+
 import styles from "./MenuIconButton.module.css";
 
 import { Cross2Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Flex, IconButton, Link, Popover, Separator } from "@radix-ui/themes";
 
-import { getDictionary } from "@/libs/i18n/getDictionary";
+import { useDictionary } from "@/libs/i18n/useDictionary";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { VStack } from "@/libs/radix/layout/Stack";
 import { Text } from "@/libs/radix/typography/Text";
+import { useState } from "react";
 
-export const MenuIconButton = async () => {
-  const d = await getDictionary();
+export const MenuIconButton = () => {
+  const { d } = useDictionary();
+  const [open, setOpen] = useState(false);
+
   return (
-    <Popover.Root>
+    <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger>
         <IconButton color="red" highContrast radius="full" variant="outline">
           <HamburgerMenuIcon width={24} height={24} />
@@ -26,7 +31,13 @@ export const MenuIconButton = async () => {
         <VStack gap="3">
           {MenuLinks.map((menuLink) =>
             menuLink.isNextLink ? (
-              <Link key={menuLink.href} asChild color="gray" highContrast>
+              <Link
+                key={menuLink.href}
+                asChild
+                color="gray"
+                highContrast
+                onMouseDown={() => setOpen(false)}
+              >
                 <CustomNextLink
                   href={menuLink.href}
                   key={menuLink.name}
@@ -42,6 +53,7 @@ export const MenuIconButton = async () => {
                 highContrast
                 href={menuLink.href}
                 target={menuLink.targetBlank ? "_blank" : undefined}
+                onMouseDown={() => setOpen(false)}
               >
                 {d.PAGE[menuLink.name]}
               </Link>

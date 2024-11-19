@@ -1,1 +1,1 @@
-export * from "./MenuIconButton";
+export * from "./MenuIconButton.client";
