@@ -3,15 +3,17 @@
  */
 const nextConfig = {
   reactStrictMode: true,
-  compiler: {
-    emotion: true,
-  },
   images: {
-    domains: ["user-images.githubusercontent.com", "s3.us-west-2.amazonaws.com"],
-  },
-  i18n: {
-    locales: ["ja", "en"],
-    defaultLocale: "ja",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "user-images.githubusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.us-west-2.amazonaws.com",
+      },
+    ],
   },
   async redirects() {
     return [
@@ -20,11 +22,12 @@ const nextConfig = {
         destination: "/posts",
         permanent: true,
       },
+      {
+        source: "/:lang(en|ja)/:path*",
+        destination: "/:path*",
+        permanent: true,
+      },
     ];
-  },
-  pageExtensions: ["page.tsx", "page.ts"],
-  experimental: {
-    scrollRestoration: true,
   },
   env: {
     NEXT_PUBLIC_APP_ROOT_URL: process.env.NEXT_PUBLIC_APP_ROOT_URL,

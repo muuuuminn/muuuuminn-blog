@@ -1,10 +1,9 @@
 {
-  "recommendations": [
-    "streetsidesoftware.code-spell-checker",
-    "ms-vsliveshare.vsliveshare",
-    "dbaeumer.vscode-eslint",
-    "EditorConfig.EditorConfig",
-    "esbenp.prettier-vscode",
-    "saikou9901.evilinspector"
-  ]
+	"recommendations": [
+		"streetsidesoftware.code-spell-checker",
+		"ms-vsliveshare.vsliveshare",
+		"EditorConfig.EditorConfig",
+		"saikou9901.evilinspector",
+		"biomejs.biome"
+	]
 }

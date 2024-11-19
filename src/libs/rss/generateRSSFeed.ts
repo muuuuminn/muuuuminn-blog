@@ -1,12 +1,14 @@
-import fs from "fs";
+import "server-only";
+
+import fs from "node:fs";
 
 import RSS from "rss";
 
 import { getAllPosts } from "../markdown/api";
 
-export default function generateRssFeed() {
-  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
+const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
 
+export default function generateRssFeed() {
   const posts = getAllPosts([
     "title",
     "date",
@@ -19,12 +21,12 @@ export default function generateRssFeed() {
 
   const feedOptions = {
     title: "RSS Feed | muuuuminn blog",
-    description: "muuuumonnによるブログです。",
+    description: "muuuuminnによるブログです。",
     site_url: APP_ROOT_URL,
     feed_url: `${APP_ROOT_URL}/rss.xml`,
     image_url: `${APP_ROOT_URL}/logo/logo.png`,
     pubDate: new Date(),
-    copyright: `© 2022 muuuuminn blog. All rights reserved.`,
+    copyright: "© 2022 muuuuminn blog. All rights reserved.",
   };
 
   const feed = new RSS(feedOptions);
@@ -35,7 +37,7 @@ export default function generateRssFeed() {
       description: post.description,
       url: `${APP_ROOT_URL}/post/${post.slug}`,
       date: post.date,
-      author: "muuuumonn",
+      author: "muuuuminn",
       categories: [post.category.name, ...post.tags.map((tag) => tag.name)],
     });
   });

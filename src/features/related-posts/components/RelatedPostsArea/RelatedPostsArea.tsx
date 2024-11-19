@@ -1,39 +1,30 @@
-import type { FC } from "react";
+import { Heading } from "@radix-ui/themes";
 import { memo } from "react";
 
-import { Title } from "@mantine/core";
-
-import { PostCard } from "@/features/post/components";
-import { useTranslation } from "@/libs/i18n";
-import { Stack } from "@/libs/mantine/layout";
+import { PostCard } from "@/features/post/components/PostCard";
+import { getDictionary } from "@/libs/i18n/getDictionary";
+import { VStack } from "@/libs/radix/layout/Stack";
 
 import type { PostListType } from "@/features/post/types";
+import type { FC } from "react";
 
 type RelatedPostsArea = {
   relatedPosts: PostListType;
 };
 
-const _RelatedPostsArea: FC<RelatedPostsArea> = ({ relatedPosts }) => {
-  const { t } = useTranslation();
+const _RelatedPostsArea: FC<RelatedPostsArea> = async ({ relatedPosts }) => {
+  const d = await getDictionary();
   return (
-    <Stack>
-      <Title
-        fw={"bold"}
-        fz={"lg"}
-        sx={(theme) => ({
-          borderBottom: `2px solid ${
-            theme.colorScheme === "dark"
-              ? theme.colors["light-coral"][1]
-              : theme.colors["light-coral"][8]
-          }`,
-        })}
-      >
-        {t.COMPONENTS.RELATED_POST_AREA.TITLE}
-      </Title>
-      {relatedPosts.map((relatedPost) => (
-        <PostCard key={relatedPost.slug} post={relatedPost} />
-      ))}
-    </Stack>
+    <VStack gap="3">
+      <Heading as="h3" size="4">
+        {d.COMPONENTS.RELATED_POST_AREA.TITLE}
+      </Heading>
+      <VStack gap="2">
+        {relatedPosts.map((relatedPost) => (
+          <PostCard key={relatedPost.slug} post={relatedPost} />
+        ))}
+      </VStack>
+    </VStack>
   );
 };
 

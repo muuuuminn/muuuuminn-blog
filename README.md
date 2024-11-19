@@ -1,12 +1,12 @@
-# muuuumonn blog is a personal markdown blog.
+# muuuuminn blog is a personal markdown blog.
 
 ## Tech stack
 
 ### Frontend
 
-- Next.js
+- Next.js(App Router)
 - TypeScript
-- Mantine UI
+- Radix UI
 
 ### Backend
 

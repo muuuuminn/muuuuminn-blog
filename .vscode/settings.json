@@ -1,5 +1,15 @@
 {
-  "typescript.tsdk": "./node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.words": ["muuuumonn"]
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"cSpell.words": ["muuuuminn", "textlint", "scaffdog", "zenn"],
+	"editor.formatOnSave": true,
+	// For biome
+	"editor.defaultFormatter": "biomejs.biome",
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
+	}
 }

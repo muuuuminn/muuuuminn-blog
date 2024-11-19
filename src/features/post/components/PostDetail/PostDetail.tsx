@@ -1,65 +1,55 @@
-import type { FC } from "react";
+import { Box, Heading } from "@radix-ui/themes";
 
-import { em, getBreakpointValue, Title, useMantineTheme } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
-
-import { Category } from "@/features/category/components";
-import { PostDate, PostThumbnail } from "@/features/post/components";
-import { WrapTagList } from "@/features/tag/components";
-import { useTranslation } from "@/libs/i18n";
-import { Box, HStack, Stack } from "@/libs/mantine/layout";
-import { RichMarkdownContent } from "@/shared/components";
+import { RichMarkdownContent } from "@/components/RichMarkdownContent";
+import { Category } from "@/features/category/components/Category";
+import { PostDate } from "@/features/post/components/PostDate";
+import { PostThumbnail } from "@/features/post/components/PostThumbnail";
+import { TagList } from "@/features/tag/components/TagList";
+import { getDictionary } from "@/libs/i18n/getDictionary";
+import { HStack, VStack } from "@/libs/radix/layout/Stack";
 
 import type { PostDetailType } from "@/features/post/types";
-import type { BoxProps } from "@/libs/mantine/layout";
+import type { FC } from "react";
+import type { ComponentProps } from "react";
 
 type PostDetailProps = {
-  postDetail: PostDetailType;
-} & BoxProps;
+  post: PostDetailType;
+} & ComponentProps<typeof Box>;
 
-export const PostDetail: FC<PostDetailProps> = ({ postDetail, ...rest }) => {
-  const { t } = useTranslation();
-  const { breakpoints } = useMantineTheme();
-  const largerThanSm = useMediaQuery(`(min-width: ${em(getBreakpointValue(breakpoints.sm))})`);
+export const PostDetail: FC<PostDetailProps> = async ({ post, ...rest }) => {
+  const d = await getDictionary();
+  const alt = `${post.title}${d.ALT.THUMBNAIL_OF}`;
 
-  const sizeSet = largerThanSm
-    ? {
-        width: 400,
-        height: 225,
-      }
-    : {
-        width: 300,
-        height: 168,
-      };
-
-  const alt = `${postDetail.title}${t.ALT.THUMBNAIL_OF}`;
   return (
     <Box {...rest}>
-      <Stack>
-        <HStack spacing={16}>
-          {postDetail.category && <Category asLink category={postDetail.category} />}
-          <PostDate date={postDetail.date} fz={"sm"} />
+      <VStack gap="4">
+        {/* カテゴリと日付 */}
+        <HStack gap="2" align="center">
+          <Category category={post.category} />
+          <PostDate date={post.date} size="2" />
         </HStack>
-        <Stack align={"center"} justify={"center"}>
-          <PostThumbnail
-            alt={alt}
-            enableBlur
-            imageQuality={75}
-            ratio={largerThanSm ? 16 / 9 : 1.85 / 1.5}
-            sizeSet={sizeSet}
-            src={postDetail.coverImage}
-          />
-          <Title fw={"bold"} fz={"lg"}>
-            {postDetail.title}
-          </Title>
-          <WrapTagList justify={"center"} tags={postDetail.tags} w={"full"} wrap={"wrap"} />
-        </Stack>
-      </Stack>
-      {postDetail.content && (
-        <Box mt={16} pl={8} pr={4}>
-          <RichMarkdownContent html={postDetail.content} />
-        </Box>
-      )}
+
+        {/* サムネイルとタイトル、タグ */}
+        <VStack align="center" gap="2">
+          <Box position="relative" width="300px" height="168px">
+            <PostThumbnail
+              alt={alt}
+              imageQuality={75}
+              sizeSet={{ width: 300, height: 168 }}
+              src={post.coverImage}
+            />
+          </Box>
+          <Heading as="h1" weight="bold" size="5" align="center" wrap="pretty">
+            {post.title}
+          </Heading>
+          <TagList tags={post.tags} />
+        </VStack>
+      </VStack>
+
+      {/* 記事コンテンツ */}
+      <Box mt="4" pl="2" pr="1">
+        <RichMarkdownContent html={post.content} />
+      </Box>
     </Box>
   );
 };

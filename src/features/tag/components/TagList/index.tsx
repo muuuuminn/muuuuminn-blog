@@ -1,2 +1,1 @@
-export * from "./NoWrapTagList";
-export * from "./WrapTagList";
+export * from "./TagList";

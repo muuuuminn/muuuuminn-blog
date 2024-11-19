@@ -1,63 +1,124 @@
-import type { FC } from "react";
+import styles from "./PostCard.module.css";
+
+import { Link } from "@radix-ui/themes";
 import { memo } from "react";
 
-import { createStyles } from "@mantine/core";
+import { Category } from "@/features/category/components/Category";
+import { TagList } from "@/features/tag/components/TagList";
+import { CustomNextLink } from "@/libs/next/CustomNextLink";
+import { Box } from "@/libs/radix/layout/Box";
+import { Grid } from "@/libs/radix/layout/Grid";
+import { Text } from "@/libs/radix/typography/Text";
 
-import { Category } from "@/features/category/components";
-import { PostDate, PostThumbnail, PostTitleLink } from "@/features/post/components";
-import { NoWrapTagList } from "@/features/tag/components";
-import { useTranslation } from "@/libs/i18n";
-import { HStack, Stack, Box } from "@/libs/mantine/layout";
-import { Text } from "@/libs/mantine/typography";
+import { PostDate } from "../PostDate";
+import { PostThumbnail } from "../PostThumbnail";
+import { PostTitle } from "../PostTitle";
+import { CardWrapper } from "./CardWrapper";
 
 import type { PostType } from "@/features/post/types";
-import type { BoxProps } from "@/libs/mantine/layout";
+import type { FC } from "react";
+import type { ComponentProps } from "react";
 
 type PostCardProps = {
   post: PostType;
-} & BoxProps;
+} & ComponentProps<typeof Box>;
 
-const useStyles = createStyles(() => ({
-  card: {
-    overflowX: "hidden",
-  },
-  thumbnailContainer: {
-    flexShrink: 0,
-  },
-  thumbnail: {
-    flexShrink: 0,
-  },
-}));
-
-const _PostCard: FC<PostCardProps> = ({ post, ...rest }) => {
-  const { classes } = useStyles();
-  const { t } = useTranslation();
-  const alt = `${post.title}${t.ALT.THUMBNAIL_OF}`;
+const _PostCard: FC<PostCardProps> = ({ post }) => {
   return (
-    <Box className={classes.card} component={"article"} py={4} {...rest}>
-      <Stack align={"start"} spacing={8}>
-        <HStack spacing={"md"}>
-          {post.category && <Category asLink category={post.category} />}
-          <PostDate date={post.date} fz={"sm"} />
-        </HStack>
-        <HStack className={classes.thumbnailContainer} noWrap spacing={"md"}>
-          <PostThumbnail
-            alt={alt}
-            className={classes.thumbnail}
-            imageQuality={50}
-            ratio={1 / 1}
-            src={post.coverImage}
-          />
-          <Stack align={"flex-start"}>
-            <PostTitleLink post={post} />
-            <NoWrapTagList tagProps={{ shallow: true, replace: true }} tags={post.tags} />
-          </Stack>
-        </HStack>
-        <Text color={"gray"} lineClamp={2}>
+    <CardWrapper post={post}>
+      <Grid
+        areas={`
+          "category date"
+          "thumbnail title"
+          "thumbnail tag"
+          "description description"
+        `}
+        gapX="4"
+        gapY="1"
+        align="start"
+        style={{
+          gridTemplateColumns: "auto 1fr",
+        }}
+      >
+        {/* タイトル */}
+        <Box
+          style={{
+            gridArea: "title",
+          }}
+        >
+          <Link
+            asChild
+            highContrast
+            color="gray"
+            underline="none"
+            className={styles.titleLink}
+          >
+            <CustomNextLink href={`/post/${post.slug}`} prefetch>
+              <PostTitle title={post.title} slug={post.slug} size="2" />
+            </CustomNextLink>
+          </Link>
+        </Box>
+
+        {/* カテゴリ */}
+        <Box
+          style={{
+            gridArea: "category",
+          }}
+          className={styles.category}
+        >
+          <Category category={post.category} />
+        </Box>
+
+        {/* 投稿日 */}
+        <Box
+          style={{
+            gridArea: "date",
+          }}
+        >
+          <PostDate date={post.date} />
+        </Box>
+
+        {/* タグ */}
+        <Box
+          style={{
+            gridArea: "tag",
+          }}
+          className={styles.tag}
+        >
+          <TagList tags={post.tags} />
+        </Box>
+
+        {/* 概要 */}
+        <Text
+          style={{
+            gridArea: "description",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+          as="p"
+          size="1"
+          color="gray"
+          highContrast
+        >
           {post.description}
         </Text>
-      </Stack>
-    </Box>
+
+        {/* サムネイル */}
+        <Box
+          style={{
+            gridArea: "thumbnail",
+          }}
+          position="relative"
+          width="100px"
+          height="100px"
+        >
+          <PostThumbnail src={post.coverImage} alt="" />
+        </Box>
+      </Grid>
+    </CardWrapper>
   );
 };
 

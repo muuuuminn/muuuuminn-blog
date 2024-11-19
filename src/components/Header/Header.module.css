@@ -1,0 +1,8 @@
+.link {
+  border-radius: var(--radius-4);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #fec8c82e;
+  }
+}
