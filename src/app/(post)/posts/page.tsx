@@ -16,8 +16,8 @@ export async function generateMetadata() {
   return metadata;
 }
 
-const PostsPage: FC = async () => {
-  const posts = await getAllPosts([
+const PostsPage: FC = () => {
+  const posts = getAllPosts([
     "title",
     "date",
     "slug",

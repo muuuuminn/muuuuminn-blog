@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 
 import { PostCardList } from "@/features/post/components/PostCardList";
 import { MASTER_TAGS } from "@/features/tag/constants";
@@ -14,23 +15,22 @@ type FilteredPostsProps = {
 
 const FilteredPosts: FC<FilteredPostsProps> = ({ posts }) => {
   const searchParams = useSearchParams();
-  const tagName = searchParams.get("tag") as string | string[] | undefined;
+  const tagName = searchParams.get("tag");
 
-  const selectedTag = MASTER_TAGS.find(
-    (tag) => typeof tagName === "string" && tag.name === tagName,
-  );
+  const filteredPosts = useMemo(() => {
+    if (typeof tagName !== "string") {
+      return posts;
+    }
 
-  const filteredPosts = selectedTag
-    ? posts.filter((post) => {
-        if (selectedTag) {
-          const isTagMatch = post.tags.some(
-            (tag) => tag.name === selectedTag.name,
-          );
-          return isTagMatch;
-        }
-        return true;
-      })
-    : posts;
+    const selectedTag = MASTER_TAGS.find((tag) => tag.name === tagName);
+    if (!selectedTag) {
+      return posts;
+    }
+
+    return posts.filter((post) =>
+      post.tags.some((tag) => tag.name === selectedTag.name),
+    );
+  }, [posts, tagName]);
 
   return <PostCardList posts={filteredPosts} />;
 };

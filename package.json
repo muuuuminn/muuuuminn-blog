@@ -8,6 +8,7 @@
 	},
 	"scripts": {
 		"dev": "next -p 3333",
+		"prebuild": "node -r @swc-node/register src/libs/rss/generateRSSFeed.ts",
 		"postbuild": "next-sitemap",
 		"build": "next build",
 		"start": "next start",
@@ -47,6 +48,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@cloudflare/next-on-pages": "1.13.5",
+		"@swc-node/register": "^1.6.8",
 		"@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
 		"@types/node": "22.9.0",
 		"@types/react": "18.3.12",

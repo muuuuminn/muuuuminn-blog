@@ -25,7 +25,7 @@ type PostPageProps = {
 };
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts(["slug", "date"]);
+  const posts = getAllPosts(["slug", "date"]);
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -34,7 +34,7 @@ export async function generateStaticParams() {
 
 const PostPage: FC<PostPageProps> = async ({ params }) => {
   const slug = (await params).slug;
-  const post = await getPostBySlug(slug, [
+  const post = getPostBySlug(slug, [
     "title",
     "date",
     "slug",

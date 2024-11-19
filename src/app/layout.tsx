@@ -11,7 +11,6 @@ import { Header } from "@/components/Header";
 import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
 import { gtmId } from "@/features/gtm/constant";
 import { Box } from "@/libs/radix/layout/Box";
-import generateRssFeed from "@/libs/rss/generateRSSFeed";
 import { getMetadata } from "@/libs/seo/metadata";
 
 import type { GoogleTagManagerIdType } from "@/features/gtm/type";
@@ -27,8 +26,6 @@ type RootLayoutProps = {
 };
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
-  generateRssFeed();
-
   return (
     <html lang="ja">
       <head>

@@ -1,5 +1,3 @@
-import "server-only";
-
 import fs from "node:fs";
 
 import RSS from "rss";
@@ -8,7 +6,7 @@ import { getAllPosts } from "../markdown/api";
 
 const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
 
-export default function generateRssFeed() {
+export function generateRssFeed() {
   const posts = getAllPosts([
     "title",
     "date",
@@ -31,7 +29,7 @@ export default function generateRssFeed() {
 
   const feed = new RSS(feedOptions);
 
-  posts.map((post) => {
+  for (const post of posts) {
     feed.item({
       title: post.title,
       description: post.description,
@@ -40,7 +38,9 @@ export default function generateRssFeed() {
       author: "muuuuminn",
       categories: [post.category.name, ...post.tags.map((tag) => tag.name)],
     });
-  });
+  }
 
   fs.writeFileSync("./public/rss.xml", feed.xml({ indent: true }));
 }
+
+generateRssFeed();

@@ -19,6 +19,8 @@
 .DS_Store
 *.pem
 rss.xml
+sitemap.xml
+sitemap-*.xml
 
 # debug
 npm-debug.log*
