@@ -19,6 +19,7 @@ export const CustomNextLink: FC<
     <NextLink
       href={href}
       rel={isExternalLink(href) ? "nofollow noreferrer" : undefined}
+      prefetch={false}
       {...rest}
     >
       {children}
