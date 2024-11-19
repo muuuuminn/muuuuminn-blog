@@ -18,7 +18,13 @@ export const Navigation: FC = () => {
       py="3"
       className={styles.navigation}
     >
-      <Link asChild color="red" highContrast className={styles.navigationItem}>
+      <Link
+        asChild
+        color="red"
+        highContrast
+        className={styles.navigationItem}
+        aria-label="トップページへ移動する"
+      >
         <CustomNextLink href="/posts" prefetch>
           <HomeIcon width={24} height={24} />
         </CustomNextLink>

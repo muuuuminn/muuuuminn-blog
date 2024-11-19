@@ -29,6 +29,7 @@ export const TagSearchButton: FC = () => {
           highContrast
           variant="ghost"
           className={styles.searchButton}
+          aria-label="タグ一覧を表示する"
         >
           <MagnifyingGlassIcon width={24} height={24} />
         </Button>

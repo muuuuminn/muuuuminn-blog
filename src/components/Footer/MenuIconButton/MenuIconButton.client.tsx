@@ -18,7 +18,13 @@ export const MenuIconButton = () => {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger>
-        <IconButton color="red" highContrast radius="full" variant="outline">
+        <IconButton
+          color="red"
+          highContrast
+          radius="full"
+          variant="outline"
+          aria-label="メニューを表示する"
+        >
           <HamburgerMenuIcon width={24} height={24} />
         </IconButton>
       </Popover.Trigger>
