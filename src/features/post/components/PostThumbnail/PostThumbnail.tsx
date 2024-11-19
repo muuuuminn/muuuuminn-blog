@@ -16,7 +16,7 @@ interface PostThumbnailProps {
 
 const _PostThumbnail: FC<PostThumbnailProps> = ({
   src,
-  imageQuality,
+  imageQuality = 50,
   sizeSet = { width: 100, height: 100 },
   enableBlur,
   alt = "",
