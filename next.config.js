@@ -22,6 +22,11 @@ const nextConfig = {
         destination: "/posts",
         permanent: true,
       },
+      {
+        source: "/:lang(en|ja)/:path*",
+        destination: "/:path*",
+        permanent: true,
+      },
     ];
   },
   env: {
