@@ -1,1 +1,1 @@
-export * from "./PostDate";
+export * from "./PostDate.client";

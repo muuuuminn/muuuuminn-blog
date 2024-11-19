@@ -1,1 +1,1 @@
-export * from "./AdSense";
+export * from "./AdSense.client";

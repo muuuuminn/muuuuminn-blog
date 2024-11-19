@@ -2,7 +2,7 @@ import { Heading } from "@radix-ui/themes";
 import { memo } from "react";
 
 import { PostCard } from "@/features/post/components/PostCard";
-import { getDictionary } from "@/libs/i18n";
+import { getDictionary } from "@/libs/i18n/getDictionary";
 import { VStack } from "@/libs/radix/layout/Stack";
 
 import type { PostListType } from "@/features/post/types";

@@ -17,10 +17,7 @@ type CategoryProps = BadgeProps & {
 export const Category: FC<CategoryProps> = ({ category }) => {
   return (
     <Link asChild className={styles.link}>
-      <CustomNextLink
-        href={`/posts/${category.name.toLowerCase()}`}
-        prefetch={false}
-      >
+      <CustomNextLink href={`/posts/${category.name.toLowerCase()}`}>
         <VisuallyHiddenElement>カテゴリ：</VisuallyHiddenElement>
         <Badge
           style={{

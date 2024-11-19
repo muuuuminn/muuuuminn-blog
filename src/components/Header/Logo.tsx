@@ -1,6 +1,6 @@
 import { type FC, memo } from "react";
 
-import { getDictionary } from "@/libs/i18n";
+import { getDictionary } from "@/libs/i18n/getDictionary";
 import { NextImage } from "@/libs/next/NextImage";
 import { Box } from "@/libs/radix/layout/Box";
 

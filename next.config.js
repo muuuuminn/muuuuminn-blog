@@ -4,7 +4,16 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["user-images.githubusercontent.com", "s3.us-west-2.amazonaws.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "user-images.githubusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.us-west-2.amazonaws.com",
+      },
+    ],
   },
   i18n: {
     locales: ["ja", "en"],

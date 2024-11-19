@@ -5,6 +5,7 @@ import matter from "gray-matter";
 
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { MASTER_TAGS } from "@/features/tag/constants";
+import { notFound } from "next/navigation";
 
 const POSTS_DIRECTORY_NAME = "src/muuuuminn-blog/posts";
 
@@ -65,32 +66,36 @@ export function getPostSlugs() {
 }
 
 export function getPostBySlug(slug: string, fields: FieldsType[]) {
-  const fullPath = join(postsDirectory, `${slug}/index.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
+  try {
+    const fullPath = join(postsDirectory, `${slug}/index.md`);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
 
-  const formattedPlainPost = formatPost(data, content, fields, slug);
+    const formattedPlainPost = formatPost(data, content, fields, slug);
 
-  const generatedCategory = MASTER_CATEGORIES.find(
-    (category) => category.id === formattedPlainPost.category,
-  ) || {
-    // TODO: 定数として管理する
-    id: "-1",
-    name: "Other",
-    color: "#c9c9c",
-  };
-  const generatedTags = formattedPlainPost.tags.split(",").flatMap((key) => {
-    const foundTag = MASTER_TAGS.find((tag) => tag.id === key.trim());
-    // workaround: 重複したタグをmarkdown側で記述しても一意にして表示に影響がでないようにする
-    // TODO: タグ名の重複削除
-    return foundTag ? foundTag : [];
-  });
+    const generatedCategory = MASTER_CATEGORIES.find(
+      (category) => category.id === formattedPlainPost.category,
+    ) || {
+      // TODO: 定数として管理する
+      id: "-1",
+      name: "Other",
+      color: "#c9c9c",
+    };
+    const generatedTags = formattedPlainPost.tags.split(",").flatMap((key) => {
+      const foundTag = MASTER_TAGS.find((tag) => tag.id === key.trim());
+      // workaround: 重複したタグをmarkdown側で記述しても一意にして表示に影響がでないようにする
+      // TODO: タグ名の重複削除
+      return foundTag ? foundTag : [];
+    });
 
-  return {
-    ...formattedPlainPost,
-    category: generatedCategory,
-    tags: generatedTags,
-  };
+    return {
+      ...formattedPlainPost,
+      category: generatedCategory,
+      tags: generatedTags,
+    };
+  } catch (e) {
+    notFound();
+  }
 }
 
 export function getAllPosts(fields: FieldsType[]) {

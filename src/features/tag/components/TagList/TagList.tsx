@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 import { Flex, type FlexProps } from "@/libs/radix/layout/Flex";
-import { Tag } from "./Tag/Tag";
+import { Tag } from "./Tag";
 
 import type { TagType } from "@/features/tag/types";
 import type { FC } from "react";

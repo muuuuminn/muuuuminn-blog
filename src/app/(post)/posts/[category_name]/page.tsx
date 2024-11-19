@@ -1,20 +1,24 @@
-export const dynamicParams = false;
+/**
+ * workaround: 本来export const dynamicParams = falseとして、ビルド時に生成されたpathのみアクセス可能にし、それ以外はnot-foundへ遷移させるべき。
+ * しかしこれを設定すると、おそらくNext.js側の不具合で生成されたpathも含む[category_name]ページが全てnot-found扱いとなってしまう。
+ * 現状の回避方法はdynamicParamsはデフォルト値(true)にし、ページ側でparams内のcategory_nameとマスターとなるcategoryを照合して遷移を分岐させている
+ */
+
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 import { MASTER_CATEGORIES } from "@/features/category/constants";
-import { PostCardList } from "@/features/post/components/PostCardList";
-import { MASTER_TAGS } from "@/features/tag/constants";
-import { getDictionary } from "@/libs/i18n";
+import { getDictionary } from "@/libs/i18n/getDictionary";
 import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
+import FilteredPosts from "../FilteredPosts";
 
 import type { Metadata } from "next";
-import type { FC } from "react";
 
 type CategoryPageProps = {
   params: Promise<{
     category_name: string;
   }>;
-  searchParams: Promise<{ tag: string }>;
 };
 
 export async function generateMetadata({
@@ -38,20 +42,17 @@ export async function generateStaticParams() {
   }));
 }
 
-const CategoryPage: FC<CategoryPageProps> = async ({
-  params,
-  searchParams,
-}) => {
+export default async function CategoryPage({ params }: CategoryPageProps) {
   const categoryName = (await params).category_name;
-  const tagNameAsQuery = (await searchParams).tag;
 
-  const selectedCategory = MASTER_CATEGORIES.find(
-    (category) => category.name.toLowerCase() === categoryName,
-  );
-  const selectedTag = MASTER_TAGS.find(
-    (tag) =>
-      tag.name === tagNameAsQuery && tag.categoryId === selectedCategory?.id,
-  );
+  const isNotMatchCategoryName =
+    MASTER_CATEGORIES.findIndex(
+      (category) => category.name.toLowerCase() === categoryName,
+    ) !== -1;
+
+  if (isNotMatchCategoryName) {
+    return notFound();
+  }
 
   const filteredPosts = getAllPosts([
     "title",
@@ -61,20 +62,13 @@ const CategoryPage: FC<CategoryPageProps> = async ({
     "description",
     "category",
     "tags",
-  ]).filter((post) => {
-    const isCategoryMatch = post.category.name.toLowerCase() === categoryName;
-    if (selectedTag) {
-      const isTagMatch = post.tags.some((tag) => tag.name === selectedTag.name);
-      return isCategoryMatch && isTagMatch;
-    }
-    return isCategoryMatch;
-  });
+  ]).filter((post) => post.category.name.toLowerCase() === categoryName);
 
   return (
     <div>
-      <PostCardList posts={filteredPosts} />
+      <Suspense fallback={<>loading...</>}>
+        <FilteredPosts posts={filteredPosts} />
+      </Suspense>
     </div>
   );
-};
-
-export default CategoryPage;
+}

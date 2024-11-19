@@ -1,16 +1,11 @@
-import { PostCardList } from "@/features/post/components/PostCardList";
-import { MASTER_TAGS } from "@/features/tag/constants";
-import { getDictionary } from "@/libs/i18n";
+import { getDictionary } from "@/libs/i18n/getDictionary";
 import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
+import FilteredPosts from "./FilteredPosts";
 
-import type { FC } from "react";
+import { type FC, Suspense } from "react";
 
-type PostsPageProps = {
-  searchParams: Promise<{ tag: string }>;
-};
-
-export async function generateMetadata({ searchParams }: PostsPageProps) {
+export async function generateMetadata() {
   const d = await getDictionary();
   const metadata = getMetadata({
     title: d.PAGE.POSTS,
@@ -21,12 +16,8 @@ export async function generateMetadata({ searchParams }: PostsPageProps) {
   return metadata;
 }
 
-const PostsPage: FC<PostsPageProps> = async ({ searchParams }) => {
-  const tagNameAsQuery = (await searchParams).tag;
-
-  const selectedTag = MASTER_TAGS.find((tag) => tag.name === tagNameAsQuery);
-
-  const posts = getAllPosts([
+const PostsPage: FC = async () => {
+  const posts = await getAllPosts([
     "title",
     "date",
     "slug",
@@ -36,21 +27,11 @@ const PostsPage: FC<PostsPageProps> = async ({ searchParams }) => {
     "tags",
   ]);
 
-  const filteredPosts = selectedTag
-    ? posts.filter((post) => {
-        if (selectedTag) {
-          const isTagMatch = post.tags.some(
-            (tag) => tag.name === selectedTag.name,
-          );
-          return isTagMatch;
-        }
-        return true;
-      })
-    : posts;
-
   return (
     <div>
-      <PostCardList posts={filteredPosts} />
+      <Suspense fallback={<>loading...</>}>
+        <FilteredPosts posts={posts} />
+      </Suspense>
     </div>
   );
 };

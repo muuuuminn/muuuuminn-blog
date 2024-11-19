@@ -1,6 +1,6 @@
-export const dynamicParams = false;
+import { notFound } from "next/navigation";
 
-import { getDictionary } from "@/libs/i18n";
+import { getDictionary } from "@/libs/i18n/getDictionary";
 import { getPostBySlug } from "@/libs/markdown/api";
 import {
   OG_IMAGE_EXTENSION_TYPE,
@@ -23,7 +23,7 @@ export async function generateMetadata({
 }: PostLayoutProps): Promise<Metadata> {
   const d = await getDictionary();
   const slug = (await params).slug;
-  const post = getPostBySlug(slug, [
+  const post = await getPostBySlug(slug, [
     "title",
     "date",
     "slug",
@@ -34,6 +34,10 @@ export async function generateMetadata({
     "category",
     "tags",
   ]);
+
+  if (!post) {
+    return notFound();
+  }
 
   const metadata = getMetadata({
     title: post.title,

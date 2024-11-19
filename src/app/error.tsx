@@ -1,21 +1,11 @@
+"use client";
+
 import { Button, Card, Flex, Heading, Text } from "@radix-ui/themes";
 import Link from "next/link";
 
-import { getDictionary } from "@/libs/i18n/getDictionary";
 import { VStack } from "@/libs/radix/layout/Stack";
-import { getMetadata } from "@/libs/seo/metadata";
 
-export async function generateMetadata() {
-  const d = await getDictionary();
-  const metadata = getMetadata({
-    title: d.PAGE.NOT_FOUND,
-    description: d.DESCRIPTION.NOT_FOUND,
-  });
-
-  return metadata;
-}
-
-export default function NotFound() {
+export default function ErrorPage() {
   return (
     <Flex
       height="100vh"

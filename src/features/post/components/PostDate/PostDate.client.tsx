@@ -1,12 +1,14 @@
+"use client";
+
 import { format, formatDistance } from "date-fns";
 import { ja } from "date-fns/locale";
 import { memo } from "react";
 
 import { VisuallyHiddenElement } from "@/components/VisuallyHiddenElement";
-import { getDictionary } from "@/libs/i18n";
+import { useDictionary } from "@/libs/i18n/useDictionary";
 import { Text } from "@/libs/radix/typography/Text";
 
-import type { DictionaryKeys, LocalesType } from "@/libs/i18n";
+import type { DictionaryKeys, LocalesType } from "@/libs/i18n/useDictionary";
 import type { TextProps } from "@/libs/radix/typography/Text";
 import type { FC } from "react";
 
@@ -42,8 +44,8 @@ type PostDateProps = {
   date: string;
 } & TextProps;
 
-const _PostDate: FC<PostDateProps> = async ({ date, ...rest }) => {
-  const d = await getDictionary();
+const _PostDate: FC<PostDateProps> = ({ date, ...rest }) => {
+  const { d } = useDictionary();
   const relativeDate = getRelativeDate(date, d, "ja");
 
   return (

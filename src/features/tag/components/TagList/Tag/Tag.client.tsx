@@ -2,11 +2,12 @@
 
 import styles from "./Tag.module.css";
 
-import { Flex, Link } from "@radix-ui/themes";
+import { Link } from "@radix-ui/themes";
 import { useParams } from "next/navigation";
 import { memo, useMemo } from "react";
 
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
+import { Flex } from "@/libs/radix/layout/Flex";
 import { Text } from "@/libs/radix/typography/Text";
 
 import type { TagType } from "@/features/tag/types";
@@ -48,7 +49,7 @@ const _Tag: FC<TagProps> = ({ tag, onMouseDown }) => {
       className={styles.linkWrapper}
       onMouseDown={onMouseDown}
     >
-      <CustomNextLink prefetch={false} href={href}>
+      <CustomNextLink href={href}>
         <Flex py="1" px="2" height="20px" align="center" justify="center">
           <Text size="1">#{tag.name}</Text>
         </Flex>
