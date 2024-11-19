@@ -7,7 +7,7 @@ const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL || "";
 export const SITE_METADATA = {
   APP_ROOT_URL,
   TITLE: "muuuuminn blog",
-  DESCRIPTION: "",
+  DESCRIPTION: "muuuuminnによる投稿一覧ページです。",
   APPLICATION_NAME: "muuuuminn blog",
   SITE_NAME: "muuuuminn blog",
   LOGO_PATH: "/logo/logo_transparent.png",
