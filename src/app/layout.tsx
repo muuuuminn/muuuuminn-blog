@@ -8,12 +8,12 @@ import { Theme } from "@radix-ui/themes";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
-import { gtmId } from "@/features/gtm/constant";
+// import { GoogleTagManager } from "@/features/gtm/GoogleTagManger";
+// import { gtmId } from "@/features/gtm/constant";
 import { Box } from "@/libs/radix/layout/Box";
 import { getMetadata } from "@/libs/seo/metadata";
 
-import type { GoogleTagManagerIdType } from "@/features/gtm/type";
+// import type { GoogleTagManagerIdType } from "@/features/gtm/type";
 import type { Metadata } from "next";
 import type { FC, ReactNode } from "react";
 
@@ -45,7 +45,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
         <link href="/favicons/apple-touch-icon.png" rel="apple-touch-icon" />
         <link href="/favicons/site.webmanifest" rel="manifest" />
       </head>
-      <GoogleTagManager googleTagManagerId={gtmId as GoogleTagManagerIdType} />
+      {/* <GoogleTagManager googleTagManagerId={gtmId as GoogleTagManagerIdType} /> */}
       <body>
         <Theme appearance="dark" accentColor="red" radius="large">
           <Header />
