@@ -8,10 +8,10 @@ export type DictionaryKeys = typeof ja | typeof en;
 
 export const useDictionary = () => {
   const { locale = "ja" } = useParams<{
-    locale: LocalesType | string[] | undefined;
+    locale: LocalesType | string[];
   }>();
 
-  const d = locale && locale === "en" ? en : ja;
+  const d = typeof locale === "string" && locale === "en" ? en : ja;
 
   return { locale, d };
 };

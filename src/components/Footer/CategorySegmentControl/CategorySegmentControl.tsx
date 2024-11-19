@@ -18,7 +18,7 @@ const getHref = (category: CategoryType) => {
 
 export const CategorySegmentControl = () => {
   const pathname = usePathname();
-  const { category_name } = useParams<{ category_name: string | undefined }>();
+  const { category_name } = useParams<{ category_name: string | string[] }>();
 
   const categories: CategoryType[] = [
     { id: "-1", name: "All", color: "" },

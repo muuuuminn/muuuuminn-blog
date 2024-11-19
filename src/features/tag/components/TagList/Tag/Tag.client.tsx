@@ -19,7 +19,7 @@ type TagProps = {
 };
 
 const _Tag: FC<TagProps> = ({ tag, onMouseDown }) => {
-  const { category_name } = useParams<{ category_name: string | undefined }>();
+  const { category_name } = useParams<{ category_name: string | string[] }>();
 
   // タグへのリンクを計算
   const href = useMemo(() => {
@@ -28,7 +28,7 @@ const _Tag: FC<TagProps> = ({ tag, onMouseDown }) => {
     const searchParams = params.toString();
     const urlSuffix = searchParams ? `/?${searchParams}` : "";
 
-    if (category_name) {
+    if (category_name && typeof category_name === "string") {
       return `/posts/${category_name.toLowerCase()}${urlSuffix}`; // カテゴリが指定されている場合
     }
     return `/posts${urlSuffix}`; // カテゴリが指定されていない場合
