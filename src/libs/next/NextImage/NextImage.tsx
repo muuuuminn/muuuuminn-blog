@@ -34,6 +34,7 @@ const _NextImage = (props: NextImageProps) => {
         height: "100%",
         objectFit: "contain",
         transition: "all 0.01s",
+        borderRadius: "var(--radius-1)",
       }}
     />
   ) : (

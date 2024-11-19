@@ -28,9 +28,6 @@ const _PostThumbnail: FC<PostThumbnailProps> = ({
       // enableBlur={enableBlur}
       quality={imageQuality}
       src={src}
-      style={{
-        borderRadius: "10px",
-      }}
       {...sizeSet}
     />
   );
