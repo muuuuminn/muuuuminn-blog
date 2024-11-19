@@ -84,6 +84,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
             gridArea: "tag",
           }}
           className={styles.tag}
+          width="max-content"
         >
           <TagList tags={post.tags} />
         </Box>
@@ -111,6 +112,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
           style={{
             gridArea: "thumbnail",
           }}
+          className={styles.thumbnail}
           position="relative"
           width="100px"
           height="100px"

@@ -13,3 +13,7 @@
 .tag {
   z-index: 1;
 }
+
+.thumbnail {
+  z-index: -1;
+}
