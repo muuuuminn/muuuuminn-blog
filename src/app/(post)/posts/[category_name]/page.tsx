@@ -1,5 +1,5 @@
 /**
- * workaround: 本来export const dynamicParams = falseとして、ビルド時に生成されたpathのみアクセス可能にし、それ以外はnot-foundへ遷移させるべき。
+ * workaround: 本来dynamicParamをfalseとして、ビルド時に生成されたpathのみアクセス可能にし、それ以外はnot-foundへ遷移させるべき。
  * しかしこれを設定すると、おそらくNext.js側の不具合で生成されたpathも含む[category_name]ページが全てnot-found扱いとなってしまう。
  * 現状の回避方法はdynamicParamsはデフォルト値(true)にし、ページ側でparams内のcategory_nameとマスターとなるcategoryを照合して遷移を分岐させている
  */
@@ -48,7 +48,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const isNotMatchCategoryName =
     MASTER_CATEGORIES.findIndex(
       (category) => category.name.toLowerCase() === categoryName,
-    ) !== -1;
+    ) === -1;
 
   if (isNotMatchCategoryName) {
     return notFound();

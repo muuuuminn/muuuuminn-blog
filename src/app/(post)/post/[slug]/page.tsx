@@ -1,5 +1,5 @@
 /**
- * workaround: 本来export const dynamicParams = falseとして、ビルド時に生成されたpathのみアクセス可能にし、それ以外はnot-foundへ遷移させるべき。
+ * workaround: 本来dynamicParamsをfalseとして、ビルド時に生成されたpathのみアクセス可能にし、それ以外はnot-foundへ遷移させるべき。
  * しかしこれを設定すると、おそらくNext.js側の不具合で生成されたpathも含む[slug]ページが全てnot-found扱いとなってしまう。
  * 現状の回避方法はdynamicParamsはデフォルト値(true)にし、ページ側でslugをもとにマークダウンファイルを取得する際に、取得の成功可否で遷移を分岐させている
  */
