@@ -53,7 +53,7 @@ const _PostCard: FC<PostCardProps> = ({ post }) => {
             underline="none"
             className={styles.titleLink}
           >
-            <CustomNextLink href={`/post/${post.slug}`}>
+            <CustomNextLink href={`/post/${post.slug}`} prefetch>
               <PostTitle title={post.title} slug={post.slug} size="2" />
             </CustomNextLink>
           </Link>

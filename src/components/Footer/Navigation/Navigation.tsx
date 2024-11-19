@@ -19,7 +19,7 @@ export const Navigation: FC = () => {
       className={styles.navigation}
     >
       <Link asChild color="red" highContrast className={styles.navigationItem}>
-        <CustomNextLink href="/posts">
+        <CustomNextLink href="/posts" prefetch>
           <HomeIcon width={24} height={24} />
         </CustomNextLink>
       </Link>

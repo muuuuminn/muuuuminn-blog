@@ -16,7 +16,7 @@ export const Header: FC = async () => {
     <header>
       <Flex py="2" align="center" justify="center" gap="2">
         <Link asChild underline="none" highContrast className={styles.link}>
-          <CustomNextLink href="/posts">
+          <CustomNextLink href="/posts" prefetch>
             <HStack align="center" gap="2" px="2" py="1">
               <Logo />
               <Heading size="4">{d.SITE_NAME}</Heading>

@@ -27,7 +27,11 @@ export const MenuIconButton = async () => {
           {MenuLinks.map((menuLink) =>
             menuLink.isNextLink ? (
               <Link key={menuLink.href} asChild color="gray" highContrast>
-                <CustomNextLink href={menuLink.href} key={menuLink.name}>
+                <CustomNextLink
+                  href={menuLink.href}
+                  key={menuLink.name}
+                  prefetch
+                >
                   {d.PAGE[menuLink.name]}
                 </CustomNextLink>
               </Link>
