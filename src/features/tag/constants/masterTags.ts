@@ -222,4 +222,16 @@ export const MASTER_TAGS = [
     color: "808080",
     categoryId: "0",
   },
+  {
+    id: "40",
+    name: "Cloudflare Pages",
+    color: "F38020",
+    categoryId: "0",
+  },
+  {
+    id: "41",
+    name: "NextAuth",
+    color: "0070F3",
+    categoryId: "0",
+  },
 ];
