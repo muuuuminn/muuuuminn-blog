@@ -111,7 +111,7 @@ AUTH_TRUST_HOST = "true"
 
 ## おわりに
 
-今回の技術構成でアプリケーションを運用してそうな人が SNS でいたので、何かを見落としている可能性がある。  
+今回の技術構成でアプリケーションを運用してそうな人が SNS でいたので、自分が何かを見落としている可能性がある。  
 GitHub や Google Cloud 側の設定は、合っているはずだけどなあ…。
 
 もし同じ現象に遭遇して解決策を知っていれば[再現リポジトリ](https://github.com/muuuuminn/nextauthv5-clouadflare)に Issue 立てたり、[お問い合わせ](https://docs.google.com/forms/d/e/1FAIpQLSeXNfr1rEd0Cf_55yIlk2mOjrC4Rs00gA5jw0POoQ7pQOPo7A/viewform)から教えてくれたら助かります。

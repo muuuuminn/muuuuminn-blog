@@ -17,7 +17,10 @@ import { getMetadata } from "@/libs/seo/metadata";
 import type { Metadata } from "next";
 import type { FC, ReactNode } from "react";
 
-const FOOTER_HEIGHT = "112px";
+/**
+ * Footerの高さ(112px) + padding(20px)の合計
+ */
+const FOOTER_HEIGHT = "132px";
 
 export const metadata: Metadata = getMetadata();
 
@@ -49,7 +52,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
       <body>
         <Theme appearance="dark" accentColor="red" radius="large">
           <Header />
-          <Box mx="auto" mb={FOOTER_HEIGHT} px="2" py="4" maxWidth="690px">
+          <Box mx="auto" px="2" pt="4" pb={FOOTER_HEIGHT} maxWidth="690px">
             {children}
           </Box>
           <Footer />
