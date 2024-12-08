@@ -42,7 +42,7 @@ export const MenuIconButton = () => {
                 asChild
                 color="gray"
                 highContrast
-                // onMouseDown={() => setOpen(false)}
+                onClick={() => setOpen(false)}
               >
                 <CustomNextLink
                   href={menuLink.href}
@@ -59,7 +59,7 @@ export const MenuIconButton = () => {
                 highContrast
                 href={menuLink.href}
                 target={menuLink.targetBlank ? "_blank" : undefined}
-                onMouseDown={() => setOpen(false)}
+                onClick={() => setOpen(false)}
               >
                 {d.PAGE[menuLink.name]}
               </Link>
