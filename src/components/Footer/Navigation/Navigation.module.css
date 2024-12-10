@@ -9,11 +9,14 @@
 
 .navigationItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: var(--space-2);
   border-radius: var(--radius-thumb);
   transition: all 0.2s ease;
+  font-size: var(--font-size-1);
+  text-decoration: none;
 }
 
 .navigationItem:hover {

@@ -17,6 +17,7 @@ import { Tag } from "@/features/tag/components/TagList/Tag";
 import { MASTER_TAGS } from "@/features/tag/constants";
 import { Flex } from "@/libs/radix/layout/Flex";
 import { VStack } from "@/libs/radix/layout/Stack";
+import { Text } from "@/libs/radix/typography/Text";
 
 export const TagSearchButton: FC = () => {
   const [open, setOpen] = useState(false);
@@ -32,6 +33,7 @@ export const TagSearchButton: FC = () => {
           aria-label="タグ一覧を表示する"
         >
           <MagnifyingGlassIcon width={24} height={24} />
+          <Text>タグ検索</Text>
         </Button>
       </Dialog.Trigger>
       <Dialog.Portal>
