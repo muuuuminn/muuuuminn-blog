@@ -8,6 +8,12 @@ category: '0'
 tags: '1,39,40,41'
 ---
 
+## 追記（2024年12月10日）
+
+[Issueのコメント](https://github.com/nextauthjs/next-auth/issues/11999#issuecomment-2529107507)にて `@cloudflare/next-on-pages` のバージョンを `1.13.6` から `1.13.7` に上げたら動作したという情報があった。  
+早速試したところ、動作した。  
+そのため当記事で紹介した不具合に遭遇した人は、 `@cloudflare/next-on-pages` のバージョンを上げてみてほしい。
+
 ## 現状まとめ
 
 Next.js（App router）で NextAuth v5 の Google と GitHub 認証を使用したミニマムなアプリケーションを用意した。そして 4 つの環境下で検証した。  
