@@ -13,7 +13,7 @@ export const SITE_METADATA = {
   LOGO_PATH: "/logo/logo_transparent.png",
   AUTHOR: {
     URL: "https://github.com/muuuuminn",
-    NAME: "Hiroki Ogmi",
+    NAME: "Hiroki Ohmi",
   },
   TWITTER: {
     CARD: "summary",
