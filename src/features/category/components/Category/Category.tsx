@@ -28,7 +28,7 @@ export const Category: FC<CategoryProps> = ({ category }) => {
           highContrast
         >
           <Text size={"2"} mx="auto">
-            {category.name.toUpperCase()}
+            {category.name}
           </Text>
         </Badge>
       </CustomNextLink>
