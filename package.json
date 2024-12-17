@@ -29,7 +29,7 @@
 		"pnpm": "please use npm"
 	},
 	"volta": {
-		"node": "20.18.1",
+		"node": "22.12.0",
 		"npm": "10.9.1"
 	},
 	"dependencies": {
@@ -50,7 +50,7 @@
 		"@cloudflare/next-on-pages": "1.13.5",
 		"@swc-node/register": "^1.6.8",
 		"@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
-		"@types/node": "22.10.1",
+		"@types/node": "22.10.2",
 		"@types/react": "18.3.12",
 		"@types/rss": "0.0.32",
 		"husky": "9.1.7",
