@@ -47,7 +47,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
-		"@cloudflare/next-on-pages": "1.13.5",
+		"@cloudflare/next-on-pages": "1.13.7",
 		"@swc-node/register": "^1.6.8",
 		"@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
 		"@types/node": "22.10.2",
