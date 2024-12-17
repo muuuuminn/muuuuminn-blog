@@ -3,13 +3,13 @@ import {
   GitHubLogoIcon,
   GlobeIcon,
   HeartIcon,
+  IdCardIcon,
   StarIcon,
 } from "@radix-ui/react-icons";
 
 import styles from "./ProfileCard.module.css";
 
 import { Box } from "@/libs/radix/layout/Box";
-import { Grid } from "@/libs/radix/layout/Grid";
 import { HStack, VStack } from "@/libs/radix/layout/Stack";
 import { Avatar } from "./Avatar";
 import { SocialLink } from "./SocialLink";
@@ -65,7 +65,7 @@ export const ProfileCard = () => {
         </VStack>
 
         <HStack
-          gap="3"
+          gap="4"
           justify="center"
           p="1"
           wrap="wrap"
@@ -80,7 +80,12 @@ export const ProfileCard = () => {
             href="https://muuuuminn.com"
             icon={<GlobeIcon width={24} height={24} />}
             title="ブログ"
-          />{" "}
+          />
+          <SocialLink
+            href="https://muuuuminn.com/resume"
+            icon={<IdCardIcon width={24} height={24} />}
+            title="経歴"
+          />
         </HStack>
       </VStack>
     </Box>
