@@ -36,7 +36,7 @@ export const ProfileCard = () => {
                   <StarIcon />
                   経歴:
                 </HStack>
-                <span className={styles.detailValue}>SE:1年半 → FE:5年</span>
+                <span className={styles.detailValue}>SE:1年半 → FE:5年 → ?</span>
               </div>
             </div>
             <div className={styles.detailItem}>
@@ -91,18 +91,3 @@ export const ProfileCard = () => {
     </Box>
   );
 };
-
-/**
- * 内容
- * 近江宏樹（おうみ ひろき）
- * 経歴
- * 2017-2018: 1年半、SierでSE
- * 2019-2024: 5年、WEB系企業でフロントエンドエンジニア
- * スキル
- * Next.js, TypeScript, React, Notion
- * 趣味
- * ゲーム, 手品, 開発, コレクション, 映画
- * リンク
- * GitHub https://github.com/muuuuminn
- * ブログ https://muuuuminn.com
- */
