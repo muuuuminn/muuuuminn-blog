@@ -1,10 +1,10 @@
 .navigation {
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--color-black);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top-left-radius: var(--radius-6);
   border-top-right-radius: var(--radius-6);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px var(--color-shadow);
 }
 
 .navigationItem {

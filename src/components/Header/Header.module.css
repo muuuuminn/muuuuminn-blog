@@ -4,5 +4,5 @@
 }
 
 .link:hover {
-  background-color: #fec8c82e;
+  background-color: var(--color-background-lighten);
 }

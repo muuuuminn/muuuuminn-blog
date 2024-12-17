@@ -1,5 +1,6 @@
 :root {
   --color-background: #1f3134;
+  --color-background-lighten: #273b3f;
   background-color: var(--color-background);
 }
 

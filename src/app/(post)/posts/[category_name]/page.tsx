@@ -9,6 +9,7 @@ import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
 import FilteredPosts from "../FilteredPosts";
 
+import { SuspenseLoader } from "@/components/SuspenseLoader";
 import type { Metadata } from "next";
 
 type CategoryPageProps = {
@@ -62,9 +63,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div>
-      <Suspense fallback={<>loading...</>}>
+      <SuspenseLoader>
         <FilteredPosts posts={filteredPosts} />
-      </Suspense>
+      </SuspenseLoader>
     </div>
   );
 }
