@@ -1,0 +1,49 @@
+.container {
+  background: linear-gradient(
+    45deg,
+    var(--color-background),
+    var(--color-background-lighten)
+  );
+  border-radius: var(--radius-2);
+  box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+.title {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-bold);
+}
+
+.detail {
+  font-size: var(--font-size-2);
+}
+
+.detailItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.detailContent {
+  display: grid;
+  grid-template-columns: minmax(5em, auto) 1fr;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.detailLabel {
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+.detailValue {
+  min-width: 0;
+}
+
+.footer {
+  background: var(--color-background-lighten);
+  width: 100%;
+  border-radius: var(--radius-2);
+}

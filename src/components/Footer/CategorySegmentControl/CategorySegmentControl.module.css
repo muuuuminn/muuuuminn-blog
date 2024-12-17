@@ -1,5 +1,5 @@
 .segmentControlRoot {
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--color-black);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius-6);

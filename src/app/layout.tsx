@@ -3,7 +3,7 @@ import "@radix-ui/themes/styles.css";
 import "@/libs/radix/theme/accent.css";
 import "@/libs/radix/theme/background.css";
 import "@/libs/radix/theme/cursor.css";
-
+import "@/libs/radix/theme/token.css";
 import { Theme } from "@radix-ui/themes";
 
 import { Footer } from "@/components/Footer";

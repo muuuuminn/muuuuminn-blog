@@ -3,6 +3,7 @@ import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
 import FilteredPosts from "./FilteredPosts";
 
+import { SuspenseLoader } from "@/components/SuspenseLoader";
 import { type FC, Suspense } from "react";
 
 export async function generateMetadata() {
@@ -29,9 +30,9 @@ const PostsPage: FC = () => {
 
   return (
     <div>
-      <Suspense fallback={<>loading...</>}>
+      <SuspenseLoader>
         <FilteredPosts posts={posts} />
-      </Suspense>
+      </SuspenseLoader>
     </div>
   );
 };

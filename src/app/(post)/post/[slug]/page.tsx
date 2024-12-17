@@ -12,6 +12,7 @@ import { VStack } from "@/libs/radix/layout/Stack";
 
 import { getPostJsonLd } from "./jsonLd";
 
+import { ProfileCard } from "@/features/profile/ProfileCard";
 import type { FC } from "react";
 
 type PostPageProps = {
@@ -84,6 +85,7 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
         {relatedPosts.length !== 0 && (
           <RelatedPostsArea relatedPosts={relatedPosts} />
         )}
+        <ProfileCard />
         <AdSense />
       </VStack>
     </div>

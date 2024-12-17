@@ -1,7 +1,7 @@
 import styles from "./Navigation.module.css";
 
 import { HomeIcon } from "@radix-ui/react-icons";
-import { Button, Link } from "@radix-ui/themes";
+import { Button } from "@radix-ui/themes";
 import type { FC } from "react";
 
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
