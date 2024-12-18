@@ -3,7 +3,8 @@ import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
 import FilteredPosts from "./FilteredPosts";
 
-import type { FC } from "react";
+import { SuspenseLoader } from "@/components/SuspenseLoader";
+import { type FC, Suspense } from "react";
 
 export async function generateMetadata() {
   const d = await getDictionary();
@@ -29,7 +30,9 @@ const PostsPage: FC = () => {
 
   return (
     <div>
-      <FilteredPosts posts={posts} />
+      <SuspenseLoader>
+        <FilteredPosts posts={posts} />
+      </SuspenseLoader>
     </div>
   );
 };
