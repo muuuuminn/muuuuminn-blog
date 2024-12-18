@@ -1,12 +1,5 @@
 :root {
   --color-primary: #ffcece;
-
-  --color-mix-hover: color-mix(in srgb, var(--tag-color) 24%, transparent);
-  --overlay-background: rgba(0, 0, 0, 0.7);
-  --overlay-blur: blur(12px);
-  --transition-ease: 0.2s ease;
-  --transition-background-color: 0.3s ease;
-
   --color-black: rgba(0, 0, 0, 0.7);
   --color-border: rgba(255, 255, 255, 0.1);
   --color-shadow: rgba(0, 0, 0, 0.1);
