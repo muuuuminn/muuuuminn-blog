@@ -1,7 +1,6 @@
 export const dynamicParams = false;
 
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { getDictionary } from "@/libs/i18n/getDictionary";
