@@ -20,8 +20,8 @@ export const Logo: FC = memo(async function Logo() {
       <NextImage
         alt={d.ALT.SITE_LOGO}
         quality={50}
-        width={"40"}
-        height={"40"}
+        width={40}
+        height={40}
         src={"/logo/logo_transparent_no_title.png"}
       />
     </Box>

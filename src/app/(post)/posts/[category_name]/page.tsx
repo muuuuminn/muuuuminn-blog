@@ -1,7 +1,6 @@
 export const dynamicParams = false;
 
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { getDictionary } from "@/libs/i18n/getDictionary";
@@ -9,7 +8,6 @@ import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
 import FilteredPosts from "../FilteredPosts";
 
-import { SuspenseLoader } from "@/components/SuspenseLoader";
 import type { Metadata } from "next";
 
 type CategoryPageProps = {
@@ -63,9 +61,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div>
-      <SuspenseLoader>
-        <FilteredPosts posts={filteredPosts} />
-      </SuspenseLoader>
+      <FilteredPosts posts={filteredPosts} />
     </div>
   );
 }
