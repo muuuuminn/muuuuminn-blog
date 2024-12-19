@@ -214,7 +214,7 @@ date: "2024-12-17"
 
 # リンク集
 
-- [経歴を PDF でダウンロード](https://muuuuminn.com/職務経歴書.pdf)
+- [経歴を PDF でダウンロード](https://muuuuminn.com/resume.pdf)
 - [既読記事](https://www.notion.so/muuuuminn/1d6db77b5bac4bd29ba1c4c54cbbb98e?v=7d25267df5b54f6a8194e746b58d4278)
 - [YouTube チャンネル](https://www.youtube.com/@nyakinyaki/videos)
 - 更新頻度低
