@@ -2,8 +2,8 @@
 title: 'ちょっとしたゲーム「億の道」を作ってみた'
 description: 'ちょっとしたゲーム「億の道」を作ってみた'
 date: '2024-12-18T07:17:30.666Z'
-coverImage: '/post/akira_thumbnail.png'
-ogImageUrl: '/post/akira_thumbnail.png'
+coverImage: '/post/introduce-oku-no-michi/thumbnail.png'
+ogImageUrl: '/post/introduce-oku-no-michi/thumbnail.png'
 category: '2'
 tags: '44,45,46,47'
 ---
@@ -22,6 +22,9 @@ tags: '44,45,46,47'
 3. 数字が他のプレイヤーと被らなければ、プレイヤーは選んだ数字と同じ金額を獲得する
 
 プレイヤーはこれを毎日繰り返して、累計獲得金額**億**を目指そうというゲームです。
+
+![「億の道」トップ画面の画像](/post/introduce-oku-no-michi/1.png)
+_「億の道」トップ画面_
 
 ### アクセント
 
