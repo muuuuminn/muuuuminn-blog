@@ -234,4 +234,40 @@ export const MASTER_TAGS = [
     color: "0070F3",
     categoryId: "0",
   },
+  {
+    id: "42",
+    name: "Radix UI",
+    color: "00A3E0",
+    categoryId: "0",
+  },
+  {
+    id: "43",
+    name: "App Router",
+    color: "FF5733",
+    categoryId: "0",
+  },
+  {
+    id: "44",
+    name: "億の道",
+    color: "FFD700",
+    categoryId: "2",
+  },
+  {
+    id: "45",
+    name: "TiDB",
+    color: "4479A1",
+    categoryId: "0",
+  },
+  {
+    id: "46",
+    name: "Hono",
+    color: "FF4500",
+    categoryId: "0",
+  },
+  {
+    id: "47",
+    name: "Cloudflare Workers",
+    color: "F38020",
+    categoryId: "0",
+  },
 ];
