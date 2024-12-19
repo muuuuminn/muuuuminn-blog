@@ -1,6 +1,6 @@
 ---
 title: 'ちょっとしたゲーム「億の道」を作ってみた'
-description: 'ちょっとしたゲーム「億の道」を作ってみた'
+description: '息抜きとして開発したミニゲーム「億の道」を紹介します。開発についても軽く触れます。'
 date: '2024-12-18T07:17:30.666Z'
 coverImage: '/post/introduce-oku-no-michi/thumbnail.png'
 ogImageUrl: '/post/introduce-oku-no-michi/thumbnail.png'
