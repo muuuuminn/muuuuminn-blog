@@ -4,7 +4,7 @@ description: '息抜きとして開発したミニゲーム「億の道」を紹
 date: '2024-12-18T07:17:30.666Z'
 coverImage: '/post/introduce-oku-no-michi/thumbnail.png'
 ogImageUrl: '/post/introduce-oku-no-michi/thumbnail.png'
-category: '2'
+category: '3'
 tags: '44,45,46,47'
 ---
 
