@@ -89,12 +89,6 @@ const MenuLinks = [
     targetBlank: false,
   },
   {
-    isNextLink: false,
-    name: "WISH_LIST",
-    href: "https://www.amazon.co.jp/-/en/hz/wishlist/ls/15U19H5XG5941",
-    targetBlank: true,
-  },
-  {
     isNextLink: true,
     name: "POLICY",
     href: "/policy",
