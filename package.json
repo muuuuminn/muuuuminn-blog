@@ -51,7 +51,7 @@
 		"@swc-node/register": "^1.6.8",
 		"@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
 		"@types/node": "22.13.1",
-		"@types/react": "18.3.12",
+		"@types/react": "18.3.18",
 		"@types/rss": "0.0.32",
 		"husky": "9.1.7",
 		"lint-staged": "15.4.3",
