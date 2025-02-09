@@ -36,7 +36,9 @@ export const ProfileCard = () => {
                   <StarIcon />
                   経歴:
                 </HStack>
-                <span className={styles.detailValue}>SE:1年半 → FE:5年 → ?</span>
+                <span className={styles.detailValue}>
+                  SE:1年半 → FE:5年 → ?
+                </span>
               </div>
             </div>
             <div className={styles.detailItem}>
@@ -57,7 +59,7 @@ export const ProfileCard = () => {
                   趣味:
                 </HStack>
                 <span className={styles.detailValue}>
-                  ゲーム, 手品, 開発, コレクション, 映画
+                  ゲーム, 手品, 開発, 麻雀, 映画
                 </span>
               </div>
             </div>
