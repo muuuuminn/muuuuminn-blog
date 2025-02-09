@@ -2,7 +2,6 @@
 
 import styles from "./TagSearchButton.module.css";
 
-import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import {
   Button,
@@ -11,6 +10,7 @@ import {
   ScrollArea,
   Theme,
 } from "@radix-ui/themes";
+import { Dialog } from "radix-ui";
 import { type FC, useState } from "react";
 
 import { Tag } from "@/features/tag/components/TagList/Tag";

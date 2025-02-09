@@ -1,4 +1,4 @@
-import * as OriginAvatar from "@radix-ui/react-avatar";
+import { Avatar as OriginAvatar } from "radix-ui";
 
 import styles from "./Avatar.module.css";
 
