@@ -1,9 +1,134 @@
 {
+	/**
+	 * 基本設定
+	 */
+	"editor.wordWrap": "off", // 行の折り返しを無効化
+	"editor.fontFamily": "UDEV Gothic",
+	"editor.fontLigatures": true, // 合字（リガチャ）を有効化
+	"editor.fontSize": 16,
+	"debug.console.fontSize": 16,
+	"editor.inlineSuggest.enabled": true, // インライン提案を有効化
+	"explorer.compactFolders": false, // フォルダーの圧縮表示を無効化
+	"editor.minimap.enabled": true, // ミニマップを有効化
+	"editor.renderControlCharacters": true, // 制御文字を表示
+	"editor.parameterHints.enabled": false, // パラメーターヒントを無効化
+	"editor.quickSuggestions": {
+		"other": "off" // コード候補の表示を無効化
+	},
+	"editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?", // 単語の区切り文字
+	"extensions.ignoreRecommendations": true, // 拡張機能の推奨を無視
+	"diffEditor.wordWrap": "off",
+
+	/**
+	 * カーソルの設定
+	 */
+	"editor.cursorStyle": "block",
+	"editor.cursorBlinking": "expand", // カーソルの点滅
+	"editor.cursorSmoothCaretAnimation": "on", // カーソル移動
+
+	/**
+	 * エディターの作業環境の設定
+	 */
+	"workbench.startupEditor": "newUntitledFile", // 起動時に新規ファイルを開く
+	"workbench.sideBar.location": "right", // サイドバーを右側に配置
+	"workbench.editor.wrapTabs": true, // タブを折り返して表示
+	"workbench.editor.tabSizing": "shrink",
+	"workbench.colorTheme": "Luvia Theme",
+	"workbench.iconTheme": "vscode-icons",
+	"breadcrumbs.enabled": true, // ファイルパスを表示
+	"workbench.activityBar.orientation": "vertical",
+
+	/**
+	 * エディターのカラー設定
+	 */
+	"workbench.colorCustomizations": {
+		"editorCursor.foreground": "#f858f07f", // カーソルの色
+		"terminalCursor.foreground": "#f858f07f", // ターミナルのカーソル色
+		"editor.lineHighlightBackground": "#1073cf2d", // 現在行の背景色
+		"editor.lineHighlightBorder": "#9fced11f" // 現在行のボーダー色
+	},
+
+	/**
+	 * ターミナルの設定
+	 */
+	"terminal.integrated.fontSize": 16,
+	"terminal.integrated.fontWeight": "bold",
+	"terminal.integrated.fontFamily": "monospace",
+
+	// タブに表示しているindex系のファイル名をフォルダ名にする
+	"workbench.editor.customLabels.patterns": {
+		"**/index.*": "${dirname} .../${dirname(1)}",
+		"**/{page,layout,template,route,actions,hooks,components,utils,types}.{js,ts,jsx,tsx}": "${dirname}/${filename}.${extname} .../${dirname(1)}"
+	},
+
+	/**
+	 * ファイル内の作業環境の設定
+	 */
+	"files.insertFinalNewline": true, // ファイル末尾に改行を挿入
+	"files.trimFinalNewlines": false, // ファイル末尾の改行を削除しない
+	"files.trimTrailingWhitespace": true, // 末尾の空白を削除する
+	"files.eol": "\n", // 改行コードをLFに設定
+	"workbench.editor.enablePreview": false, // プレビューを無効化
+	"workbench.editor.enablePreviewFromQuickOpen": false, // クイックオープンからのプレビューを無効化
+	"editor.tabSize": 2,
+	"workbench.tree.renderIndentGuides": "always", // インデントガイドを表示
+	"workbench.tree.indent": 16, // インデントの幅
+	"editor.guides.bracketPairs": true,
+	"editor.bracketPairColorization.enabled": true, // 括弧のペアに色付け
+	"editor.stickyScroll.enabled": true,
+
+	/**
+	 * Copilotの設定
+	 */
+	"github.copilot.enable": {
+		"*": false
+	},
+	"github.copilot.editor.enableAutoCompletions": true,
+
+	/**
+	 * TypeScriptの設定
+	 */
 	"typescript.tsdk": "./node_modules/typescript/lib",
 	"typescript.enablePromptUseWorkspaceTsdk": true,
-	"cSpell.words": ["muuuuminn", "textlint", "scaffdog", "zenn"],
+
+	/**
+	 * Markdownの設定
+	 */
+	"[markdown]": {
+		"files.trimTrailingWhitespace": false
+	},
+
+	/**
+	 * 保存時の自動修正
+	 */
 	"editor.formatOnSave": true,
-	// For biome
+
+	/**
+	 * Eslintとprettierの設定
+	 */
+	// "prettier.semi": false,
+	// "prettier.singleQuote": true,
+	// "editor.defaultFormatter": "esbenp.prettier-vscode",
+	// "eslint.alwaysShowStatus": true, // ESLintのステータスを常に表示
+	// "eslint.validate": [
+	//   // ESLintで検証する言語を指定
+	//   "javascript",
+	//   "javascriptreact",
+	//   {
+	//     "language": "vue",
+	//     "autoFix": true
+	//   }
+	// ],
+	// "editor.codeActionsOnSave": {
+	//   // 保存時の自動修正設定
+	//   "source.fixAll.eslint": "explicit",
+	//   "source.fixAll.stylelint": "explicit",
+	//   "source.addMissingImports": "explicit"
+	// },
+
+	/**
+	 * biomeの設定
+	 */
 	"editor.defaultFormatter": "biomejs.biome",
 	"[javascript]": {
 		"editor.defaultFormatter": "biomejs.biome"
@@ -11,5 +136,34 @@
 	"editor.codeActionsOnSave": {
 		"quickfix.biome": "explicit",
 		"source.organizeImports.biome": "explicit"
-	}
+	},
+
+	/**
+	 * Dart / Flutterの設定
+	 */
+	"dart.flutterSdkPath": ".fvm/versions/stable", // FlutterSDKのパス
+	// 検索から除外
+	"search.exclude": {
+		"**/.fvm": true
+	},
+	// ファイル監視から除外
+	"files.watcherExclude": {
+		"**/.fvm": true
+	},
+	"dart.previewFlutterUiGuides": true, // FlutterのUIガイドをプレビュー
+	"dart.previewFlutterUiGuidesCustomTracking": true, // カスタムトラッキングを有効化
+	"dart.closingLabels": false, // 閉じラベルを無効化
+
+	/**
+	 * vsiconsの設定
+	 */
+	"vsicons.dontShowNewVersionMessage": true,
+
+	"emmet.triggerExpansionOnTab": true,
+
+	/**
+	 * cSpellの設定
+	 */
+	"cSpell.ignoreRegExpList": ["[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"],
+	"cSpell.words": ["muuuuminn", "textlint", "scaffdog", "zenn"]
 }

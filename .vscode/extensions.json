@@ -4,6 +4,25 @@
 		"ms-vsliveshare.vsliveshare",
 		"EditorConfig.EditorConfig",
 		"saikou9901.evilinspector",
-		"biomejs.biome"
+		"biomejs.biome",
+		"vscode-icons-team.vscode-icons",
+		"shardulm94.trailing-spaces",
+		"simonsiefke.svg-preview",
+		"esbenp.prettier-vscode",
+		"chrmarti.regex",
+		"yoavbls.pretty-ts-errors",
+		"42crunch.vscode-openapi",
+		"orta.vscode-jest",
+		"jack89ita.copy-filename",
+		"vunguyentuan.vscode-css-variables",
+		"mrmlnc.vscode-duplicate",
+		"dbaeumer.vscode-eslint",
+		"figma.figma-vscode-extension",
+		"github.vscode-pull-request-github",
+		"sburg.vscode-javascript-booster",
+		"mylesmurphy.prettify-ts",
+		"gruntfuggly.todo-tree",
+		"pflannery.vscode-versionlens",
+		"maciekkoks.luvia-theme"
 	]
 }
