@@ -76,6 +76,7 @@
 	"editor.guides.bracketPairs": true,
 	"editor.bracketPairColorization.enabled": true, // 括弧のペアに色付け
 	"editor.stickyScroll.enabled": true,
+	"editor.linkedEditing": true, // 閉じタグを自動で修正する
 
 	/**
 	 * Copilotの設定
