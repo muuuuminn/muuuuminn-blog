@@ -10,11 +10,11 @@ export const MASTER_CATEGORIES = [
     name: "Magic",
     color: "C05621",
   },
-  {
-    id: "3",
-    name: "Game",
-    color: "C05621",
-  },
+  // {
+  //   id: "3",
+  //   name: "Game",
+  //   color: "C05621",
+  // },
   {
     id: "4",
     name: "Life",

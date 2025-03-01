@@ -1,7 +1,7 @@
 ---
 title: "アーマード・コア6が発表されてビックリしたついでに、やったことのある過去作を振り返る"
 description: "2022/12/9にアーマード・コア6の発表がありビックリして思い出が逆流したきた話をつらつらと…"
-date: "2022-12-10T03:32:26.606Z"
+date: "2050-12-10T03:32:26.606Z"
 coverImage: "/post/armored-core-is-god/thumbnail.png"
 ogImageUrl: "/post/armored-core-is-god/thumbnail.png"
 category: "3"
