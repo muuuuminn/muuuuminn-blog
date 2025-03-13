@@ -9,7 +9,7 @@ import { Navigation } from "./Navigation";
 export const Footer: FC = () => {
   return (
     <footer>
-      <VStack position="fixed" bottom="0" width="100%" gap="2">
+      <VStack position="お" bottom="0" width="100%" gap="2">
         <CategorySegmentControl />
         <Navigation />
         <Box position="absolute" right="4" bottom="4">
