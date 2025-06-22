@@ -270,4 +270,16 @@ export const MASTER_TAGS = [
     color: "F38020",
     categoryId: "0",
   },
+  {
+    id: "48",
+    name: "Aqours",
+    color: "19b1f6",
+    categoryId: "4",
+  },
+  {
+    id: "49",
+    name: "LoveLive",
+    color: "E3017F",
+    categoryId: "4",
+  },
 ];
