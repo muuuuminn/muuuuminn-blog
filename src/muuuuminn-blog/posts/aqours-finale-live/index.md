@@ -17,9 +17,15 @@ tags: '48, 49'
 
 ## ラブライブ!サンシャイン!! Aqours 2nd LoveLive! HAPPY PARTY TRAIN TOUR
 
-初のツアーライブです。6公演中5公演参加しました。このあたりから全国をまわるファンミーティング
+初のツアーライブです。6公演中5公演参加しました。このあたりから全国をまわるファンミーティングにも参加しており、一人旅を会得しました。引きこもりがちな自分に多少のアクティブさが身についたのは、Aqoursのおかげですね。
+
+## ラブライブ!サンシャイン!! Aqours 3rd LoveLive! Tour 〜WONDERFUL STORIES〜
+
+二度目のツアー、全公演いくぞという気持ちです。実際、6公演すべて参戦した覚えがあります。
 
 ## ラブライブ！サンシャイン!! Aqours 4th LoveLive! ～Sailing to the Sunshine～
+
+待ちに待っていた東京ドーム公演、人生ではじめてのライブはμ'sのfinal liveですので、思い出深い場所です。
 
 ## ラブライブ！サンシャイン!! Aqours 5th LoveLive! ～Next SPARKLING!!～
 
