@@ -44,7 +44,7 @@
 		"react-dom": "19.0.0",
 		"rss": "1.2.2",
 		"zenn-content-css": "0.1.158",
-		"zenn-markdown-html": "0.1.158"
+		"zenn-markdown-html": "0.1.162"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
