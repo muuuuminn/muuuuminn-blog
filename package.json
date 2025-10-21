@@ -47,7 +47,7 @@
 		"husky": "9.1.7",
 		"lint-staged": "15.5.2",
 		"md-to-pdf": "5.2.4",
-		"npm-check-updates": "17.1.14",
+		"npm-check-updates": "17.1.18",
 		"scaffdog": "4.1.0",
 		"schema-dts": "1.1.2",
 		"textlint": "14.8.4",
