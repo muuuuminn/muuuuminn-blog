@@ -45,7 +45,7 @@
 		"@types/react": "19.1.10",
 		"@types/rss": "0.0.32",
 		"husky": "9.1.7",
-		"lint-staged": "15.5.2",
+		"lint-staged": "16.2.7",
 		"md-to-pdf": "5.2.4",
 		"npm-check-updates": "17.1.14",
 		"scaffdog": "4.1.0",
