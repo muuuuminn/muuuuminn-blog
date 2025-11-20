@@ -46,7 +46,7 @@
 		"@types/rss": "0.0.32",
 		"husky": "9.1.7",
 		"lint-staged": "15.5.2",
-		"md-to-pdf": "5.2.4",
+		"md-to-pdf": "5.2.5",
 		"npm-check-updates": "17.1.14",
 		"scaffdog": "4.1.0",
 		"schema-dts": "1.1.2",
