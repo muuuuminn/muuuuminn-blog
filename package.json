@@ -27,7 +27,7 @@
 		"@radix-ui/themes": "3.2.1",
 		"date-fns": "4.1.0",
 		"gray-matter": "4.0.3",
-		"next": "15.2.3",
+		"next": "15.2.7",
 		"next-sitemap": "4.2.3",
 		"radix-ui": "1.4.3",
 		"react": "19.1.1",
