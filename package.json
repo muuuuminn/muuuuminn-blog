@@ -33,7 +33,7 @@
 		"react": "19.1.1",
 		"react-dom": "19.1.1",
 		"rss": "1.2.2",
-		"zenn-content-css": "0.2.1",
+		"zenn-content-css": "0.2.11",
 		"zenn-markdown-html": "0.2.1"
 	},
 	"devDependencies": {
