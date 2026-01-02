@@ -9,10 +9,10 @@
 	"scripts": {
 		"dev": "next -p 3333",
 		"prebuild": "tsc src/libs/rss/generateRSSFeed.ts --noEmit false --outDir ./.build --module commonjs --target es2020 && node ./.build/src/libs/rss/generateRSSFeed.js && rm -rf ./.build",
-		"postbuild": "next-sitemap",
 		"build": "next build",
-		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+		"postbuild": "next-sitemap",
+		"preview": "opennextjs-cloudflare build && wrangler dev --local",
+		"deploy": "opennextjs-cloudflare build && wrangler deploy",
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
 		"start": "next start",
 		"export": "next export",
