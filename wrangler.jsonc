@@ -1,7 +1,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "muuuuminn-blog",
-	"compatibility_date": "2025-01-02",
+	"compatibility_date": "2026-01-02",
   "main": ".open-next/worker.js",
   "compatibility_flags": [
     "nodejs_compat"
