@@ -1,7 +1,6 @@
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 0,
@@ -39,4 +38,4 @@ const nextConfig = {
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 initOpenNextCloudflareForDev();
 
-module.exports = nextConfig;
+export default nextConfig;
