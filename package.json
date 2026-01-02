@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"dev": "next -p 3333",
-		"prebuild": "tsc src/libs/rss/generateRSSFeed.ts --noEmit false --outDir ./.build --module commonjs --target es2020 && node ./.build/src/libs/rss/generateRSSFeed.js && rm -rf ./.build",
+		"prebuild": "node -r @swc-node/register src/libs/rss/generateRSSFeed.ts",
 		"build": "next build",
 		"postbuild": "next-sitemap",
 		"preview": "opennextjs-cloudflare build && wrangler dev --local",
@@ -42,6 +42,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.10",
+		"@swc-node/register": "^1.11.1",
 		"@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
 		"@types/node": "25.0.3",
 		"@types/react": "19.2.7",
