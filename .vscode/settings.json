@@ -82,7 +82,10 @@
 	 * Copilotの設定
 	 */
 	"github.copilot.enable": {
-		"*": false
+		"*": true,
+		"plaintext": false,
+		"markdown": false,
+		"scminput": false
 	},
 	"github.copilot.editor.enableAutoCompletions": true,
 
