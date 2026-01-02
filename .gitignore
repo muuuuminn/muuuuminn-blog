@@ -21,6 +21,7 @@
 rss.xml
 sitemap.xml
 sitemap-*.xml
+tsconfig.tsbuildinfo
 
 # debug
 npm-debug.log*
@@ -36,3 +37,5 @@ yarn-error.log*
 # vercel
 .vercel
 
+# cloudflare
+/.open-next/

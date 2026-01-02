@@ -14,7 +14,7 @@ None
 
 ### Infrastructure
 
-- Cloudflare pages
+- Cloudflare Workers
 
 ### Related services
 
