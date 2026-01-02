@@ -1,9 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "muuuuminn-blog",
-  "build": {
-    "command": "npx opennextjs-cloudflare build"
-  },
 	"compatibility_date": "2026-01-02",
   "main": ".open-next/worker.js",
   "compatibility_flags": [
