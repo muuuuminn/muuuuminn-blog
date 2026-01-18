@@ -16,13 +16,13 @@ export async function generateMetadata() {
   return metadata;
 }
 
-const ResumePage = () => {
+const ResumePage = async () => {
   const resume = getMarkdownFileByFilename(
     "resume",
     ["title", "date", "slug", "content"],
-    "src/app/resume",
+    "/resume",
   );
-  const content = markdownToHtml(resume.content);
+  const content = await markdownToHtml(resume.content);
 
   return (
     <div>

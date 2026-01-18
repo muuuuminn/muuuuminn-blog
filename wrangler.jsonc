@@ -1,49 +1,24 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "muuuuminn-blog",
-	"compatibility_date": "2026-01-02",
   "main": ".open-next/worker.js",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
+	"compatibility_date": "2025-12-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "minify": true,
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
-	"workers_dev": true,
-	"preview_urls": true,
-	"vars": {
-		"ENV_NAME": "production",
-		"NEXT_PUBLIC_BASE_URL": "https://muuuuminn.com",
-		"NEXT_PUBLIC_GOOGLE_ANALYTICS_ID": ""
+  "images": {
+		"binding": "IMAGES"
 	},
-	"env": {
-		"preview": {
-			"vars": {
-				"ENV_NAME": "preview"
-			}
-		},
-		"production": {
-			"vars": {
-				"ENV_NAME": "production",
-				"NEXT_PUBLIC_BASE_URL": "https://muuuuminn.com",
-				"NEXT_PUBLIC_GOOGLE_ANALYTICS_ID": ""
-			}
+	"services": [
+		{
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "muuuuminn-blog"
 		}
-	},
+	],
   "observability": {
-    "enabled": false,
-    "head_sampling_rate": 1,
-    "logs": {
-      "enabled": true,
-      "head_sampling_rate": 1,
-      "persist": true,
-      "invocation_logs": true
-    },
-    "traces": {
-      "enabled": true,
-      "persist": true,
-      "head_sampling_rate": 1
-    }
+    "enabled": true,
   }
 }

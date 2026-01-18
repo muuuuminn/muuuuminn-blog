@@ -2,12 +2,12 @@ import fs from "node:fs";
 import { join } from "node:path";
 import { isBefore, isToday } from "date-fns";
 import matter from "gray-matter";
-
+import { notFound } from "next/navigation";
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { MASTER_TAGS } from "@/features/tag/constants";
-import { notFound } from "next/navigation";
 
-const POSTS_DIRECTORY_NAME = "src/muuuuminn-blog/posts";
+const APP_DIR = "src/app";
+const POSTS_DIRECTORY_NAME = "/(post)/_posts";
 
 const MARKDOWN_FIELDS = [
   "title",
@@ -22,7 +22,7 @@ const MARKDOWN_FIELDS = [
 ] as const;
 type FieldsType = (typeof MARKDOWN_FIELDS)[number];
 
-const postsDirectory = join(process.cwd(), POSTS_DIRECTORY_NAME);
+const postsDirectory = join(process.cwd(), `${APP_DIR}${POSTS_DIRECTORY_NAME}`);
 
 const formatPost = (
   data: { [key: string]: string },
@@ -93,7 +93,7 @@ export function getPostBySlug(slug: string, fields: FieldsType[]) {
       category: generatedCategory,
       tags: generatedTags,
     };
-  } catch (e) {
+  } catch (_e) {
     notFound();
   }
 }
@@ -117,7 +117,7 @@ export const getMarkdownFileByFilename = (
   fields: FieldsType[],
   directoryName: string = POSTS_DIRECTORY_NAME,
 ) => {
-  const directory = join(process.cwd(), directoryName);
+  const directory = join(process.cwd(), `${APP_DIR}${directoryName}`);
   const fullPath = join(directory, `${filename}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);

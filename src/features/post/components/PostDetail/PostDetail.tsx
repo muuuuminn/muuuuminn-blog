@@ -1,16 +1,13 @@
 import { Box, Heading } from "@radix-ui/themes";
-
+import type { ComponentProps, FC } from "react";
 import { RichMarkdownContent } from "@/components/RichMarkdownContent";
 import { Category } from "@/features/category/components/Category";
 import { PostDate } from "@/features/post/components/PostDate";
 import { PostThumbnail } from "@/features/post/components/PostThumbnail";
+import type { PostDetailType } from "@/features/post/types";
 import { TagList } from "@/features/tag/components/TagList";
 import { getDictionary } from "@/libs/i18n/getDictionary";
 import { HStack, VStack } from "@/libs/radix/layout/Stack";
-
-import type { PostDetailType } from "@/features/post/types";
-import type { FC } from "react";
-import type { ComponentProps } from "react";
 
 type PostDetailProps = {
   post: PostDetailType;

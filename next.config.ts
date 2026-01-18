@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+	reactCompiler: true,
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 0,
@@ -35,7 +36,8 @@ const nextConfig: NextConfig = {
   },
 };
 
+export default nextConfig;
+
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 initOpenNextCloudflareForDev();
 
-export default nextConfig;

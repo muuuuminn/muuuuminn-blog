@@ -16,13 +16,13 @@ export async function generateMetadata() {
   return metadata;
 }
 
-const PolicyPage = () => {
+const PolicyPage = async () => {
   const policy = getMarkdownFileByFilename(
     "policy",
     ["slug", "content"],
-    "src/app/policy",
+    "/policy",
   );
-  const content = markdownToHtml(policy.content);
+  const content = await markdownToHtml(policy.content);
 
   return (
     <div>

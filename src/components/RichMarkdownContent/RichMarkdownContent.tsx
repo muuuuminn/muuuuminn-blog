@@ -10,7 +10,7 @@ export const RichMarkdownContent: FC<RichMarkdownContentProps> = (props) => {
   return (
     <div
       className="znc"
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: this is required to render HTML content
       dangerouslySetInnerHTML={{
         __html: html,
       }}

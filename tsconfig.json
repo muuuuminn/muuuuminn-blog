@@ -23,6 +23,9 @@
         "src/*"
       ]
     },
+    "types": [
+      "./cloudflare-env.d.ts",
+    ],
     "incremental": true,
     "plugins": [
       {

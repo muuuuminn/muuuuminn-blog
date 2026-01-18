@@ -1,6 +1,5 @@
-import { Text as _Text } from "@radix-ui/themes";
-
 import type { TextProps as _TextProps } from "@radix-ui/themes";
+import { Text as _Text } from "@radix-ui/themes";
 import type { FC } from "react";
 
 export type TextProps = _TextProps;
