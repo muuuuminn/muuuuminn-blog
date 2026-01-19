@@ -51,7 +51,7 @@
 		"npm-check-updates": "19.2.0",
 		"scaffdog": "4.1.0",
 		"schema-dts": "1.1.5",
-		"textlint": "14.8.4",
+		"textlint": "15.5.1",
 		"textlint-filter-rule-comments": "1.2.2",
 		"textlint-filter-rule-whitelist": "2.0.0",
 		"textlint-rule-abbr-within-parentheses": "1.0.2",
