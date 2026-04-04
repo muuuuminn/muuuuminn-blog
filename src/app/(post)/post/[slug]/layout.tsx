@@ -1,15 +1,13 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
+import type { FC, ReactNode } from "react";
 import { getDictionary } from "@/libs/i18n/getDictionary";
 import { getPostBySlug } from "@/libs/markdown/api";
 import {
+  getMetadata,
   OG_IMAGE_EXTENSION_TYPE,
   SITE_METADATA,
-  getMetadata,
 } from "@/libs/seo/metadata";
-
-import type { Metadata } from "next";
-import type { FC, ReactNode } from "react";
 
 type PostLayoutProps = {
   params: Promise<{
@@ -27,7 +25,7 @@ export async function generateMetadata({
     "title",
     "date",
     "slug",
-    "content",
+    "html",
     "ogImageUrl",
     "coverImage",
     "description",

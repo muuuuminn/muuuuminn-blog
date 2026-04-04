@@ -1,13 +1,11 @@
+import type { FC } from "react";
 import { memo } from "react";
-
+import type { PostType } from "@/features/post/types";
 import { VStack } from "@/libs/radix/layout/Stack";
 import { PostCard } from "../PostCard";
 
-import type { PostListType } from "@/features/post/types";
-import type { FC } from "react";
-
 type PostCardListProps = {
-  posts: PostListType;
+  posts: Omit<PostType, "html">[];
 };
 
 // TODO: スクロールがあることを示すために上下に矢印をabsoluteで置くか、ボカシをいれて示すかしたい

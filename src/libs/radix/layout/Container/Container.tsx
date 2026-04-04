@@ -1,6 +1,5 @@
-import { Container as _Container } from "@radix-ui/themes";
-
 import type { ContainerProps as _ContainerProps } from "@radix-ui/themes";
+import { Container as _Container } from "@radix-ui/themes";
 import type { FC, ReactNode } from "react";
 
 type ContainerProps = {

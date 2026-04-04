@@ -1,3 +1,7 @@
+.znc code {
+  background: #1f1f1f;
+}
+
 .znc code[class*="language-"],
 .znc pre[class*="language-"] {
   color: #fec8c8;

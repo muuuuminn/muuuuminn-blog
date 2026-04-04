@@ -1,6 +1,6 @@
+import type { FC, ReactNode } from "react";
 import { ProfileCard } from "@/features/profile/ProfileCard";
 import { VStack } from "@/libs/radix/layout/Stack";
-import type { FC, ReactNode } from "react";
 
 type PostsLayoutProps = {
   children: ReactNode;

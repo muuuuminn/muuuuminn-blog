@@ -6,12 +6,10 @@ import {
   IdCardIcon,
   StarIcon,
 } from "@radix-ui/react-icons";
-
-import styles from "./ProfileCard.module.css";
-
 import { Box } from "@/libs/radix/layout/Box";
 import { HStack, VStack } from "@/libs/radix/layout/Stack";
 import { Avatar } from "./Avatar";
+import styles from "./ProfileCard.module.css";
 import { SocialLink } from "./SocialLink";
 
 export const ProfileCard = () => {

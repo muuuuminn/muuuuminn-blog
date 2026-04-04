@@ -1,17 +1,14 @@
 "use client";
 
-import styles from "./Tag.module.css";
-
 import { Link } from "@radix-ui/themes";
 import { useParams } from "next/navigation";
+import type { FC } from "react";
 import { memo, useMemo } from "react";
-
+import type { TagType } from "@/features/tag/types";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { Flex } from "@/libs/radix/layout/Flex";
 import { Text } from "@/libs/radix/typography/Text";
-
-import type { TagType } from "@/features/tag/types";
-import type { FC } from "react";
+import styles from "./Tag.module.css";
 
 type TagProps = {
   tag: TagType;

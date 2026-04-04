@@ -1,7 +1,5 @@
 "use client";
 
-import styles from "./TagSearchButton.module.css";
-
 import { Cross2Icon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import {
   Button,
@@ -12,12 +10,12 @@ import {
 } from "@radix-ui/themes";
 import { Dialog } from "radix-ui";
 import { type FC, useState } from "react";
-
 import { Tag } from "@/features/tag/components/TagList/Tag";
 import { MASTER_TAGS } from "@/features/tag/constants";
 import { Flex } from "@/libs/radix/layout/Flex";
 import { VStack } from "@/libs/radix/layout/Stack";
 import { Text } from "@/libs/radix/typography/Text";
+import styles from "./TagSearchButton.module.css";
 
 export const TagSearchButton: FC = () => {
   const [open, setOpen] = useState(false);

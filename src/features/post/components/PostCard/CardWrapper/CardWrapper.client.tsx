@@ -1,12 +1,10 @@
+import type { FC, ReactNode } from "react";
+import type { PostType } from "@/features/post/types";
+import { Box } from "@/libs/radix/layout/Box";
 import styles from "./CardWrapper.module.css";
 
-import { Box } from "@/libs/radix/layout/Box";
-
-import type { PostType } from "@/features/post/types";
-import type { FC, ReactNode } from "react";
-
 type CardWrapperProps = {
-  post: PostType;
+  post: Omit<PostType, "html">;
   children: ReactNode;
 };
 

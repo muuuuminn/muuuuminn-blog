@@ -17,7 +17,7 @@ export async function generateMetadata() {
 }
 
 const PostsPage: FC = async () => {
-  const posts = await getAllPosts([
+  const posts = getAllPosts([
     "title",
     "date",
     "slug",
@@ -25,7 +25,7 @@ const PostsPage: FC = async () => {
     "description",
     "category",
     "tags",
-  ]);
+  ] as const);
 
   return (
     <div>

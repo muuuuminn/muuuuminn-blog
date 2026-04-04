@@ -1,15 +1,14 @@
 "use client";
 
-import styles from "./MenuIconButton.module.css";
-
 import { Cross2Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Flex, IconButton, Link, Popover, Separator } from "@radix-ui/themes";
+import { useState } from "react";
 
 import { useDictionary } from "@/libs/i18n/useDictionary";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { VStack } from "@/libs/radix/layout/Stack";
 import { Text } from "@/libs/radix/typography/Text";
-import { useState } from "react";
+import styles from "./MenuIconButton.module.css";
 
 export const MenuIconButton = () => {
   const { d } = useDictionary();

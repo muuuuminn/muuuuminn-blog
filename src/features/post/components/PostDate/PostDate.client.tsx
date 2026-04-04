@@ -2,15 +2,13 @@
 
 import { format, formatDistance } from "date-fns";
 import { ja } from "date-fns/locale";
-import { memo } from "react";
-
-import { VisuallyHiddenElement } from "@/components/VisuallyHiddenElement";
-import { useDictionary } from "@/libs/i18n/useDictionary";
-import { Text } from "@/libs/radix/typography/Text";
-
-import type { DictionaryKeys, LocalesType } from "@/libs/i18n/useDictionary";
-import type { TextProps } from "@/libs/radix/typography/Text";
 import type { FC } from "react";
+import { memo } from "react";
+import { VisuallyHiddenElement } from "@/components/VisuallyHiddenElement";
+import type { DictionaryKeys, LocalesType } from "@/libs/i18n/useDictionary";
+import { useDictionary } from "@/libs/i18n/useDictionary";
+import type { TextProps } from "@/libs/radix/typography/Text";
+import { Text } from "@/libs/radix/typography/Text";
 
 const DATE_FORMAT = "yyyy/M/d";
 

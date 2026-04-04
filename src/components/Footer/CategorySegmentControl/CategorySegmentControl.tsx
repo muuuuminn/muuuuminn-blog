@@ -1,13 +1,11 @@
 "use client";
 
-import styles from "./CategorySegmentControl.module.css";
-
 import { Flex, Link } from "@radix-ui/themes";
 import { useParams, usePathname } from "next/navigation";
-
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import type { CategoryType } from "@/features/category/types";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
+import styles from "./CategorySegmentControl.module.css";
 
 const getHref = (category: CategoryType) => {
   if (category.id === "-1") {

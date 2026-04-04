@@ -1,15 +1,13 @@
 import { Heading } from "@radix-ui/themes";
+import type { FC } from "react";
 import { memo } from "react";
-
 import { PostCard } from "@/features/post/components/PostCard";
+import type { PostType } from "@/features/post/types";
 import { getDictionary } from "@/libs/i18n/getDictionary";
 import { VStack } from "@/libs/radix/layout/Stack";
 
-import type { PostListType } from "@/features/post/types";
-import type { FC } from "react";
-
 type RelatedPostsArea = {
-  relatedPosts: PostListType;
+  relatedPosts: Omit<PostType, "html">[];
 };
 
 const _RelatedPostsArea: FC<RelatedPostsArea> = async ({ relatedPosts }) => {

@@ -45,7 +45,7 @@ export const PostDetail: FC<PostDetailProps> = async ({ post, ...rest }) => {
 
       {/* 記事コンテンツ */}
       <Box mt="4" pl="2" pr="1">
-        <RichMarkdownContent html={post.content} />
+        <RichMarkdownContent html={post.html} />
       </Box>
     </Box>
   );

@@ -1,125 +1,145 @@
-import fs from "node:fs";
-import { join } from "node:path";
 import { isBefore, isToday } from "date-fns";
-import matter from "gray-matter";
 import { notFound } from "next/navigation";
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { MASTER_TAGS } from "@/features/tag/constants";
+import postsData from "./posts.generated.json";
 
-const APP_DIR = "src/app";
-const POSTS_DIRECTORY_NAME = "/(post)/_posts";
-
-const MARKDOWN_FIELDS = [
+const POST_FIELDS = [
   "title",
   "date",
   "slug",
-  "content",
+  "html",
   "ogImageUrl",
   "coverImage",
   "description",
   "category",
   "tags",
 ] as const;
-type FieldsType = (typeof MARKDOWN_FIELDS)[number];
 
-const postsDirectory = join(process.cwd(), `${APP_DIR}${POSTS_DIRECTORY_NAME}`);
+type PostField = (typeof POST_FIELDS)[number];
+type Category = (typeof MASTER_CATEGORIES)[number];
+type Tag = (typeof MASTER_TAGS)[number];
 
-const formatPost = (
-  data: { [key: string]: string },
-  content: string,
-  fields: FieldsType[],
-  slug: string,
-) => {
-  type Items = {
-    [key in FieldsType]: string;
-  };
-
-  const items: Items = {
-    content: "",
-    title: "",
-    slug: "",
-    date: "",
-    ogImageUrl: "",
-    coverImage: "",
-    description: "",
-    category: "",
-    tags: "",
-  };
-  // Ensure only the minimal needed data is exposed
-  for (const field of fields) {
-    if (field === "slug") {
-      items[field] = slug;
-    }
-    if (field === "content") {
-      items[field] = content;
-    }
-    if (typeof data[field] !== "undefined") {
-      items[field] = data[field];
-    }
-  }
-
-  return items;
+type GeneratedPost = {
+  slug: string;
+  title: string;
+  date: string;
+  ogImageUrl: string;
+  coverImage: string;
+  description: string;
+  category: string;
+  tags: string[];
+  html: string;
 };
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+type RuntimePost = {
+  title: string;
+  date: string;
+  slug: string;
+  html: string;
+  ogImageUrl: string;
+  coverImage: string;
+  description: string;
+  category: Category;
+  tags: Tag[];
+};
+
+type RuntimePostFieldMap = {
+  title: string;
+  date: string;
+  slug: string;
+  html: string;
+  ogImageUrl: string;
+  coverImage: string;
+  description: string;
+  category: Category;
+  tags: Tag[];
+};
+
+type PickPost<T extends readonly PostField[]> = {
+  [K in T[number]]: RuntimePostFieldMap[K];
+};
+
+const FALLBACK_CATEGORY: Category = {
+  id: "-1",
+  name: "Other",
+  color: "#c9c9c9",
+};
+
+function isValidDate(value: string): boolean {
+  return !Number.isNaN(Date.parse(value));
 }
 
-export function getPostBySlug(slug: string, fields: FieldsType[]) {
-  try {
-    const fullPath = join(postsDirectory, `${slug}/index.md`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const { data, content } = matter(fileContents);
+function isPublished(date: string): boolean {
+  if (!isValidDate(date)) {
+    return false;
+  }
 
-    const formattedPlainPost = formatPost(data, content, fields, slug);
+  const parsedDate = Date.parse(date);
+  return isBefore(parsedDate, new Date()) || isToday(parsedDate);
+}
 
-    const generatedCategory = MASTER_CATEGORIES.find(
-      (category) => category.id === formattedPlainPost.category,
-    ) || {
-      // TODO: 定数として管理する
-      id: "-1",
-      name: "Other",
-      color: "#c9c9c",
-    };
-    const generatedTags = formattedPlainPost.tags.split(",").flatMap((key) => {
-      const foundTag = MASTER_TAGS.find((tag) => tag.id === key.trim());
-      // workaround: 重複したタグをmarkdown側で記述しても一意にして表示に影響がでないようにする
-      // TODO: タグ名の重複削除
-      return foundTag ? foundTag : [];
-    });
+function shapePost(post: GeneratedPost): RuntimePost {
+  const category =
+    MASTER_CATEGORIES.find((item) => item.id === post.category) ??
+    FALLBACK_CATEGORY;
 
-    return {
-      ...formattedPlainPost,
-      category: generatedCategory,
-      tags: generatedTags,
-    };
-  } catch (_e) {
+  const tags = [...new Set(post.tags)]
+    .map((tagId) => MASTER_TAGS.find((item) => item.id === tagId))
+    .filter((tag): tag is Tag => tag !== undefined);
+
+  return {
+    title: post.title,
+    date: post.date,
+    slug: post.slug,
+    html: post.html,
+    ogImageUrl: post.ogImageUrl,
+    coverImage: post.coverImage,
+    description: post.description,
+    category,
+    tags,
+  };
+}
+
+function pickFields<T extends readonly PostField[]>(
+  post: RuntimePost,
+  fields: T,
+): PickPost<T> {
+  return Object.fromEntries(
+    fields.map((field) => [field, post[field]]),
+  ) as PickPost<T>;
+}
+
+const runtimePosts: RuntimePost[] = (postsData as GeneratedPost[])
+  .map(shapePost)
+  .filter((post) => isPublished(post.date))
+  .sort((a, b) => {
+    if (a.date === b.date) {
+      return a.slug.localeCompare(b.slug);
+    }
+
+    return a.date > b.date ? -1 : 1;
+  });
+
+export function getPostSlugs(): string[] {
+  return runtimePosts.map((post) => post.slug);
+}
+
+export function getPostBySlug<T extends readonly PostField[]>(
+  slug: string,
+  fields: T,
+): PickPost<T> {
+  const post = runtimePosts.find((item) => item.slug === slug);
+
+  if (!post) {
     notFound();
   }
+
+  return pickFields(post, fields);
 }
 
-export function getAllPosts(fields: FieldsType[]) {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-    .filter((post) => {
-      // 今日日付より前に投稿された記事のみを取得する
-      const parsedDate = Date.parse(post.date);
-      return isBefore(parsedDate, new Date()) || isToday(parsedDate);
-    });
-  return posts;
+export function getAllPosts<T extends readonly PostField[]>(
+  fields: T,
+): Array<PickPost<T>> {
+  return runtimePosts.map((post) => pickFields(post, fields));
 }
-
-export const getMarkdownFileByFilename = (
-  filename: string,
-  fields: FieldsType[],
-  directoryName: string = POSTS_DIRECTORY_NAME,
-) => {
-  const directory = join(process.cwd(), `${APP_DIR}${directoryName}`);
-  const fullPath = join(directory, `${filename}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-  return formatPost(data, content, fields, filename);
-};

@@ -1,26 +1,21 @@
-import styles from "./PostCard.module.css";
-
 import { Link } from "@radix-ui/themes";
+import type { ComponentProps, FC } from "react";
 import { memo } from "react";
-
 import { Category } from "@/features/category/components/Category";
+import type { PostType } from "@/features/post/types";
 import { TagList } from "@/features/tag/components/TagList";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { Box } from "@/libs/radix/layout/Box";
 import { Grid } from "@/libs/radix/layout/Grid";
 import { Text } from "@/libs/radix/typography/Text";
-
 import { PostDate } from "../PostDate";
 import { PostThumbnail } from "../PostThumbnail";
 import { PostTitle } from "../PostTitle";
 import { CardWrapper } from "./CardWrapper";
-
-import type { PostType } from "@/features/post/types";
-import type { FC } from "react";
-import type { ComponentProps } from "react";
+import styles from "./PostCard.module.css";
 
 type PostCardProps = {
-  post: PostType;
+  post: Omit<PostType, "html">;
 } & ComponentProps<typeof Box>;
 
 const _PostCard: FC<PostCardProps> = ({ post }) => {

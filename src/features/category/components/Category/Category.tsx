@@ -1,14 +1,12 @@
-import styles from "./Category.module.css";
+import type { BadgeProps } from "@radix-ui/themes";
 
 import { Badge, Link } from "@radix-ui/themes";
-
+import type { FC } from "react";
 import { VisuallyHiddenElement } from "@/components/VisuallyHiddenElement";
+import type { CategoryType } from "@/features/category/types";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { Text } from "@/libs/radix/typography/Text";
-
-import type { CategoryType } from "@/features/category/types";
-import type { BadgeProps } from "@radix-ui/themes";
-import type { FC } from "react";
+import styles from "./Category.module.css";
 
 type CategoryProps = BadgeProps & {
   category: CategoryType;

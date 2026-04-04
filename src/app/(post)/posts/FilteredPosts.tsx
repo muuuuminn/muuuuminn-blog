@@ -1,16 +1,15 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import type { FC } from "react";
 import { useMemo } from "react";
-
 import { PostCardList } from "@/features/post/components/PostCardList";
-import { MASTER_TAGS } from "@/features/tag/constants";
 
 import type { PostType } from "@/features/post/types";
-import type { FC } from "react";
+import { MASTER_TAGS } from "@/features/tag/constants";
 
 type FilteredPostsProps = {
-  posts: PostType[];
+  posts: Omit<PostType, "html">[];
 };
 
 const FilteredPosts: FC<FilteredPostsProps> = ({ posts }) => {

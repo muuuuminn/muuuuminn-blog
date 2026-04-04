@@ -1,19 +1,15 @@
 export const dynamicParams = false;
 
 import { notFound } from "next/navigation";
-
+import type { FC } from "react";
 import { AdSense } from "@/features/advertise/components/AdSense";
 import { PostDetail } from "@/features/post/components/PostDetail";
+import { ProfileCard } from "@/features/profile/ProfileCard";
 import { RelatedPostsArea } from "@/features/related-posts/components/RelatedPostsArea";
 import { getRelatedPosts } from "@/features/related-posts/utils/getRelatedPosts";
 import { getAllPosts, getPostBySlug } from "@/libs/markdown/api";
-import markdownToHtml from "@/libs/markdown/markdownToHtml";
 import { VStack } from "@/libs/radix/layout/Stack";
-
 import { getPostJsonLd } from "./jsonLd";
-
-import { ProfileCard } from "@/features/profile/ProfileCard";
-import type { FC } from "react";
 
 type PostPageProps = {
   params: Promise<{
@@ -22,7 +18,7 @@ type PostPageProps = {
 };
 
 export const generateStaticParams = async () => {
-  const posts = getAllPosts(["slug", "date"]);
+  const posts = getAllPosts(["slug", "date"] as const);
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -35,19 +31,17 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
     "title",
     "date",
     "slug",
-    "content",
+    "html",
     "ogImageUrl",
     "coverImage",
     "description",
     "category",
     "tags",
-  ]);
+  ] as const);
 
   if (!post) {
     return notFound();
   }
-
-  const htmlContent = await markdownToHtml(post.content || "");
 
   const posts = getAllPosts([
     "title",
@@ -57,7 +51,8 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
     "description",
     "category",
     "tags",
-  ]);
+  ] as const);
+
   const relatedPosts = getRelatedPosts(posts, {
     category: post.category,
     tags: post.tags,
@@ -79,7 +74,7 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
         <PostDetail
           post={{
             ...post,
-            content: htmlContent,
+            html: post.html,
           }}
         />
         {relatedPosts.length !== 0 && (
