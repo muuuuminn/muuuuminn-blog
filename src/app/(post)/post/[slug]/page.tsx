@@ -1,4 +1,4 @@
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
 import { notFound } from "next/navigation";
 import type { FC } from "react";

@@ -129,6 +129,12 @@ export function getPostBySlug<T extends readonly PostField[]>(
   slug: string,
   fields: T,
 ): PickPost<T> {
+  console.log("getPostBySlug slug:", slug);
+  console.log(
+    "available slugs:",
+    runtimePosts.map((post) => post.slug),
+  );
+
   const post = runtimePosts.find((item) => item.slug === slug);
 
   if (!post) {

@@ -1,24 +1,25 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "muuuuminn-blog",
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "muuuuminn-blog",
   "main": ".open-next/worker.js",
-	"compatibility_date": "2025-12-01",
+  "compatibility_date": "2025-12-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "minify": true,
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    "run_worker_first": true
   },
   "images": {
-		"binding": "IMAGES"
-	},
-	"services": [
-		{
-			"binding": "WORKER_SELF_REFERENCE",
-			"service": "muuuuminn-blog"
-		}
-	],
+    "binding": "IMAGES"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "muuuuminn-blog"
+    }
+  ],
   "observability": {
-    "enabled": true,
+    "enabled": true
   }
 }

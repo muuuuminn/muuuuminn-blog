@@ -9,6 +9,8 @@
 	"scripts": {
 		"dev": "next -p 3333",
     "generate:posts": "node script/generate-posts.mjs",
+    "generate:static-pages": "node script/generate-static-pages.mjs",
+    "generate:contents": "pnpm generate:posts && pnpm generate:static-pages",
     "build": "pnpm generate:posts && next build",
     "postbuild": "next-sitemap",
     "deploy": "pnpm generate:posts && opennextjs-cloudflare build && opennextjs-cloudflare deploy",

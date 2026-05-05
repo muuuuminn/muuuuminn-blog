@@ -1,8 +1,6 @@
-import markdownToHtml from "zenn-markdown-html";
-
 import { RichMarkdownContent } from "@/components/RichMarkdownContent";
 import { getDictionary } from "@/libs/i18n/getDictionary";
-import { getMarkdownFileByFilename } from "@/libs/markdown/file";
+import { getStaticMarkdownPage } from "@/libs/markdown/static-page";
 import { getMetadata } from "@/libs/seo/metadata";
 
 export async function generateMetadata() {
@@ -17,16 +15,11 @@ export async function generateMetadata() {
 }
 
 const PolicyPage = async () => {
-  const policy = getMarkdownFileByFilename(
-    "policy",
-    ["slug", "content"],
-    "src/app/policy",
-  );
-  const content = await markdownToHtml(policy.content);
+  const policy = getStaticMarkdownPage("policy");
 
   return (
     <div>
-      <RichMarkdownContent html={content} />
+      <RichMarkdownContent html={policy.html} />
     </div>
   );
 };
