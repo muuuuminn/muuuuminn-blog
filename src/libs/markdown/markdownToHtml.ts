@@ -1,3 +1,5 @@
+import "server-only";
+
 import zennMarkdown2Html from "zenn-markdown-html";
 
 export default async function markdownToHtml(markdown: string) {

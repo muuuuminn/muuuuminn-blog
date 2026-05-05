@@ -1,12 +1,10 @@
-import styles from "./Navigation.module.css";
-
 import { HomeIcon } from "@radix-ui/react-icons";
 import { Button } from "@radix-ui/themes";
 import type { FC } from "react";
-
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { HStack } from "@/libs/radix/layout/Stack";
 import { Text } from "@/libs/radix/typography/Text";
+import styles from "./Navigation.module.css";
 import { TagSearchButton } from "./TagSearchButton";
 
 export const Navigation: FC = () => {

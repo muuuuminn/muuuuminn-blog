@@ -1,10 +1,8 @@
+import type { FC } from "react";
 import { memo } from "react";
-
+import type { TagType } from "@/features/tag/types";
 import { Flex, type FlexProps } from "@/libs/radix/layout/Flex";
 import { Tag } from "./Tag";
-
-import type { TagType } from "@/features/tag/types";
-import type { FC } from "react";
 
 type TagListProps = {
   tags: TagType[];

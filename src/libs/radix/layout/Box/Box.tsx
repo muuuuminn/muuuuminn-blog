@@ -1,8 +1,7 @@
-import { forwardRef } from "react";
+import type { BoxProps as _BoxProps } from "@radix-ui/themes";
 
 import { Box as _Box } from "@radix-ui/themes";
-
-import type { BoxProps as _BoxProps } from "@radix-ui/themes";
+import { forwardRef } from "react";
 
 export type BoxProps = _BoxProps;
 

@@ -1,12 +1,10 @@
-import styles from "./Header.module.css";
-
 import { Heading, Link } from "@radix-ui/themes";
 import type { FC } from "react";
-
 import { getDictionary } from "@/libs/i18n/getDictionary";
 import { CustomNextLink } from "@/libs/next/CustomNextLink";
 import { Flex } from "@/libs/radix/layout/Flex";
 import { HStack } from "@/libs/radix/layout/Stack";
+import styles from "./Header.module.css";
 import { Logo } from "./Logo";
 
 export const Header: FC = async () => {

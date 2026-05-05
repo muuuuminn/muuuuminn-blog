@@ -1,8 +1,6 @@
-import styles from "./VisuallyHiddenElement.module.css";
-
 import { Box, type BoxProps } from "@radix-ui/themes";
-
 import type { FC } from "react";
+import styles from "./VisuallyHiddenElement.module.css";
 
 type Props = BoxProps;
 

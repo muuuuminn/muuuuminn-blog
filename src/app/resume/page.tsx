@@ -1,8 +1,6 @@
-import markdownToHtml from "zenn-markdown-html";
-
 import { RichMarkdownContent } from "@/components/RichMarkdownContent";
 import { getDictionary } from "@/libs/i18n/getDictionary";
-import { getMarkdownFileByFilename } from "@/libs/markdown/api";
+import { getStaticMarkdownPage } from "@/libs/markdown/static-page";
 import { getMetadata } from "@/libs/seo/metadata";
 
 export async function generateMetadata() {
@@ -16,17 +14,12 @@ export async function generateMetadata() {
   return metadata;
 }
 
-const ResumePage = () => {
-  const resume = getMarkdownFileByFilename(
-    "resume",
-    ["title", "date", "slug", "content"],
-    "src/app/resume",
-  );
-  const content = markdownToHtml(resume.content);
+const ResumePage = async () => {
+  const resume = getStaticMarkdownPage("resume");
 
   return (
     <div>
-      <RichMarkdownContent html={content} />
+      <RichMarkdownContent html={resume.html} />
     </div>
   );
 };

@@ -1,8 +1,7 @@
-import { forwardRef } from "react";
+import type { FlexProps as _FlexProps } from "@radix-ui/themes";
 
 import { Flex as _Flex } from "@radix-ui/themes";
-
-import type { FlexProps as _FlexProps } from "@radix-ui/themes";
+import { forwardRef } from "react";
 
 export type FlexProps = _FlexProps;
 

@@ -2,6 +2,11 @@ const url = `${process.env.NEXT_PUBLIC_APP_ROOT_URL || ""}${
   process.env.NEXT_PUBLIC_APP_GITHUB_API_ENDPOINT || ""
 }`;
 
+type FetcherResponse<T> = {
+  data?: T;
+  errors?: Array<{ message: string }>;
+};
+
 export const fetcher = <TData, TVariables>(
   query: string,
   variables?: TVariables,
@@ -16,12 +21,16 @@ export const fetcher = <TData, TVariables>(
       },
     });
 
-    const json = await res.json();
+    const json = (await res.json()) as FetcherResponse<TData>;
 
-    if (json.errors) {
+    if (json.errors && json.errors.length > 0) {
       const { message } = json.errors[0];
 
-      throw new Error(message as string);
+      throw new Error(message);
+    }
+
+    if (!json.data) {
+      throw new Error("No data in response");
     }
 
     return json.data;

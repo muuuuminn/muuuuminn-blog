@@ -1,7 +1,6 @@
-import NextLink from "next/link";
-
 import type { UrlObject } from "node:url";
 import type { LinkProps as OriginNextLinkProps } from "next/link";
+import NextLink from "next/link";
 import type { FC, ReactNode } from "react";
 
 export type CustomNextLinkProps = OriginNextLinkProps;

@@ -2,7 +2,7 @@ import type { CategoryType } from "@/features/category/types";
 import type { TagType } from "@/features/tag/types";
 
 export type PostType = {
-  content: string;
+  html: string;
   title: string;
   slug: string;
   date: string;

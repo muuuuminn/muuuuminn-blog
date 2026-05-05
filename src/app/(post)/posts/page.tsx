@@ -1,10 +1,9 @@
+import type { FC } from "react";
+import { SuspenseLoader } from "@/components/SuspenseLoader";
 import { getDictionary } from "@/libs/i18n/getDictionary";
 import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
 import FilteredPosts from "./FilteredPosts";
-
-import { SuspenseLoader } from "@/components/SuspenseLoader";
-import type { FC } from "react";
 
 export async function generateMetadata() {
   const d = await getDictionary();
@@ -17,7 +16,7 @@ export async function generateMetadata() {
   return metadata;
 }
 
-const PostsPage: FC = () => {
+const PostsPage: FC = async () => {
   const posts = getAllPosts([
     "title",
     "date",
@@ -26,7 +25,7 @@ const PostsPage: FC = () => {
     "description",
     "category",
     "tags",
-  ]);
+  ] as const);
 
   return (
     <div>

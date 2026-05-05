@@ -1,9 +1,9 @@
 import type { CategoryType } from "@/features/category/types";
-import type { PostListType } from "@/features/post/types";
+import type { PostType } from "@/features/post/types";
 import type { TagType } from "@/features/tag/types";
 
 export const getRelatedPosts = (
-  posts: PostListType,
+  posts: Omit<PostType, "html">[],
   query: {
     category: CategoryType;
     tags: TagType[];
@@ -11,7 +11,7 @@ export const getRelatedPosts = (
     limit: number;
     excludeSlug: string;
   },
-): PostListType => {
+) => {
   const { category, tags, tagMatchLevel = 1, limit = 5, excludeSlug } = query;
   const matchLevel = tags.length < tagMatchLevel ? tags.length : tagMatchLevel;
 

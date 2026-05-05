@@ -1,8 +1,7 @@
-import { forwardRef } from "react";
+import type { FlexProps } from "@radix-ui/themes";
 
 import { Flex } from "@radix-ui/themes";
-
-import type { FlexProps } from "@radix-ui/themes";
+import { forwardRef } from "react";
 
 export type VStackProps = FlexProps;
 

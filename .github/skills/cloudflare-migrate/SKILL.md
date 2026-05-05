@@ -1,3 +1,8 @@
+---
+name: cloudflare-migrate
+description: Migrate a Cloudflare Pages project to Cloudflare Workers with static assets support.
+---
+
 Migrate Cloudflare Pages to Workers using the guide below:
 
 # Cloudflare Pages to Workers Migration Guide

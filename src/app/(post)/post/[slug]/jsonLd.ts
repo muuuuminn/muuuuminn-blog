@@ -1,7 +1,7 @@
-import { SITE_METADATA } from "@/libs/seo/metadata";
+import type { Article, WithContext } from "schema-dts";
 
 import type { PostDetailType } from "@/features/post/types";
-import type { Article, WithContext } from "schema-dts";
+import { SITE_METADATA } from "@/libs/seo/metadata";
 
 export const getPostJsonLd = (post: PostDetailType) => {
   const jsonLd: WithContext<Article> = {

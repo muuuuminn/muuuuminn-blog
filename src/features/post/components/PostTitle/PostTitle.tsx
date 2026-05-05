@@ -1,9 +1,7 @@
-import { memo } from "react";
-
-import { Text } from "@/libs/radix/typography/Text";
-
 import type { TextProps } from "@radix-ui/themes";
 import type { FC } from "react";
+import { memo } from "react";
+import { Text } from "@/libs/radix/typography/Text";
 
 type PostTitleProps = {
   title: string;

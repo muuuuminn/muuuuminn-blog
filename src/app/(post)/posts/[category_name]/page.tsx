@@ -1,15 +1,13 @@
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
+import { SuspenseLoader } from "@/components/SuspenseLoader";
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { getDictionary } from "@/libs/i18n/getDictionary";
 import { getAllPosts } from "@/libs/markdown/api";
 import { getMetadata } from "@/libs/seo/metadata";
 import FilteredPosts from "../FilteredPosts";
-
-import { SuspenseLoader } from "@/components/SuspenseLoader";
-import type { Metadata } from "next";
 
 type CategoryPageProps = {
   params: Promise<{
