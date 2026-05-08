@@ -1,8 +1,4 @@
 module.exports = {
-  launch_options: {
-    executablePath:
-      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  },
   dest: "public/職務経歴書.pdf",
   marked_options: {
     headerIds: false,
