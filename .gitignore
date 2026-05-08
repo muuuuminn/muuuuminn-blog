@@ -19,6 +19,9 @@
 .open-next
 .wrangler/
 .dev.vars
+.tool-versions
+src/libs/markdown/posts.generated.json
+src/libs/markdown/static-pages.generated.json
 
 # misc
 .DS_Store

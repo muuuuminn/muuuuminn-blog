@@ -6,6 +6,10 @@
 		"name": "muuuuminn",
 		"url": "https://github.com/muuuuminn"
 	},
+  "packageManager": "pnpm@10.27.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
 	"scripts": {
 		"dev": "next -p 3333",
     "generate:posts": "node script/generate-posts.mjs",
