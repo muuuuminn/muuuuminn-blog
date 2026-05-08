@@ -16,7 +16,7 @@
     "generate:static-pages": "node script/generate-static-pages.mjs",
     "generate:tsconfig-doc": "npm run tsc:rules && node script/show-tsconfig-config.js",
     "generate:resume-pdf": "md-to-pdf src/app/resume/resume-for-pdf.md --config-file src/app/resume/pdf-config.js",
-    "generate": "pnpm generate:posts && pnpm generate:static-pages && pnpm generate:resume-pdf",
+    "generate": "pnpm generate:posts && pnpm generate:static-pages && pnpm exec puppeteer browsers install chrome && pnpm generate:resume-pdf",
     "build": "pnpm generate:posts && next build",
     "postbuild": "next-sitemap",
     "deploy": "pnpm generate:posts && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
