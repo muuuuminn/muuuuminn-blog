@@ -1,5 +1,5 @@
 module.exports = {
-  dest: "public/職務経歴書.pdf",
+  dest: "public/resume.pdf",
   marked_options: {
     headerIds: false,
     smartypants: true,
