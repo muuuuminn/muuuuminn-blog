@@ -75,7 +75,7 @@ jobs:
             libgtk-3-0
 
       - name: Generate resume PDF
-        run: pnpm run gen:resume-pdf
+        run: pnpm run generate:resume-pdf
 
       - name: Deploy to Cloudflare Workers
         run: pnpm run deploy
