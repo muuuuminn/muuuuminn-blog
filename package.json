@@ -80,7 +80,7 @@
 		"textlint-rule-preset-jtf-style": "3.0.3",
 		"textlint-rule-prh": "6.1.0",
 		"textlint-rule-spellcheck-tech-word": "5.0.0",
-		"typescript": "6.0.2",
+		"typescript": "6.0.3",
 		"wrangler": "4.80.0"
 	}
 }
