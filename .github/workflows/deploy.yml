@@ -51,35 +51,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Install Chrome dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libatk1.0-0 \
-            libatk-bridge2.0-0 \
-            libcups2 \
-            libdrm2 \
-            libxkbcommon0 \
-            libxcomposite1 \
-            libxdamage1 \
-            libxfixes3 \
-            libxrandr2 \
-            libgbm1 \
-            libasound2t64 \
-            libpango-1.0-0 \
-            libcairo2 \
-            libnss3 \
-            libx11-xcb1 \
-            libxcb-dri3-0 \
-            libxss1 \
-            libgtk-3-0
-
-      - name: Install Puppeteer Chrome
-        run: pnpm exec puppeteer browsers install chrome
-
-      - name: Generate resume PDF
-        run: pnpm run generate:resume-pdf
-
       - name: Deploy to Cloudflare Workers
         run: pnpm run deploy
         env:
