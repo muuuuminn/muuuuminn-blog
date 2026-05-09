@@ -74,6 +74,9 @@ jobs:
             libxss1 \
             libgtk-3-0
 
+      - name: Install Puppeteer Chrome
+        run: pnpm exec puppeteer browsers install chrome
+
       - name: Generate resume PDF
         run: pnpm run generate:resume-pdf
 
