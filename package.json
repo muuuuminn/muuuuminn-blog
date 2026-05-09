@@ -48,7 +48,7 @@
 		"zenn-markdown-html": "0.4.7"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.10",
+		"@biomejs/biome": "2.4.15",
 		"@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
 		"@types/node": "25.5.2",
 		"@types/react": "19.2.14",
