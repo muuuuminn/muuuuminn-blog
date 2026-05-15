@@ -6,7 +6,7 @@
 		"name": "muuuuminn",
 		"url": "https://github.com/muuuuminn"
 	},
-	"packageManager": "pnpm@10.27.0",
+	"packageManager": "pnpm@10.33.4",
 	"engines": {
 		"node": ">=24 <25"
 	},
@@ -33,7 +33,7 @@
 		"tsc:rules": "tsc --showConfig > tsconfig-result.json"
 	},
 	"dependencies": {
-		"@opennextjs/cloudflare": "1.18.0",
+		"@opennextjs/cloudflare": "1.19.10",
 		"@radix-ui/react-icons": "1.3.2",
 		"@radix-ui/themes": "3.3.0",
 		"date-fns": "4.1.0",
@@ -50,7 +50,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.4.10",
 		"@textlint-ja/textlint-rule-no-insert-dropping-sa": "2.0.1",
-		"@types/node": "25.5.2",
+		"@types/node": "25.8.0",
 		"@types/react": "19.2.14",
 		"@types/rss": "0.0.32",
 		"babel-plugin-react-compiler": "^1.0.0",
@@ -61,7 +61,7 @@
 		"puppeteer": "^24.43.0",
 		"scaffdog": "4.1.0",
 		"schema-dts": "2.0.0",
-		"textlint": "15.5.2",
+		"textlint": "15.7.0",
 		"textlint-filter-rule-comments": "1.3.0",
 		"textlint-filter-rule-whitelist": "2.0.0",
 		"textlint-rule-abbr-within-parentheses": "1.0.2",
@@ -81,6 +81,6 @@
 		"textlint-rule-prh": "6.1.0",
 		"textlint-rule-spellcheck-tech-word": "5.0.0",
 		"typescript": "6.0.2",
-		"wrangler": "4.80.0"
+		"wrangler": "4.92.0"
 	}
 }
