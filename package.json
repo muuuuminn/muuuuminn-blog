@@ -55,7 +55,7 @@
 		"@types/rss": "0.0.32",
 		"babel-plugin-react-compiler": "^1.0.0",
 		"husky": "9.1.7",
-		"lint-staged": "16.4.0",
+		"lint-staged": "17.0.5",
 		"md-to-pdf": "5.2.5",
 		"npm-check-updates": "20.0.0",
 		"puppeteer": "^24.43.0",
