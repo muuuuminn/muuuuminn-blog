@@ -58,7 +58,7 @@
 		"lint-staged": "16.4.0",
 		"md-to-pdf": "5.2.5",
 		"npm-check-updates": "20.0.0",
-		"puppeteer": "^24.43.0",
+		"puppeteer": "^25.0.0",
 		"scaffdog": "4.1.0",
 		"schema-dts": "2.0.0",
 		"textlint": "15.5.2",
