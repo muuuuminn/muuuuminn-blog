@@ -4,13 +4,15 @@ description: >-
   AIと相談しながら、MarkdownをGitHubへ保存し、Cloudflare Workers
   Buildsで静的ページを生成する個人ブログ用CMSを構築したときの判断と躓きをまとめます。
 date: '2026-09-27T06:00:00.000Z'
-coverImage: /post/akira_thumbnail.png
-ogImageUrl: /post/akira_thumbnail.png
+coverImage: >-
+  https://assets.muuuuminn.com/post/build-static-cms-with-cloudflare-workers-github-r2/3cceb29a-52c4-4dbe-8a51-478494e03fb4.png
+ogImageUrl: >-
+  https://assets.muuuuminn.com/post/build-static-cms-with-cloudflare-workers-github-r2/3cceb29a-52c4-4dbe-8a51-478494e03fb4.png
 category: '0'
 tags: '1,35,39,47'
 status: published
 createdAt: '2026-09-27T06:00:00.000Z'
-updatedAt: '2026-09-27T08:04:07.259Z'
+updatedAt: '2026-09-27T08:04:47.097Z'
 ---
 ※ この記事は、CMSを構築するまでの自分とAIとのやりとりをもとにAIが生成したものです。内容とコードはAIの出力をそのまま信用せず、公開前に確認する前提です。
 
