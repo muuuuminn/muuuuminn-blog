@@ -68,6 +68,7 @@ async function githubFetch<T>(
     headers: {
       accept: "application/vnd.github+json",
       authorization: `Bearer ${config.token}`,
+      "user-agent": "muuuuminn-blog-cms",
       "x-github-api-version": "2022-11-28",
       ...init?.headers,
     },
