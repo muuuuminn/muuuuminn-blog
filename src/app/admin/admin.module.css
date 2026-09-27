@@ -1,0 +1,366 @@
+.shell {
+  --cms-border: color-mix(in srgb, var(--gray-8) 55%, transparent);
+  --cms-panel: color-mix(in srgb, var(--gray-2) 72%, transparent);
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 calc(50% - 50vw + 16px);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.header h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.eyebrow {
+  color: var(--accent-9);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--gray-11);
+  font-size: 0.8rem;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5fd397;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #5fd397 16%, transparent);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  min-height: 680px;
+  overflow: hidden;
+  border: 1px solid var(--cms-border);
+  border-radius: 18px;
+  background: var(--cms-panel);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 20%);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-right: 1px solid var(--cms-border);
+  background: color-mix(in srgb, var(--gray-3) 54%, transparent);
+}
+
+.search,
+.formGrid input,
+.formGrid textarea,
+.formGrid select {
+  width: 100%;
+  border: 1px solid var(--cms-border);
+  border-radius: 9px;
+  outline: none;
+  background: var(--color-background);
+  color: inherit;
+}
+
+.search,
+.formGrid input,
+.formGrid select {
+  min-height: 40px;
+  padding: 0 var(--space-3);
+}
+
+.search:focus,
+.formGrid input:focus,
+.formGrid textarea:focus,
+.formGrid select:focus {
+  border-color: var(--accent-9);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-9) 18%, transparent);
+}
+
+.postList {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 690px;
+  overflow-y: auto;
+}
+
+.postItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.postItem:hover,
+.postItem.selected {
+  background: var(--gray-a4);
+}
+
+.postItem span {
+  overflow: hidden;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.postItem small {
+  color: var(--gray-10);
+  font-size: 0.68rem;
+}
+
+.editor {
+  min-width: 0;
+  padding: var(--space-5);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--cms-border);
+}
+
+.toolbar p {
+  color: var(--gray-11);
+  font-size: 0.78rem;
+}
+
+.commitLink {
+  display: inline-block;
+  margin-top: var(--space-3);
+  color: var(--accent-11);
+  font-size: 0.78rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.actions button,
+.newButton {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--cms-border);
+  border-radius: 8px;
+  background: var(--gray-a3);
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.actions button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.sidebar .newButton,
+.actions .primaryButton {
+  border-color: var(--accent-9);
+  background: var(--accent-9);
+  color: white;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+}
+
+.formGrid > label,
+.tags {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--gray-11);
+  font-size: 0.73rem;
+  font-weight: 650;
+  letter-spacing: 0.025em;
+}
+
+.formGrid textarea {
+  padding: var(--space-3);
+  resize: vertical;
+}
+
+.wideField,
+.tags,
+.uploadField {
+  grid-column: 1 / -1;
+}
+
+.uploadField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px dashed var(--cms-border);
+  border-radius: 9px;
+  color: var(--gray-11);
+  font-size: 0.73rem;
+  font-weight: 650;
+}
+
+.uploadField input {
+  padding: 8px;
+}
+
+.uploadResult {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.uploadResult code {
+  flex: 1;
+  overflow: hidden;
+  color: var(--gray-11);
+  font-size: 0.7rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.uploadResult button {
+  padding: 7px 10px;
+  border: 1px solid var(--cms-border);
+  border-radius: 7px;
+  background: var(--gray-a3);
+  color: inherit;
+  cursor: pointer;
+}
+
+.tags {
+  padding: var(--space-3);
+  border: 1px solid var(--cms-border);
+  border-radius: 9px;
+}
+
+.tags > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.tags label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gray-12);
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+.formGrid .bodyEditor {
+  min-height: 380px;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  tab-size: 2;
+}
+
+.preview {
+  margin-top: var(--space-6);
+  padding: clamp(20px, 4vw, 48px);
+  border: 1px solid var(--cms-border);
+  border-radius: 14px;
+  background: var(--color-background);
+}
+
+.preview h2 {
+  margin: 8px 0 28px;
+  font-size: 1.8rem;
+}
+
+.denied {
+  display: grid;
+  place-content: center;
+  min-height: 55vh;
+  text-align: center;
+}
+
+.denied h1 {
+  margin: 8px 0 12px;
+}
+
+.denied p:last-child {
+  color: var(--gray-11);
+}
+
+@media (max-width: 800px) {
+  .shell {
+    width: 100%;
+    margin: 0;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    max-height: 280px;
+    border-right: 0;
+    border-bottom: 1px solid var(--cms-border);
+  }
+
+  .postList {
+    max-height: 150px;
+  }
+
+  .editor {
+    padding: var(--space-3);
+  }
+
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wideField,
+  .tags,
+  .uploadField {
+    grid-column: auto;
+  }
+}

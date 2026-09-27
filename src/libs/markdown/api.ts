@@ -1,4 +1,3 @@
-import { isBefore, isToday } from "date-fns";
 import { notFound } from "next/navigation";
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import { MASTER_TAGS } from "@/features/tag/constants";
@@ -44,20 +43,8 @@ type RuntimePost = {
   tags: Tag[];
 };
 
-type RuntimePostFieldMap = {
-  title: string;
-  date: string;
-  slug: string;
-  html: string;
-  ogImageUrl: string;
-  coverImage: string;
-  description: string;
-  category: Category;
-  tags: Tag[];
-};
-
 type PickPost<T extends readonly PostField[]> = {
-  [K in T[number]]: RuntimePostFieldMap[K];
+  [K in T[number]]: RuntimePost[K];
 };
 
 const FALLBACK_CATEGORY: Category = {
@@ -66,24 +53,10 @@ const FALLBACK_CATEGORY: Category = {
   color: "#c9c9c9",
 };
 
-function isValidDate(value: string): boolean {
-  return !Number.isNaN(Date.parse(value));
-}
-
-function isPublished(date: string): boolean {
-  if (!isValidDate(date)) {
-    return false;
-  }
-
-  const parsedDate = Date.parse(date);
-  return isBefore(parsedDate, new Date()) || isToday(parsedDate);
-}
-
 function shapePost(post: GeneratedPost): RuntimePost {
   const category =
     MASTER_CATEGORIES.find((item) => item.id === post.category) ??
     FALLBACK_CATEGORY;
-
   const tags = [...new Set(post.tags)]
     .map((tagId) => MASTER_TAGS.find((item) => item.id === tagId))
     .filter((tag): tag is Tag => tag !== undefined);
@@ -110,16 +83,7 @@ function pickFields<T extends readonly PostField[]>(
   ) as PickPost<T>;
 }
 
-const runtimePosts: RuntimePost[] = (postsData as GeneratedPost[])
-  .map(shapePost)
-  .filter((post) => isPublished(post.date))
-  .sort((a, b) => {
-    if (a.date === b.date) {
-      return a.slug.localeCompare(b.slug);
-    }
-
-    return a.date > b.date ? -1 : 1;
-  });
+const runtimePosts = (postsData as GeneratedPost[]).map(shapePost);
 
 export function getPostSlugs(): string[] {
   return runtimePosts.map((post) => post.slug);
@@ -129,12 +93,6 @@ export function getPostBySlug<T extends readonly PostField[]>(
   slug: string,
   fields: T,
 ): PickPost<T> {
-  console.log("getPostBySlug slug:", slug);
-  console.log(
-    "available slugs:",
-    runtimePosts.map((post) => post.slug),
-  );
-
   const post = runtimePosts.find((item) => item.slug === slug);
 
   if (!post) {

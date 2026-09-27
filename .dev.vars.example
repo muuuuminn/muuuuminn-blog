@@ -1,0 +1,10 @@
+# Local development only. Copy this file to .dev.vars.
+CMS_DEV_BYPASS=true
+ADMIN_EMAIL=ohmi@example.com
+ACCESS_TEAM_DOMAIN=your-team.cloudflareaccess.com
+ACCESS_AUD=replace-with-access-application-aud
+GITHUB_TOKEN=replace-with-fine-grained-token
+GITHUB_OWNER=muuuuminn
+GITHUB_REPO=muuuuminn-blog
+GITHUB_BRANCH=main
+CMS_ASSET_BASE_URL=https://assets.muuuuminn.com

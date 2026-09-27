@@ -13,6 +13,12 @@
   "images": {
     "binding": "IMAGES"
   },
+  "r2_buckets": [
+    {
+      "binding": "CMS_ASSETS",
+      "bucket_name": "muuuuminn-blog-assets"
+    }
+  ],
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
