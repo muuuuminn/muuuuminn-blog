@@ -11,7 +11,7 @@ export type BusyAction = "save" | "publish" | "preview" | "archive" | "upload";
 export type FieldErrors = Partial<Record<keyof CmsPostInput, string>>;
 export type NoticeTone = "neutral" | "success" | "error";
 
-export type UpdatePost = <K extends keyof EditorPost>(
+export type UpdatePost = <K extends keyof CmsPostInput>(
   key: K,
-  value: EditorPost[K],
+  value: CmsPostInput[K],
 ) => void;

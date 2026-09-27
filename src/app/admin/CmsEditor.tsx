@@ -1,33 +1,48 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { CmsPostInput, CmsPostStatus } from "@/libs/cms/types";
+import type { CmsPostStatus } from "@/libs/cms/types";
 import styles from "./admin.module.css";
 import { EditorHeader } from "./components/EditorHeader";
 import { EditorNotice } from "./components/EditorNotice";
 import { PostForm } from "./components/PostForm";
 import { PostPreview } from "./components/PostPreview";
 import { PostSidebar } from "./components/PostSidebar";
-import type {
-  BusyAction,
-  EditorPost,
-  FieldErrors,
-  NoticeTone,
-} from "./editorTypes";
 import {
+  archivePost,
+  fetchPosts,
+  renderPostPreview,
+  savePost,
+  uploadPostImage,
+} from "./editorApi";
+import {
+  confirmArchive,
+  confirmDiscardChanges,
+  copyToClipboard,
+  focusFirstInvalidField,
+} from "./editorBrowser";
+import type { BusyAction, EditorPost, NoticeTone } from "./editorTypes";
+import {
+  appendMarkdownImage,
   createEmptyPost,
-  createPostSnapshot,
+  filterPosts,
+  isWithinUploadLimit,
+  toErrorMessage,
   validatePost,
+  withPostStatus,
 } from "./editorUtils";
+import {
+  useSaveShortcut,
+  useUnsavedChangesWarning,
+} from "./useEditorBrowserEvents";
+import { useEditorDocument } from "./useEditorDocument";
 
 export function CmsEditor() {
-  const initialPost = useMemo(createEmptyPost, []);
-  const [posts, setPosts] = useState<EditorPost[]>([]);
-  const [post, setPost] = useState<EditorPost>(initialPost);
-  const [lastSavedSnapshot, setLastSavedSnapshot] = useState(
-    createPostSnapshot(initialPost),
+  const initialPost = useMemo(
+    () => createEmptyPost(new Date().toISOString()),
+    [],
   );
-  const [originalSlug, setOriginalSlug] = useState<string | null>(null);
+  const [posts, setPosts] = useState<EditorPost[]>([]);
   const [query, setQuery] = useState("");
   const [notice, setNotice] = useState({
     message: "記事を読み込んでいます…",
@@ -36,12 +51,26 @@ export function CmsEditor() {
   const [busyAction, setBusyAction] = useState<BusyAction | null>(null);
   const [previewHtml, setPreviewHtml] = useState("");
   const [showPreview, setShowPreview] = useState(false);
-  const [commitUrl, setCommitUrl] = useState<string | null>(null);
-  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
-  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const {
+    post,
+    originalSlug,
+    commitUrl,
+    uploadedImageUrl,
+    fieldErrors,
+    isDirty,
+    updatePost,
+    resetDocument,
+    setFieldErrors,
+    setFieldError,
+    markSaved,
+    applyImageUpload,
+  } = useEditorDocument(initialPost);
 
   const isBusy = busyAction !== null;
-  const isDirty = createPostSnapshot(post) !== lastSavedSnapshot;
+  const filteredPosts = useMemo(
+    () => filterPosts(posts, query),
+    [posts, query],
+  );
 
   const setMessage = useCallback(
     (message: string, tone: NoticeTone = "neutral") => {
@@ -51,82 +80,40 @@ export function CmsEditor() {
   );
 
   const loadPosts = useCallback(async () => {
-    const response = await fetch("/api/admin/posts", { cache: "no-store" });
-    const data = (await response.json()) as {
-      posts: EditorPost[];
-      error?: string;
-    };
-    if (!response.ok) {
-      throw new Error(data.error || "記事を読み込めませんでした。");
-    }
-    setPosts(data.posts);
+    const loadedPosts = await fetchPosts();
+    setPosts(loadedPosts);
     setNotice({
-      message: `${data.posts.length}件の記事を読み込みました。`,
+      message: `${loadedPosts.length}件の記事を読み込みました。`,
       tone: "neutral",
     });
   }, []);
 
   useEffect(() => {
-    loadPosts().catch((error: Error) => setMessage(error.message, "error"));
+    loadPosts().catch((error: unknown) =>
+      setMessage(
+        toErrorMessage(error, "記事を読み込めませんでした。"),
+        "error",
+      ),
+    );
   }, [loadPosts, setMessage]);
 
-  useEffect(() => {
-    const warnBeforeLeave = (event: BeforeUnloadEvent) => {
-      if (!isDirty) return;
-      event.preventDefault();
-    };
-    window.addEventListener("beforeunload", warnBeforeLeave);
-    return () => window.removeEventListener("beforeunload", warnBeforeLeave);
-  }, [isDirty]);
-
-  const filteredPosts = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
-    if (!normalizedQuery) return posts;
-    return posts.filter(
-      (item) =>
-        item.title.toLowerCase().includes(normalizedQuery) ||
-        item.slug.toLowerCase().includes(normalizedQuery),
-    );
-  }, [posts, query]);
-
-  const updatePost = <K extends keyof EditorPost>(
-    key: K,
-    value: EditorPost[K],
-  ) => {
-    setPost((current) => ({ ...current, [key]: value }));
-    setFieldErrors((current) => {
-      if (!current[key as keyof CmsPostInput]) return current;
-      const next = { ...current };
-      delete next[key as keyof CmsPostInput];
-      return next;
-    });
-    setCommitUrl(null);
-  };
-
-  const canDiscardChanges = () =>
-    !isDirty ||
-    window.confirm("未保存の変更があります。破棄して移動しますか？");
-
-  const resetEditorState = (nextPost: EditorPost, slug: string | null) => {
-    setPost(nextPost);
-    setLastSavedSnapshot(createPostSnapshot(nextPost));
-    setOriginalSlug(slug);
-    setPreviewHtml("");
-    setShowPreview(false);
-    setCommitUrl(null);
-    setUploadedImageUrl(null);
-    setFieldErrors({});
-  };
+  useUnsavedChangesWarning(isDirty);
 
   const selectPost = (selected: EditorPost) => {
-    if (selected.slug === originalSlug || !canDiscardChanges()) return;
-    resetEditorState(selected, selected.slug);
+    if (selected.slug === originalSlug || !confirmDiscardChanges(isDirty)) {
+      return;
+    }
+    resetDocument(selected, selected.slug);
+    setPreviewHtml("");
+    setShowPreview(false);
     setMessage(`「${selected.title || selected.slug}」を編集中です。`);
   };
 
   const startNew = () => {
-    if (!canDiscardChanges()) return;
-    resetEditorState(createEmptyPost(), null);
+    if (!confirmDiscardChanges(isDirty)) return;
+    resetDocument(createEmptyPost(new Date().toISOString()), null);
+    setPreviewHtml("");
+    setShowPreview(false);
     setMessage("新しい記事を作成します。");
   };
 
@@ -136,9 +123,7 @@ export function CmsEditor() {
       setFieldErrors(errors);
       if (Object.keys(errors).length > 0) {
         setMessage("入力内容を確認してください。", "error");
-        requestAnimationFrame(() => {
-          document.querySelector<HTMLElement>("[aria-invalid='true']")?.focus();
-        });
+        focusFirstInvalidField();
         return;
       }
 
@@ -146,29 +131,9 @@ export function CmsEditor() {
       setMessage(
         status === "published" ? "公開しています…" : "保存しています…",
       );
-
       try {
-        const payload = { ...post, status };
-        const url = originalSlug
-          ? `/api/admin/posts/${encodeURIComponent(originalSlug)}`
-          : "/api/admin/posts";
-        const response = await fetch(url, {
-          method: originalSlug ? "PUT" : "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        const data = (await response.json()) as {
-          error?: string;
-          commitUrl?: string | null;
-        };
-        if (!response.ok) {
-          throw new Error(data.error || "保存に失敗しました。");
-        }
-
-        setPost(payload);
-        setLastSavedSnapshot(createPostSnapshot(payload));
-        setOriginalSlug(payload.slug);
-        setCommitUrl(data.commitUrl || null);
+        const saved = await savePost(post, status, originalSlug);
+        markSaved(saved.post, saved.commitUrl);
         await loadPosts();
         setMessage(
           status === "published"
@@ -177,129 +142,68 @@ export function CmsEditor() {
           "success",
         );
       } catch (error) {
-        setMessage(
-          error instanceof Error ? error.message : "保存に失敗しました。",
-          "error",
-        );
+        setMessage(toErrorMessage(error, "保存に失敗しました。"), "error");
       } finally {
         setBusyAction(null);
       }
     },
-    [loadPosts, originalSlug, post, setMessage],
+    [loadPosts, markSaved, originalSlug, post, setFieldErrors, setMessage],
   );
 
-  useEffect(() => {
-    const handleShortcut = (event: KeyboardEvent) => {
-      if (!(event.metaKey || event.ctrlKey)) return;
-      if (event.key.toLowerCase() === "s") {
-        event.preventDefault();
-        if (!isBusy) void save("draft");
-      }
-    };
-    window.addEventListener("keydown", handleShortcut);
-    return () => window.removeEventListener("keydown", handleShortcut);
-  }, [isBusy, save]);
+  const saveDraft = useCallback(() => {
+    void save("draft");
+  }, [save]);
+
+  useSaveShortcut(saveDraft, isBusy);
 
   const preview = async () => {
     if (!post.body.trim()) {
-      setFieldErrors((current) => ({
-        ...current,
-        body: "プレビューする本文を入力してください。",
-      }));
+      setFieldError("body", "プレビューする本文を入力してください。");
       setMessage("本文を入力するとプレビューできます。", "error");
       return;
     }
     setBusyAction("preview");
     setMessage("プレビューを生成しています…");
     try {
-      const response = await fetch("/api/admin/preview", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ body: post.body }),
-      });
-      const data = (await response.json()) as { html: string; error?: string };
-      if (!response.ok) {
-        throw new Error(data.error || "プレビューに失敗しました。");
-      }
-      setPreviewHtml(data.html);
+      setPreviewHtml(await renderPostPreview(post.body));
       setShowPreview(true);
       setMessage("プレビューを更新しました。", "success");
     } catch (error) {
-      setMessage(
-        error instanceof Error ? error.message : "プレビューに失敗しました。",
-        "error",
-      );
+      setMessage(toErrorMessage(error, "プレビューに失敗しました。"), "error");
     } finally {
       setBusyAction(null);
     }
   };
 
   const archive = async () => {
-    if (!originalSlug || !window.confirm("この記事を非公開にしますか？")) {
-      return;
-    }
+    if (!originalSlug || !confirmArchive()) return;
     setBusyAction("archive");
     setMessage("非公開にしています…");
     try {
-      const response = await fetch(
-        `/api/admin/posts/${encodeURIComponent(originalSlug)}`,
-        { method: "DELETE" },
-      );
-      const data = (await response.json()) as {
-        error?: string;
-        commitUrl?: string | null;
-      };
-      if (!response.ok) {
-        throw new Error(data.error || "非公開にできませんでした。");
-      }
-      const archivedPost = { ...post, status: "archived" as const };
-      setPost(archivedPost);
-      setLastSavedSnapshot(createPostSnapshot(archivedPost));
-      setCommitUrl(data.commitUrl || null);
+      const nextCommitUrl = await archivePost(originalSlug);
+      markSaved(withPostStatus(post, "archived"), nextCommitUrl);
       await loadPosts();
       setMessage("記事を非公開にしました。", "success");
     } catch (error) {
-      setMessage(
-        error instanceof Error ? error.message : "非公開にできませんでした。",
-        "error",
-      );
+      setMessage(toErrorMessage(error, "非公開にできませんでした。"), "error");
     } finally {
       setBusyAction(null);
     }
   };
 
   const uploadImage = async (file: File) => {
-    if (file.size > 10 * 1024 * 1024) {
+    if (!isWithinUploadLimit(file.size)) {
       setMessage("画像は10MB以下にしてください。", "error");
       return;
     }
     setBusyAction("upload");
     setMessage("画像をアップロードしています…");
     try {
-      const formData = new FormData();
-      formData.set("file", file);
-      formData.set("slug", post.slug);
-      const response = await fetch("/api/admin/assets", {
-        method: "POST",
-        body: formData,
-      });
-      const data = (await response.json()) as { url?: string; error?: string };
-      if (!response.ok || !data.url) {
-        throw new Error(data.error || "画像をアップロードできませんでした。");
-      }
-      setUploadedImageUrl(data.url);
-      setPost((current) => ({
-        ...current,
-        coverImage: current.coverImage || data.url || "",
-        ogImageUrl: current.ogImageUrl || data.url || "",
-      }));
-      setFieldErrors((current) => ({ ...current, coverImage: undefined }));
+      applyImageUpload(await uploadPostImage(file, post.slug));
       setMessage("画像をアップロードし、カバー画像に設定しました。", "success");
     } catch (error) {
       setMessage(
-        error instanceof Error
-          ? error.message
-          : "画像をアップロードできませんでした。",
+        toErrorMessage(error, "画像をアップロードできませんでした。"),
         "error",
       );
     } finally {
@@ -309,16 +213,13 @@ export function CmsEditor() {
 
   const insertUploadedImage = () => {
     if (!uploadedImageUrl) return;
-    updatePost(
-      "body",
-      `${post.body}${post.body.endsWith("\n") || !post.body ? "" : "\n"}\n![画像の説明](${uploadedImageUrl})\n`,
-    );
+    updatePost("body", appendMarkdownImage(post.body, uploadedImageUrl));
     setMessage("本文の末尾に画像を挿入しました。", "success");
   };
 
   const copyUploadedUrl = async () => {
     if (!uploadedImageUrl) return;
-    await navigator.clipboard.writeText(uploadedImageUrl);
+    await copyToClipboard(uploadedImageUrl);
     setMessage("画像URLをコピーしました。", "success");
   };
 
@@ -343,8 +244,8 @@ export function CmsEditor() {
           isExistingPost={originalSlug !== null}
           onPreview={preview}
           onArchive={archive}
-          onSaveDraft={() => save("draft")}
-          onPublish={() => save("published")}
+          onSaveDraft={saveDraft}
+          onPublish={() => void save("published")}
         />
         <EditorNotice
           message={notice.message}

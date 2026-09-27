@@ -2,11 +2,11 @@ import { MASTER_CATEGORIES } from "@/features/category/constants";
 import type { CmsPostInput, CmsPostStatus } from "@/libs/cms/types";
 import type { EditorPost, FieldErrors } from "./editorTypes";
 
-export const createEmptyPost = (): EditorPost => ({
+export const createEmptyPost = (publishedAt: string): EditorPost => ({
   slug: "",
   title: "",
   description: "",
-  publishedAt: new Date().toISOString(),
+  publishedAt,
   coverImage: "",
   ogImageUrl: "",
   category: MASTER_CATEGORIES[0]?.id ?? "",
@@ -32,6 +32,65 @@ function editablePost(post: EditorPost): CmsPostInput {
 
 export function createPostSnapshot(post: EditorPost): string {
   return JSON.stringify(editablePost(post));
+}
+
+export function filterPosts(posts: EditorPost[], query: string): EditorPost[] {
+  const normalizedQuery = query.trim().toLowerCase();
+  if (!normalizedQuery) return posts;
+  return posts.filter(
+    (post) =>
+      post.title.toLowerCase().includes(normalizedQuery) ||
+      post.slug.toLowerCase().includes(normalizedQuery),
+  );
+}
+
+export function updatePostField<K extends keyof CmsPostInput>(
+  post: EditorPost,
+  key: K,
+  value: CmsPostInput[K],
+): EditorPost {
+  return { ...post, [key]: value };
+}
+
+export function clearFieldError(
+  errors: FieldErrors,
+  key: keyof CmsPostInput,
+): FieldErrors {
+  if (!errors[key]) return errors;
+  const nextErrors = { ...errors };
+  delete nextErrors[key];
+  return nextErrors;
+}
+
+export function withPostStatus(
+  post: EditorPost,
+  status: CmsPostStatus,
+): EditorPost {
+  return { ...post, status };
+}
+
+export function applyUploadedImage(
+  post: EditorPost,
+  imageUrl: string,
+): EditorPost {
+  return {
+    ...post,
+    coverImage: post.coverImage || imageUrl,
+    ogImageUrl: post.ogImageUrl || imageUrl,
+  };
+}
+
+export function appendMarkdownImage(body: string, imageUrl: string): string {
+  const separator = body.endsWith("\n") || !body ? "" : "\n";
+  return `${body}${separator}\n![画像の説明](${imageUrl})\n`;
+}
+
+export function isWithinUploadLimit(fileSize: number): boolean {
+  return fileSize <= 10 * 1024 * 1024;
+}
+
+export function toErrorMessage(error: unknown, fallback: string): string {
+  return error instanceof Error ? error.message : fallback;
 }
 
 export function toDateTimeLocal(value: string): string {
