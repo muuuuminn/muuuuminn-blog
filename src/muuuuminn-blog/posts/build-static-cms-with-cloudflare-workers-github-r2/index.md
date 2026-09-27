@@ -8,9 +8,9 @@ coverImage: /post/akira_thumbnail.png
 ogImageUrl: /post/akira_thumbnail.png
 category: '0'
 tags: '1,35,39,47'
-status: draft
+status: published
 createdAt: '2026-09-27T06:00:00.000Z'
-updatedAt: '2026-09-27T08:03:19.010Z'
+updatedAt: '2026-09-27T08:04:07.259Z'
 ---
 ※ この記事は、CMSを構築するまでの自分とAIとのやりとりをもとにAIが生成したものです。内容とコードはAIの出力をそのまま信用せず、公開前に確認する前提です。
 
