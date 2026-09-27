@@ -1,6 +1,6 @@
 import { MASTER_CATEGORIES } from "@/features/category/constants";
 import type { CmsPostInput, CmsPostStatus } from "@/libs/cms/types";
-import type { EditorPost, FieldErrors } from "./editorTypes";
+import type { EditorPost, EditorPostSummary, FieldErrors } from "./editorTypes";
 
 export const createEmptyPost = (publishedAt: string): EditorPost => ({
   slug: "",
@@ -34,7 +34,10 @@ export function createPostSnapshot(post: EditorPost): string {
   return JSON.stringify(editablePost(post));
 }
 
-export function filterPosts(posts: EditorPost[], query: string): EditorPost[] {
+export function filterPosts(
+  posts: EditorPostSummary[],
+  query: string,
+): EditorPostSummary[] {
   const normalizedQuery = query.trim().toLowerCase();
   if (!normalizedQuery) return posts;
   return posts.filter(

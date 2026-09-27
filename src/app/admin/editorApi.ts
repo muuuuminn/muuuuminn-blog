@@ -1,5 +1,5 @@
 import type { CmsPostStatus } from "@/libs/cms/types";
-import type { EditorPost } from "./editorTypes";
+import type { EditorPost, EditorPostSummary } from "./editorTypes";
 
 type CommitResponse = {
   commitUrl?: string | null;
@@ -22,13 +22,22 @@ async function requestJson<T>(
   return data;
 }
 
-export async function fetchPosts(): Promise<EditorPost[]> {
-  const data = await requestJson<{ posts: EditorPost[] }>(
+export async function fetchPosts(): Promise<EditorPostSummary[]> {
+  const data = await requestJson<{ posts: EditorPostSummary[] }>(
     "/api/admin/posts",
-    { cache: "no-store" },
+    { cache: "default" },
     "記事を読み込めませんでした。",
   );
   return data.posts;
+}
+
+export async function fetchPost(slug: string): Promise<EditorPost> {
+  const data = await requestJson<{ post: EditorPost }>(
+    `/api/admin/posts/${encodeURIComponent(slug)}`,
+    { cache: "no-store" },
+    "記事を読み込めませんでした。",
+  );
+  return data.post;
 }
 
 export async function savePost(

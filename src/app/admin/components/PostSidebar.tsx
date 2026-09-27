@@ -4,17 +4,18 @@ import {
   PlusIcon,
 } from "@radix-ui/react-icons";
 import styles from "../admin.module.css";
-import type { EditorPost } from "../editorTypes";
+import type { EditorPostSummary } from "../editorTypes";
 import { formatUpdatedAt } from "../editorUtils";
 import { PostStatusBadge } from "./PostStatusBadge";
 
 type PostSidebarProps = {
-  posts: EditorPost[];
+  posts: EditorPostSummary[];
   totalCount: number;
   selectedSlug: string | null;
+  isBusy: boolean;
   query: string;
   onQueryChange: (query: string) => void;
-  onSelect: (post: EditorPost) => void;
+  onSelect: (post: EditorPostSummary) => void;
   onCreate: () => void;
 };
 
@@ -22,6 +23,7 @@ export function PostSidebar({
   posts,
   totalCount,
   selectedSlug,
+  isBusy,
   query,
   onQueryChange,
   onSelect,
@@ -29,7 +31,12 @@ export function PostSidebar({
 }: PostSidebarProps) {
   return (
     <aside className={styles.sidebar}>
-      <button className={styles.newButton} type="button" onClick={onCreate}>
+      <button
+        className={styles.newButton}
+        type="button"
+        onClick={onCreate}
+        disabled={isBusy}
+      >
         <PlusIcon aria-hidden="true" /> 新しい記事
       </button>
       <label className={styles.searchBox}>
@@ -64,6 +71,7 @@ export function PostSidebar({
             type="button"
             key={post.slug}
             onClick={() => onSelect(post)}
+            disabled={isBusy}
             aria-current={selectedSlug === post.slug ? "page" : undefined}
           >
             <span>{post.title || post.slug}</span>

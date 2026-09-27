@@ -1,10 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { hasSameOrigin, verifyAdmin } from "@/libs/cms/auth";
-import {
-  GithubCmsError,
-  listGithubPosts,
-  saveGithubPost,
-} from "@/libs/cms/github";
+import { GithubCmsError, saveGithubPost } from "@/libs/cms/github";
+import posts from "@/libs/cms/posts-index.generated.json";
+import type { CmsPostSummary } from "@/libs/cms/types";
 import { validateCmsPostInput } from "@/libs/cms/validation";
 
 export const dynamic = "force-dynamic";
@@ -18,15 +16,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  try {
-    return NextResponse.json({ posts: await listGithubPosts() });
-  } catch (error) {
-    console.error("Failed to list GitHub posts", error);
-    return NextResponse.json(
-      { error: "GitHubから記事を読み込めませんでした。" },
-      { status: error instanceof GithubCmsError ? error.status : 500 },
-    );
-  }
+  return NextResponse.json(
+    { posts: posts as CmsPostSummary[] },
+    { headers: { "cache-control": "private, max-age=60" } },
+  );
 }
 
 export async function POST(request: NextRequest) {

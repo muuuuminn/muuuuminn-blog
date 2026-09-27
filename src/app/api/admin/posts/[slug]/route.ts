@@ -28,7 +28,10 @@ export async function GET(request: NextRequest, context: RouteContext) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
-    return NextResponse.json({ post });
+    return NextResponse.json(
+      { post },
+      { headers: { "cache-control": "private, no-store" } },
+    );
   } catch (error) {
     console.error("Failed to load GitHub post", error);
     return NextResponse.json(

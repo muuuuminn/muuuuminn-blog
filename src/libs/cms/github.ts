@@ -33,6 +33,16 @@ type GithubCommitResponse = {
   commit?: { html_url?: string; sha?: string };
 };
 
+type GithubPost = CmsPostRecord & { sha: string; source: "github" };
+
+const POST_CACHE_TTL_SECONDS = 300;
+
+type CloudflareCacheStorage = CacheStorage & { readonly default: Cache };
+
+function getDefaultCache(): Cache {
+  return (caches as CloudflareCacheStorage).default;
+}
+
 export class GithubCmsError extends Error {
   constructor(
     message: string,
@@ -158,6 +168,55 @@ function serializePost(input: CmsPostInput, createdAt: string): string {
   });
 }
 
+function postCacheKey(config: GithubConfig, slug: string): Request {
+  const scope = [config.owner, config.repo, config.branch, slug]
+    .map(encodeURIComponent)
+    .join("/");
+  return new Request(`https://cms-cache.invalid/v1/posts/${scope}`);
+}
+
+async function readCachedPost(
+  config: GithubConfig,
+  slug: string,
+): Promise<GithubPost | null> {
+  try {
+    const response = await getDefaultCache().match(postCacheKey(config, slug));
+    return response ? ((await response.json()) as GithubPost) : null;
+  } catch {
+    return null;
+  }
+}
+
+async function writeCachedPost(
+  config: GithubConfig,
+  post: GithubPost,
+): Promise<void> {
+  try {
+    await getDefaultCache().put(
+      postCacheKey(config, post.slug),
+      new Response(JSON.stringify(post), {
+        headers: {
+          "cache-control": `public, max-age=${POST_CACHE_TTL_SECONDS}`,
+          "content-type": "application/json; charset=utf-8",
+        },
+      }),
+    );
+  } catch {
+    // Cache API is an optimization and may be unavailable in local Node.js.
+  }
+}
+
+async function deleteCachedPost(
+  config: GithubConfig,
+  slug: string,
+): Promise<void> {
+  try {
+    await getDefaultCache().delete(postCacheKey(config, slug));
+  } catch {
+    // A cache miss or an unavailable local Cache API must not block a save.
+  }
+}
+
 async function getContentEntry(
   config: GithubConfig,
   path: string,
@@ -168,32 +227,16 @@ async function getContentEntry(
   );
 }
 
-export async function listGithubPosts() {
+export async function getGithubPost(
+  slug: string,
+  options: { skipCache?: boolean } = {},
+) {
   const config = await getConfig();
-  const directories = await githubFetch<GithubContentEntry[]>(
-    config,
-    `/repos/${config.owner}/${config.repo}/contents/${POSTS_DIRECTORY}?ref=${encodeURIComponent(config.branch)}`,
-  );
-  const posts = await Promise.all(
-    directories
-      .filter((entry) => entry.type === "dir")
-      .map(async (directory) => {
-        const file = await getContentEntry(
-          config,
-          `${directory.path}/index.md`,
-        );
-        if (!file.content) {
-          throw new GithubCmsError(`Content is missing: ${file.path}`, 502);
-        }
-        return parsePost(directory.name, decodeContent(file.content), file.sha);
-      }),
-  );
+  if (!options.skipCache) {
+    const cached = await readCachedPost(config, slug);
+    if (cached) return cached;
+  }
 
-  return posts.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
-}
-
-export async function getGithubPost(slug: string) {
-  const config = await getConfig();
   try {
     const file = await getContentEntry(
       config,
@@ -202,7 +245,9 @@ export async function getGithubPost(slug: string) {
     if (!file.content) {
       throw new GithubCmsError(`Content is missing: ${file.path}`, 502);
     }
-    return parsePost(slug, decodeContent(file.content), file.sha);
+    const post = parsePost(slug, decodeContent(file.content), file.sha);
+    await writeCachedPost(config, post);
+    return post;
   } catch (error) {
     if (error instanceof GithubCmsError && error.status === 404) return null;
     throw error;
@@ -214,7 +259,7 @@ export async function saveGithubPost(
   mode: "create" | "update" = "update",
 ): Promise<{ commitUrl: string | null }> {
   const config = await getConfig();
-  const existing = await getGithubPost(input.slug);
+  const existing = await getGithubPost(input.slug, { skipCache: true });
   if (mode === "create" && existing) {
     throw new GithubCmsError("同じスラッグの記事がすでに存在します。", 409);
   }
@@ -238,6 +283,8 @@ export async function saveGithubPost(
       }),
     },
   );
+
+  await deleteCachedPost(config, input.slug);
 
   return { commitUrl: result.commit?.html_url || null };
 }

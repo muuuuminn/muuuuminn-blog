@@ -10,6 +10,7 @@ import { PostPreview } from "./components/PostPreview";
 import { PostSidebar } from "./components/PostSidebar";
 import {
   archivePost,
+  fetchPost,
   fetchPosts,
   renderPostPreview,
   savePost,
@@ -21,7 +22,12 @@ import {
   copyToClipboard,
   focusFirstInvalidField,
 } from "./editorBrowser";
-import type { BusyAction, EditorPost, NoticeTone } from "./editorTypes";
+import type {
+  BusyAction,
+  EditorPost,
+  EditorPostSummary,
+  NoticeTone,
+} from "./editorTypes";
 import {
   appendMarkdownImage,
   createEmptyPost,
@@ -42,7 +48,7 @@ export function CmsEditor() {
     () => createEmptyPost(new Date().toISOString()),
     [],
   );
-  const [posts, setPosts] = useState<EditorPost[]>([]);
+  const [posts, setPosts] = useState<EditorPostSummary[]>([]);
   const [query, setQuery] = useState("");
   const [notice, setNotice] = useState({
     message: "記事を読み込んでいます…",
@@ -99,14 +105,39 @@ export function CmsEditor() {
 
   useUnsavedChangesWarning(isDirty);
 
-  const selectPost = (selected: EditorPost) => {
-    if (selected.slug === originalSlug || !confirmDiscardChanges(isDirty)) {
-      return;
+  const updatePostSummary = useCallback((updatedPost: EditorPost) => {
+    const summary: EditorPostSummary = {
+      slug: updatedPost.slug,
+      title: updatedPost.title,
+      status: updatedPost.status,
+      updatedAt: new Date().toISOString(),
+    };
+    setPosts((current) => [
+      summary,
+      ...current.filter((item) => item.slug !== summary.slug),
+    ]);
+  }, []);
+
+  const selectPost = async (selected: EditorPostSummary) => {
+    if (selected.slug === originalSlug) return;
+    if (!confirmDiscardChanges(isDirty)) return;
+
+    setBusyAction("load");
+    setMessage(`「${selected.title || selected.slug}」を読み込んでいます…`);
+    try {
+      const loadedPost = await fetchPost(selected.slug);
+      resetDocument(loadedPost, loadedPost.slug);
+      setPreviewHtml("");
+      setShowPreview(false);
+      setMessage(`「${loadedPost.title || loadedPost.slug}」を編集中です。`);
+    } catch (error) {
+      setMessage(
+        toErrorMessage(error, "記事を読み込めませんでした。"),
+        "error",
+      );
+    } finally {
+      setBusyAction(null);
     }
-    resetDocument(selected, selected.slug);
-    setPreviewHtml("");
-    setShowPreview(false);
-    setMessage(`「${selected.title || selected.slug}」を編集中です。`);
   };
 
   const startNew = () => {
@@ -134,7 +165,7 @@ export function CmsEditor() {
       try {
         const saved = await savePost(post, status, originalSlug);
         markSaved(saved.post, saved.commitUrl);
-        await loadPosts();
+        updatePostSummary(saved.post);
         setMessage(
           status === "published"
             ? "記事を公開しました。"
@@ -147,7 +178,14 @@ export function CmsEditor() {
         setBusyAction(null);
       }
     },
-    [loadPosts, markSaved, originalSlug, post, setFieldErrors, setMessage],
+    [
+      markSaved,
+      originalSlug,
+      post,
+      setFieldErrors,
+      setMessage,
+      updatePostSummary,
+    ],
   );
 
   const saveDraft = useCallback(() => {
@@ -181,8 +219,9 @@ export function CmsEditor() {
     setMessage("非公開にしています…");
     try {
       const nextCommitUrl = await archivePost(originalSlug);
-      markSaved(withPostStatus(post, "archived"), nextCommitUrl);
-      await loadPosts();
+      const archivedPost = withPostStatus(post, "archived");
+      markSaved(archivedPost, nextCommitUrl);
+      updatePostSummary(archivedPost);
       setMessage("記事を非公開にしました。", "success");
     } catch (error) {
       setMessage(toErrorMessage(error, "非公開にできませんでした。"), "error");
@@ -229,6 +268,7 @@ export function CmsEditor() {
         posts={filteredPosts}
         totalCount={posts.length}
         selectedSlug={originalSlug}
+        isBusy={isBusy}
         query={query}
         onQueryChange={setQuery}
         onSelect={selectPost}

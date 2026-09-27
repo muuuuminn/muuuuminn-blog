@@ -29,6 +29,8 @@
 
 `/admin` に、Markdown記事の作成・編集・プレビュー・下書き保存・公開・非公開化を行う管理画面があります。記事は `src/muuuuminn-blog/posts/{slug}/index.md` としてGitHubへ保存され、mainブランチへのコミットを契機にCloudflare Workers Buildsが静的ページを再生成します。画像はCloudflare R2へ保存します。
 
+`/admin` 自体は静的ページです。記事一覧はビルド時に生成した軽量インデックスから取得し、本文は記事を選択したときだけ認証済みAPI経由でGitHubから取得します。取得済みの本文はCloudflare Cache APIで5分間キャッシュし、保存時には最新のGitHub SHAを取り直したうえでキャッシュを削除します。GitHubトークンがブラウザへ渡ることはありません。
+
 記事の状態はfront matterの `status` で管理します。
 
 ```yaml

@@ -17,6 +17,11 @@ export type AdminIdentity = {
 };
 
 const keySets = new Map<string, ReturnType<typeof createRemoteJWKSet>>();
+const verifiedTokens = new Map<
+  string,
+  { identity: AdminIdentity; expiresAt: number }
+>();
+const MAX_VERIFIED_TOKENS = 16;
 
 function normalizeTeamDomain(value: string): string {
   return value.replace(/^https?:\/\//, "").replace(/\/$/, "");
@@ -57,6 +62,12 @@ export async function verifyAdmin(
     return null;
   }
 
+  const cached = verifiedTokens.get(token);
+  if (cached && cached.expiresAt > Date.now()) {
+    return cached.identity;
+  }
+  if (cached) verifiedTokens.delete(token);
+
   try {
     const { payload } = await jwtVerify(token, getKeySet(teamDomain), {
       audience,
@@ -68,7 +79,19 @@ export async function verifyAdmin(
       return null;
     }
 
-    return { email };
+    const identity = { email };
+    const expiresAt =
+      typeof payload.exp === "number"
+        ? payload.exp * 1000
+        : Date.now() + 60_000;
+
+    if (verifiedTokens.size >= MAX_VERIFIED_TOKENS) {
+      const oldestToken = verifiedTokens.keys().next().value;
+      if (oldestToken) verifiedTokens.delete(oldestToken);
+    }
+    verifiedTokens.set(token, { identity, expiresAt });
+
+    return identity;
   } catch {
     return null;
   }

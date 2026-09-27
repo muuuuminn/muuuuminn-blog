@@ -1,4 +1,4 @@
-import type { CmsPostInput } from "@/libs/cms/types";
+import type { CmsPostInput, CmsPostSummary } from "@/libs/cms/types";
 
 export type EditorPost = CmsPostInput & {
   createdAt?: string;
@@ -7,7 +7,15 @@ export type EditorPost = CmsPostInput & {
   sha?: string;
 };
 
-export type BusyAction = "save" | "publish" | "preview" | "archive" | "upload";
+export type EditorPostSummary = CmsPostSummary;
+
+export type BusyAction =
+  | "load"
+  | "save"
+  | "publish"
+  | "preview"
+  | "archive"
+  | "upload";
 export type FieldErrors = Partial<Record<keyof CmsPostInput, string>>;
 export type NoticeTone = "neutral" | "success" | "error";
 

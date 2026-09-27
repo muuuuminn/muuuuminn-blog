@@ -18,3 +18,8 @@ export type CmsPostRecord = {
 };
 
 export type CmsPostInput = Omit<CmsPostRecord, "createdAt" | "updatedAt">;
+
+export type CmsPostSummary = Pick<
+  CmsPostRecord,
+  "slug" | "title" | "status" | "updatedAt"
+>;
