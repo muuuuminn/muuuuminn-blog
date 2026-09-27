@@ -67,7 +67,7 @@ const PostPage: FC<PostPageProps> = async ({ params }) => {
     <div>
       <script
         type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD generated from trusted post data
         dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
       <VStack gap="6">

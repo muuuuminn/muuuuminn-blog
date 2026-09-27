@@ -39,10 +39,20 @@ function normalizeTags(value) {
   return [...new Set(value.split(",").map((tag) => tag.trim()).filter(Boolean))];
 }
 
+function isPublished(data) {
+  const status = typeof data.status === "string" ? data.status : "published";
+  const date = Date.parse(normalizeString(data.date));
+  return status === "published" && !Number.isNaN(date) && date <= Date.now();
+}
+
 async function readMarkdownFile(slug, postsDirectory) {
   const fullPath = path.join(postsDirectory, slug, "index.md");
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
+
+  if (!isPublished(data)) {
+    return null;
+  }
 
   return {
     slug,
@@ -83,7 +93,7 @@ async function main() {
   const posts = await Promise.all(
     slugs.map((slug) => readMarkdownFile(slug, postsDirectory)),
   );
-  const sortedPosts = sortPostsDesc(posts);
+  const sortedPosts = sortPostsDesc(posts.filter(Boolean));
 
   const outputPath = path.join(process.cwd(), OUTPUT_FILE_PATH);
   ensureOutputDirectory(outputPath);

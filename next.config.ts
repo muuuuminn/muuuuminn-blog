@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "s3.us-west-2.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "assets.muuuuminn.com",
+      },
     ],
   },
   async redirects() {
@@ -40,4 +44,3 @@ export default nextConfig;
 
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 initOpenNextCloudflareForDev();
-
