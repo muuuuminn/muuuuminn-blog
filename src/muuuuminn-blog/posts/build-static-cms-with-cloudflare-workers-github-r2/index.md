@@ -1,14 +1,19 @@
 ---
-title: "【AI生成】AIと相談しながらGitHub・Cloudflare Workers・R2で個人ブログ用CMSを作った"
-description: "AIと相談しながら、MarkdownをGitHubへ保存し、Cloudflare Workers Buildsで静的ページを生成する個人ブログ用CMSを構築したときの判断と躓きをまとめます。"
-date: "2026-09-27T06:00:00.000Z"
-coverImage: "/post/akira_thumbnail.png"
-ogImageUrl: "/post/akira_thumbnail.png"
-category: "0"
-tags: "1,35,39,47"
-status: "draft"
+title: 【AI生成】AIと相談しながらGitHub・Cloudflare Workers・R2で個人ブログ用CMSを作った
+description: >-
+  AIと相談しながら、MarkdownをGitHubへ保存し、Cloudflare Workers
+  Buildsで静的ページを生成する個人ブログ用CMSを構築したときの判断と躓きをまとめます。
+date: '2026-09-27T06:00:00.000Z'
+coverImage: >-
+  https://assets.muuuuminn.com/post/build-static-cms-with-cloudflare-workers-github-r2/3cceb29a-52c4-4dbe-8a51-478494e03fb4.png
+ogImageUrl: >-
+  https://assets.muuuuminn.com/post/build-static-cms-with-cloudflare-workers-github-r2/3cceb29a-52c4-4dbe-8a51-478494e03fb4.png
+category: '0'
+tags: '1,35,39,47'
+status: published
+createdAt: '2026-09-27T06:00:00.000Z'
+updatedAt: '2026-09-27T08:04:47.097Z'
 ---
-
 ※ この記事は、CMSを構築するまでの自分とAIとのやりとりをもとにAIが生成したものです。内容とコードはAIの出力をそのまま信用せず、公開前に確認する前提です。
 
 ## はじめに
@@ -140,9 +145,6 @@ Fine-grained personal access tokenを作り、権限は次のように絞った�
 Repository: muuuuminn-blogのみ
 Contents: Read and write
 ```
-
-トークン名は`muuuuminn-blog-cms-token`とした。
-Cloudflareへ登録するのはこの名前ではなく、GitHubが発行した`github_pat_...`の方となる。
 
 記事を`main`へ直接コミットするので、GitHub側でPull Request必須のBranch protectionを設定している場合は注意が必要となる。
 
