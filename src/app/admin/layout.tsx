@@ -31,12 +31,8 @@ export default async function AdminLayout({
   return (
     <section className={styles.shell}>
       <header className={styles.header}>
-        <div>
-          <p className={styles.eyebrow}>MUUUUMINN BLOG</p>
-          <h1>Writing room</h1>
-        </div>
         <div className={styles.identity}>
-          <span className={styles.statusDot} />
+          <span aria-hidden="true" className={styles.statusDot} />
           {identity.email}
         </div>
       </header>
