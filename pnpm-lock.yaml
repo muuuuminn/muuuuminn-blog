@@ -79,8 +79,8 @@ importers:
         specifier: 5.2.5
         version: 5.2.5(yauzl@2.10.0)
       npm-check-updates:
-        specifier: 20.0.0
-        version: 20.0.0
+        specifier: 23.1.0
+        version: 23.1.0
       puppeteer:
         specifier: 25.12.0
         version: 25.12.0(yauzl@2.10.0)
@@ -4523,9 +4523,9 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  npm-check-updates@20.0.0:
-    resolution: {integrity: sha512-qCs02x51irGf0okCttwv8lHEO2NxT903IJ2bKpG82kIzkm6pfT3CoWB5YIvqY/wi/DdnYRfI7eVfCYYymQgvCg==}
-    engines: {node: '>=20.0.0', npm: '>=8.12.1'}
+  npm-check-updates@23.1.0:
+    resolution: {integrity: sha512-u6Odx/JDpDXNqXp5pPsVN0RhuWkNrBe4Sz26J7yWJcEadopKhQgcB+bFq2PK35iJY6vc6h1PbnXmnwfiOFQl/w==}
+    engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0, npm: '>=10.0.0'}
     hasBin: true
 
   npm-run-path@4.0.1:
@@ -10991,7 +10991,7 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  npm-check-updates@20.0.0: {}
+  npm-check-updates@23.1.0: {}
 
   npm-run-path@4.0.1:
     dependencies:
